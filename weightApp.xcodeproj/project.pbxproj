@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */; };
+		CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
 		CA90CA681F0F976800BFEBE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA671F0F976800BFEBE8 /* ViewController.swift */; };
 		CA90CA6B1F0F976800BFEBE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA691F0F976800BFEBE8 /* Main.storyboard */; };
 		CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA6C1F0F976800BFEBE8 /* weightApp.xcdatamodeld */; };
 		CA90CA701F0F976800BFEBE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA6F1F0F976800BFEBE8 /* Assets.xcassets */; };
 		CA90CA731F0F976800BFEBE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA711F0F976800BFEBE8 /* LaunchScreen.storyboard */; };
-		CA90CA7E1F0F976800BFEBE8 /* weightAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA7D1F0F976800BFEBE8 /* weightAppTests.swift */; };
 		CA90CA891F0F976800BFEBE8 /* weightAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA881F0F976800BFEBE8 /* weightAppUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idealWeightLoretzTest.swift; sourceTree = "<group>"; };
+		CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdealWeightByLoretz.swift; path = Utilities/IdealWeightByLoretz.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA90CA671F0F976800BFEBE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +47,6 @@
 		CA90CA721F0F976800BFEBE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA90CA741F0F976800BFEBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA90CA791F0F976800BFEBE8 /* weightAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weightAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA90CA7D1F0F976800BFEBE8 /* weightAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weightAppTests.swift; sourceTree = "<group>"; };
 		CA90CA7F1F0F976800BFEBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA90CA841F0F976800BFEBE8 /* weightAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weightAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA881F0F976800BFEBE8 /* weightAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weightAppUITests.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA0157461F0FB4A7006E40AF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		CA90CA591F0F976700BFEBE8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		CA90CA641F0F976800BFEBE8 /* weightApp */ = {
 			isa = PBXGroup;
 			children = (
+				CA0157461F0FB4A7006E40AF /* Utilities */,
 				CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */,
 				CA90CA671F0F976800BFEBE8 /* ViewController.swift */,
 				CA90CA691F0F976800BFEBE8 /* Main.storyboard */,
@@ -113,7 +124,7 @@
 		CA90CA7C1F0F976800BFEBE8 /* weightAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA90CA7D1F0F976800BFEBE8 /* weightAppTests.swift */,
+				CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */,
 				CA90CA7F1F0F976800BFEBE8 /* Info.plist */,
 			);
 			path = weightAppTests;
@@ -264,6 +275,7 @@
 			files = (
 				CA90CA681F0F976800BFEBE8 /* ViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
+				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA90CA7E1F0F976800BFEBE8 /* weightAppTests.swift in Sources */,
+				CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +521,7 @@
 				CA90CA8F1F0F976800BFEBE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA90CA901F0F976800BFEBE8 /* Build configuration list for PBXNativeTarget "weightAppTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +530,7 @@
 				CA90CA921F0F976800BFEBE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA90CA931F0F976800BFEBE8 /* Build configuration list for PBXNativeTarget "weightAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +539,7 @@
 				CA90CA951F0F976800BFEBE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
