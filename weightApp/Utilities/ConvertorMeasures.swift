@@ -11,6 +11,7 @@ import Foundation
 class ConvertorMeasure{
 
     func feetToCentimeters(quantity: Float) -> Float {
-        return 30.48
+        let feets = quantity * 30.48
+        return feets
     }
 }

@@ -27,4 +27,10 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertEqual(result, 30.48)
     }
     
+    func testFourFeetIsEqualToOneHundredTwentyOnePointNinetyTwoCentimeters() {
+        let convertor = ConvertorMeasure()
+        let result = convertor.feetToCentimeters(quantity: 4.0)
+        XCTAssertEqual(result, 121.92)
+    }
+    
 }
