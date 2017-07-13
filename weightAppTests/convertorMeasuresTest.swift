@@ -38,4 +38,14 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertEqual(result, 198.12)
     }
     
+    func testOneCentimeterIsEqualToPointZeroThreeHundredTwentyEightThousandFeets() {
+        let result = convertor.centimetersToFeets(quantity: 1.0)
+        XCTAssertEqual(result, 0.0328)
+    }
+    
+    func test172CentimeterIsEqualToPointZeroThreeHundredTwentyEightThousandFeets() {
+        let result = convertor.centimetersToFeets(quantity: 172.0)
+        XCTAssertEqual(result, 5.6430)
+    }
+    
 }
