@@ -11,6 +11,8 @@ import XCTest
 
 class convertorMeasuresTest: XCTestCase {
     
+    let convertor = ConvertorMeasure()
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,15 +24,18 @@ class convertorMeasuresTest: XCTestCase {
     }
     
     func testOneFeetIsEqualToThirtyPointFourtyEightCentimeters() {
-        let convertor = ConvertorMeasure()
         let result = convertor.feetToCentimeters(quantity: 1.0)
         XCTAssertEqual(result, 30.48)
     }
     
     func testFourFeetIsEqualToOneHundredTwentyOnePointNinetyTwoCentimeters() {
-        let convertor = ConvertorMeasure()
         let result = convertor.feetToCentimeters(quantity: 4.0)
         XCTAssertEqual(result, 121.92)
+    }
+    
+    func testSixPointFiveFeetIsEqualToThirtyPointFourtyEightCentimeters() {
+        let result = convertor.feetToCentimeters(quantity: 6.5)
+        XCTAssertEqual(result, 198.12)
     }
     
 }
