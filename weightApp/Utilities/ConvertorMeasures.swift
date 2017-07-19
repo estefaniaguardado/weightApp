@@ -17,23 +17,23 @@ extension Float {
 
 class ConvertorMeasure{
 
-    func feetToCentimeters(quantity: Float) -> Float {
+    func feetToCentimeters(quantity: Float, decimals: Int) -> Float {
         let feets = quantity * 30.48
-        return feets
+        return feets.roundTo(places: decimals)
     }
     
-    func centimetersToFeets(quantity: Float) -> Float {
+    func centimetersToFeets(quantity: Float, decimals: Int) -> Float {
         let centimeters = quantity * 0.0328084
-        return centimeters.roundTo(places: 4)
+        return centimeters.roundTo(places: decimals)
     }
     
-    func poundsToKilograms(quantity: Float) -> Float{
+    func poundsToKilograms(quantity: Float, decimals: Int) -> Float{
         let pounds = quantity * 0.453592
-        return pounds.roundTo(places: 4)
+        return pounds.roundTo(places: decimals)
     }
     
-    func kilogramsToPounds(quantity: Float) -> Float {
+    func kilogramsToPounds(quantity: Float, decimals: Int) -> Float {
         let kilogram = quantity * 2.20462
-        return kilogram.roundTo(places:4)
+        return kilogram.roundTo(places: decimals)
     }
 }
