@@ -16,6 +16,8 @@
 		CA90CA701F0F976800BFEBE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA6F1F0F976800BFEBE8 /* Assets.xcassets */; };
 		CA90CA731F0F976800BFEBE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA711F0F976800BFEBE8 /* LaunchScreen.storyboard */; };
 		CA90CA891F0F976800BFEBE8 /* weightAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA881F0F976800BFEBE8 /* weightAppUITests.swift */; };
+		CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9996061F161AC50043096A /* ConvertorMeasures.swift */; };
+		CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		CA90CA841F0F976800BFEBE8 /* weightAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weightAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA881F0F976800BFEBE8 /* weightAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weightAppUITests.swift; sourceTree = "<group>"; };
 		CA90CA8A1F0F976800BFEBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA9996061F161AC50043096A /* ConvertorMeasures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertorMeasures.swift; path = Utilities/ConvertorMeasures.swift; sourceTree = "<group>"; };
+		CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convertorMeasuresTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */,
+				CA9996061F161AC50043096A /* ConvertorMeasures.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		CA90CA7C1F0F976800BFEBE8 /* weightAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */,
 				CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */,
 				CA90CA7F1F0F976800BFEBE8 /* Info.plist */,
 			);
@@ -275,6 +281,7 @@
 			files = (
 				CA90CA681F0F976800BFEBE8 /* ViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
+				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
 				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
 			);
@@ -285,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */,
+				CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
