@@ -23,32 +23,32 @@ class convertorMeasuresTest: XCTestCase {
         super.tearDown()
     }
     
-    func testOneFeetIsEqualToThirtyPointFourtyEightCentimeters() {
+    func testOneFeetIsEqualTo30Point48Centimeters() {
         let result = convertor.feetToCentimeters(quantity: 1.0)
         XCTAssertEqual(result, 30.48)
     }
     
-    func testFourFeetIsEqualToOneHundredTwentyOnePointNinetyTwoCentimeters() {
+    func testFourFeetIsEqualTo121Point92Centimeters() {
         let result = convertor.feetToCentimeters(quantity: 4.0)
         XCTAssertEqual(result, 121.92)
     }
     
-    func testSixPointFiveFeetIsEqualToThirtyPointFourtyEightCentimeters() {
+    func test6Point5FeetIsEqualTo198Point12Centimeters() {
         let result = convertor.feetToCentimeters(quantity: 6.5)
         XCTAssertEqual(result, 198.12)
     }
     
-    func testOneCentimeterIsEqualToPointZeroThreeHundredTwentyEightThousandFeets() {
+    func testOneCentimeterIsEqualToPoint0328Feets() {
         let result = convertor.centimetersToFeets(quantity: 1.0)
         XCTAssertEqual(result, 0.0328)
     }
     
-    func test172CentimeterIsEqualToPointZeroThreeHundredTwentyEightThousandFeets() {
+    func test172CentimeterIsEqualTo5Point6430Feets() {
         let result = convertor.centimetersToFeets(quantity: 172.0)
         XCTAssertEqual(result, 5.6430)
     }
     
-    func testOnePoundIsEqualToPointFourThousandFiveHundredThirtyFiveKilograms() {
+    func testOnePoundIsEqualToPoint4536Kilograms() {
         let result = convertor.poundsToKilograms(quantity: 1.0)
         XCTAssertEqual(result, 0.4536)
     }
