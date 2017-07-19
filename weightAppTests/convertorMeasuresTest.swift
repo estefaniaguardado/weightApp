@@ -61,5 +61,22 @@ class convertorMeasuresTest: XCTestCase {
     func test100Point69PoundsIsNotEqualTo45Point6721Kilograms() {
         let result = convertor.poundsToKilograms(quantity:100.69)
         XCTAssertNotEqual(result, 45.6721)
+        XCTAssertEqual(result, 45.6722)
+    }
+    
+    func testOneKilogramIsEqualTo2Point2046Pounds() {
+        let result = convertor.kilogramsToPounds(quantity: 1.0)
+        XCTAssertEqual(result, 2.2046)
+    }
+    
+    func test100Point59KilogramsIsEqualTo() {
+        let result = convertor.kilogramsToPounds(quantity: 100.59)
+        XCTAssertEqual(result, 221.7627)
+    }
+    
+    func test78Point98KilogramsIsNotEqualTo() {
+        let result = convertor.kilogramsToPounds(quantity: 78.98)
+        XCTAssertNotEqual(result, 174.1208)
+        XCTAssertEqual(result, 174.1209)
     }
 }
