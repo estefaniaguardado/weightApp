@@ -26,4 +26,9 @@ class ConvertorMeasure{
         let centimeters = quantity * 0.0328084
         return centimeters.roundTo(places: 4)
     }
+    
+    func poundsToKilograms(quantity: Float) -> Float{
+        let pounds = quantity * 0.453592
+        return pounds.roundTo(places: 4)
+        }
 }
