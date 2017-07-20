@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitialViewController: UIViewController {
+class InitialStatusViewController: UIViewController {
 
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var maleButton: UIButton!
