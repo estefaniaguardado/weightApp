@@ -14,6 +14,10 @@ class InitialViewController: UIViewController {
     @IBOutlet var kilogramLabel: UILabel!
     @IBOutlet var poundLabel: UILabel!
     
+    @IBOutlet var heightTextField: UITextField!
+    @IBOutlet var meterButton: UIButton!
+    @IBOutlet var feetButton: UIButton!
+    
     var isTappedKgLabel = true
     var isTappedPoundLabel = false
     
@@ -31,6 +35,14 @@ class InitialViewController: UIViewController {
         poundLabel.text = "Pounds"
         poundLabel.isUserInteractionEnabled = true
         poundLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPoundLabel)))
+        
+        meterButton.setTitle("Meters", for: .normal)
+        meterButton.setTitle("Feet", for: .normal)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func tapKilogramLabel(sender:UITapGestureRecognizer) {
@@ -75,11 +87,27 @@ class InitialViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func meterButtonSelected(_ sender: UIButton) {
+        let isInactiveMeterButton = meterButton.backgroundColor == .white ? true : false
+        
+        if isInactiveMeterButton {
+            meterButton.backgroundColor = .darkGray
+            meterButton.setTitleColor(.white, for: .normal)
+            feetButton.backgroundColor = .white
+            feetButton.setTitleColor(.black, for: .normal)
+        }
     }
 
+    @IBAction func feetButtonSelected(_ sender: UIButton) {
+        let isInactiveFeetButton = feetButton.backgroundColor == .white ? true : false
+        
+        if isInactiveFeetButton {
+            feetButton.backgroundColor = .darkGray
+            feetButton.setTitleColor(.white, for: .normal)
+            meterButton.backgroundColor = .white
+            meterButton.setTitleColor(.black, for: .normal)
+        }
+    }
 
 }
 
