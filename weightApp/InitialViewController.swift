@@ -10,13 +10,30 @@ import UIKit
 
 class InitialViewController: UIViewController {
 
-    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet var weightTextField: UITextField!
+    @IBOutlet var kilogramLabel: UILabel!
+    @IBOutlet var poundLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         weightTextField.text = "0.00"
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        kilogramLabel.text = "Kilos"
+        kilogramLabel.isUserInteractionEnabled = true
+        kilogramLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(isTappedKilogramLabel)))
+        
+        poundLabel.text = "Pounds"
+        poundLabel.isUserInteractionEnabled = true
+        poundLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(isTappedPoundLabel)))
+    }
+    
+    func isTappedKilogramLabel(sender:UITapGestureRecognizer) {
+        print("Kilogram")
+    }
+    
+    func isTappedPoundLabel(sender:UITapGestureRecognizer) {
+        print("Pound")
     }
 
     override func didReceiveMemoryWarning() {
