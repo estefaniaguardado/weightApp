@@ -58,7 +58,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="meterButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Sh-DN-RXI"/>
+                                    <action selector="MeterButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hC5-uP-6xm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkM-FN-XlS">
@@ -70,7 +70,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="feetButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eOm-K2-pMV"/>
+                                    <action selector="FeetButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tuy-pQ-g1v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yg-0a-Zu6">

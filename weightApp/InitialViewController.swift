@@ -29,7 +29,7 @@ class InitialViewController: UIViewController {
         kilogramButton.setTitle("Kilos", for: .normal)
         poundButton.setTitle("Pounds", for: .normal)
         meterButton.setTitle("Meters", for: .normal)
-        meterButton.setTitle("Feet", for: .normal)
+        feetButton.setTitle("Feet", for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +59,7 @@ class InitialViewController: UIViewController {
         }
     }
 
-    @IBAction func meterButtonSelected(_ sender: UIButton) {
+    @IBAction func MeterButtonSelected(_ sender: UIButton) {
         let isInactiveMeterButton = meterButton.backgroundColor == .white ? true : false
         
         if isInactiveMeterButton {
@@ -70,7 +70,7 @@ class InitialViewController: UIViewController {
         }
     }
 
-    @IBAction func feetButtonSelected(_ sender: UIButton) {
+    @IBAction func FeetButtonSelected(_ sender: UIButton) {
         let isInactiveFeetButton = feetButton.backgroundColor == .white ? true : false
         
         if isInactiveFeetButton {
