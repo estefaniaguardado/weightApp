@@ -10,6 +10,11 @@ import UIKit
 
 class InitialViewController: UIViewController {
 
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var maleButton: UIButton!
+    @IBOutlet var femaleButton: UIButton!
+    @IBOutlet var dateTexField: UITextField!
+    
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var kilogramButton: UIButton!
     @IBOutlet var poundButton: UIButton!
@@ -78,6 +83,28 @@ class InitialViewController: UIViewController {
             feetButton.setTitleColor(.white, for: .normal)
             meterButton.backgroundColor = .white
             meterButton.setTitleColor(.black, for: .normal)
+        }
+    }
+    
+    @IBAction func MaleButtonSelected(_ sender: UIButton) {
+        let isInactiveMaleButton = maleButton.backgroundColor == .white ? true : false
+        
+        if isInactiveMaleButton {
+            maleButton.backgroundColor = .darkGray
+            maleButton.setTitleColor(.white, for: .normal)
+            femaleButton.backgroundColor = .white
+            femaleButton.setTitleColor(.black, for: .normal)
+        }
+    }
+    
+    @IBAction func FemaleButtonSelected(_ sender: UIButton) {
+        let isInactiveFemaleButton = femaleButton.backgroundColor == .white ? true : false
+        
+        if isInactiveFemaleButton {
+            femaleButton.backgroundColor = .darkGray
+            femaleButton.setTitleColor(.white, for: .normal)
+            maleButton.backgroundColor = .white
+            maleButton.setTitleColor(.black, for: .normal)
         }
     }
 
