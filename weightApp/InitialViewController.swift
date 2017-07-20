@@ -11,8 +11,8 @@ import UIKit
 class InitialViewController: UIViewController {
 
     @IBOutlet var weightTextField: UITextField!
-    @IBOutlet var kilogramLabel: UILabel!
-    @IBOutlet var poundLabel: UILabel!
+    @IBOutlet var kilogramButton: UIButton!
+    @IBOutlet var poundButton: UIButton!
     
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var meterButton: UIButton!
@@ -26,16 +26,8 @@ class InitialViewController: UIViewController {
         
         weightTextField.text = "0.00"
         
-        kilogramLabel.text = "Kilos"
-        kilogramLabel.isUserInteractionEnabled = true
-        kilogramLabel.backgroundColor = .darkGray
-        kilogramLabel.textColor = .white
-        kilogramLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapKilogramLabel)))
-        
-        poundLabel.text = "Pounds"
-        poundLabel.isUserInteractionEnabled = true
-        poundLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPoundLabel)))
-        
+        kilogramButton.setTitle("Kilos", for: .normal)
+        poundButton.setTitle("Pounds", for: .normal)
         meterButton.setTitle("Meters", for: .normal)
         meterButton.setTitle("Feet", for: .normal)
     }
@@ -45,45 +37,25 @@ class InitialViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tapKilogramLabel(sender:UITapGestureRecognizer) {
-        if isTappedKgLabel == false {
-            isTappedKgLabel = true
-        }
-
-        if isTappedKgLabel {
-            isTappedPoundLabel = false
-            kilogramLabel.backgroundColor = .darkGray
-            kilogramLabel.textColor = .white
-            poundLabel.backgroundColor = .white
-            poundLabel.textColor = .black
-            
-        } else {
-            isTappedPoundLabel = true
-            kilogramLabel.backgroundColor = .white
-            kilogramLabel.textColor = .black
-            poundLabel.backgroundColor = .darkGray
-            poundLabel.textColor = .white
+    @IBAction func KilogramButtonSelected(_ sender: UIButton) {
+        let isInactiveKilogramButton = kilogramButton.backgroundColor == .white ? true : false
+        
+        if isInactiveKilogramButton {
+            kilogramButton.backgroundColor = .darkGray
+            kilogramButton.setTitleColor(.white, for: .normal)
+            poundButton.backgroundColor = .white
+            poundButton.setTitleColor(.black, for: .normal)
         }
     }
-    
-    func tapPoundLabel(sender:UITapGestureRecognizer) {
-        if isTappedPoundLabel == false {
-            isTappedPoundLabel = true
-        }
+
+    @IBAction func PoundButtonSelected(_ sender: UIButton) {
+        let isInactivePoundButton = poundButton.backgroundColor == .white ? true : false
         
-        if isTappedPoundLabel {
-            isTappedKgLabel = false
-            poundLabel.backgroundColor = .darkGray
-            poundLabel.textColor = .white
-            kilogramLabel.backgroundColor = .white
-            kilogramLabel.textColor = .black
-            
-        } else {
-            isTappedKgLabel = true
-            poundLabel.backgroundColor = .white
-            poundLabel.textColor = .black
-            kilogramLabel.backgroundColor = .darkGray
-            kilogramLabel.textColor = .white
+        if isInactivePoundButton {
+            poundButton.backgroundColor = .darkGray
+            poundButton.setTitleColor(.white, for: .normal)
+            kilogramButton.backgroundColor = .white
+            kilogramButton.setTitleColor(.black, for: .normal)
         }
     }
 
