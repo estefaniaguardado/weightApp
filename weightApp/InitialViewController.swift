@@ -14,6 +14,9 @@ class InitialViewController: UIViewController {
     @IBOutlet var kilogramLabel: UILabel!
     @IBOutlet var poundLabel: UILabel!
     
+    var isTappedKgLabel = true
+    var isTappedPoundLabel = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,19 +24,55 @@ class InitialViewController: UIViewController {
         
         kilogramLabel.text = "Kilos"
         kilogramLabel.isUserInteractionEnabled = true
-        kilogramLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(isTappedKilogramLabel)))
+        kilogramLabel.backgroundColor = .darkGray
+        kilogramLabel.textColor = .white
+        kilogramLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapKilogramLabel)))
         
         poundLabel.text = "Pounds"
         poundLabel.isUserInteractionEnabled = true
-        poundLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(isTappedPoundLabel)))
+        poundLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPoundLabel)))
     }
     
-    func isTappedKilogramLabel(sender:UITapGestureRecognizer) {
-        print("Kilogram")
+    func tapKilogramLabel(sender:UITapGestureRecognizer) {
+        if isTappedKgLabel == false {
+            isTappedKgLabel = true
+        }
+
+        if isTappedKgLabel {
+            isTappedPoundLabel = false
+            kilogramLabel.backgroundColor = .darkGray
+            kilogramLabel.textColor = .white
+            poundLabel.backgroundColor = .white
+            poundLabel.textColor = .black
+            
+        } else {
+            isTappedPoundLabel = true
+            kilogramLabel.backgroundColor = .white
+            kilogramLabel.textColor = .black
+            poundLabel.backgroundColor = .darkGray
+            poundLabel.textColor = .white
+        }
     }
     
-    func isTappedPoundLabel(sender:UITapGestureRecognizer) {
-        print("Pound")
+    func tapPoundLabel(sender:UITapGestureRecognizer) {
+        if isTappedPoundLabel == false {
+            isTappedPoundLabel = true
+        }
+        
+        if isTappedPoundLabel {
+            isTappedKgLabel = false
+            poundLabel.backgroundColor = .darkGray
+            poundLabel.textColor = .white
+            kilogramLabel.backgroundColor = .white
+            kilogramLabel.textColor = .black
+            
+        } else {
+            isTappedKgLabel = true
+            poundLabel.backgroundColor = .white
+            poundLabel.textColor = .black
+            kilogramLabel.backgroundColor = .darkGray
+            kilogramLabel.textColor = .white
+        }
     }
 
     override func didReceiveMemoryWarning() {
