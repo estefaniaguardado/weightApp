@@ -23,18 +23,14 @@ class InitialStatusViewController: UIViewController {
     @IBOutlet var meterButton: UIButton!
     @IBOutlet var feetButton: UIButton!
     
-    var isTappedKgLabel = true
-    var isTappedPoundLabel = false
+    var isEnglishUnitsWeight = false
+    var isEnglishUnitsHeight = false
+    var genderSelected: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         weightTextField.text = "0.00"
-        
-        kilogramButton.setTitle("Kilos", for: .normal)
-        poundButton.setTitle("Pounds", for: .normal)
-        meterButton.setTitle("Meters", for: .normal)
-        feetButton.setTitle("Feet", for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +42,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveKilogramButton = kilogramButton.backgroundColor == .white ? true : false
         
         if isInactiveKilogramButton {
+            isEnglishUnitsWeight = false
             kilogramButton.backgroundColor = .darkGray
             kilogramButton.setTitleColor(.white, for: .normal)
             poundButton.backgroundColor = .white
@@ -57,6 +54,7 @@ class InitialStatusViewController: UIViewController {
         let isInactivePoundButton = poundButton.backgroundColor == .white ? true : false
         
         if isInactivePoundButton {
+            isEnglishUnitsWeight = true
             poundButton.backgroundColor = .darkGray
             poundButton.setTitleColor(.white, for: .normal)
             kilogramButton.backgroundColor = .white
@@ -68,6 +66,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveMeterButton = meterButton.backgroundColor == .white ? true : false
         
         if isInactiveMeterButton {
+            isEnglishUnitsHeight = false
             meterButton.backgroundColor = .darkGray
             meterButton.setTitleColor(.white, for: .normal)
             feetButton.backgroundColor = .white
@@ -79,6 +78,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveFeetButton = feetButton.backgroundColor == .white ? true : false
         
         if isInactiveFeetButton {
+            isEnglishUnitsHeight = true
             feetButton.backgroundColor = .darkGray
             feetButton.setTitleColor(.white, for: .normal)
             meterButton.backgroundColor = .white
@@ -90,6 +90,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveMaleButton = maleButton.backgroundColor == .white ? true : false
         
         if isInactiveMaleButton {
+            genderSelected = "male"
             maleButton.backgroundColor = .darkGray
             maleButton.setTitleColor(.white, for: .normal)
             femaleButton.backgroundColor = .white
@@ -101,12 +102,59 @@ class InitialStatusViewController: UIViewController {
         let isInactiveFemaleButton = femaleButton.backgroundColor == .white ? true : false
         
         if isInactiveFemaleButton {
+            genderSelected = "female"
             femaleButton.backgroundColor = .darkGray
             femaleButton.setTitleColor(.white, for: .normal)
             maleButton.backgroundColor = .white
             maleButton.setTitleColor(.black, for: .normal)
         }
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "goToTargetWeight" {
+            if !isTheDataTemplateFilledIt() {
+                alertIncompleteInformation()
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func isTheDataTemplateFilledIt() -> Bool {
+        if nameTextField.text == "" || genderSelected == ""
+            || weightTextField.text! == "" || Float(weightTextField.text!) == 0.0
+            || heightTextField.text! == "" || Float(heightTextField.text!) == 0.0 {
+            return false
+        }
+        
+        return true
+    }
+    
+    func alertIncompleteInformation() {
+        let alertController = UIAlertController(title: "Incomplete Information", message:
+            "Complete the empty fields.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToTargetWeight"{
+            let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
+            let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
+            let userBC = UserBusinessController.init(nameUser: nameTextField.text!,
+                                            genderUser: genderSelected,
+                                            weightUser: Float(weightTextField.text!)!,
+                                            unitWeight: unitWeightSelected,
+                                            heightUser: Float(heightTextField.text!)!,
+                                            unitHeight: unitHeightSelected)
+            _ = userBC.getIdealWeightByLoretz()
+        }
+    }
+    
 
 }
 
