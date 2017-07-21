@@ -114,6 +114,7 @@ class InitialStatusViewController: UIViewController {
         
         if identifier == "goToTargetWeight" {
             if !isTheDataTemplateFilledIt() {
+                alertIncompleteInformation()
                 return false
             }
         }
@@ -129,6 +130,14 @@ class InitialStatusViewController: UIViewController {
         }
         
         return true
+    }
+    
+    func alertIncompleteInformation() {
+        let alertController = UIAlertController(title: "Incomplete Information", message:
+            "Complete the empty fields.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
