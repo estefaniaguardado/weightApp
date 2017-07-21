@@ -110,21 +110,15 @@ class InitialStatusViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToTargetWeight" {
-            
-            if isTheDataTemplateFilledIt() {
-                let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
-                let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
-                _ = UserBusinessController.init(nameUser: nameTextField.text!,
-                                                genderUser: genderSelected,
-                                                weightUser: Float(weightTextField.text!)!,
-                                                unitWeight: unitWeightSelected,
-                                                heightUser: Float(heightTextField.text!)!,
-                                                unitHeight: unitHeightSelected)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "goToTargetWeight" {
+            if !isTheDataTemplateFilledIt() {
+                return false
             }
         }
-
+        
+        return true
     }
     
     func isTheDataTemplateFilledIt() -> Bool {
@@ -136,6 +130,21 @@ class InitialStatusViewController: UIViewController {
         
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToTargetWeight"{
+            let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
+            let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
+            _ = UserBusinessController.init(nameUser: nameTextField.text!,
+                                            genderUser: genderSelected,
+                                            weightUser: Float(weightTextField.text!)!,
+                                            unitWeight: unitWeightSelected,
+                                            heightUser: Float(heightTextField.text!)!,
+                                            unitHeight: unitHeightSelected)
+        }
+    }
+    
 
 }
 
