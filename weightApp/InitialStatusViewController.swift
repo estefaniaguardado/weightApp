@@ -23,8 +23,9 @@ class InitialStatusViewController: UIViewController {
     @IBOutlet var meterButton: UIButton!
     @IBOutlet var feetButton: UIButton!
     
-    var isTappedKgLabel = true
-    var isTappedPoundLabel = false
+    var isEnglishUnitsWeight = false
+    var isEnglishUnitsHeight = false
+    var genderSelected: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveKilogramButton = kilogramButton.backgroundColor == .white ? true : false
         
         if isInactiveKilogramButton {
+            isEnglishUnitsWeight = false
             kilogramButton.backgroundColor = .darkGray
             kilogramButton.setTitleColor(.white, for: .normal)
             poundButton.backgroundColor = .white
@@ -52,6 +54,7 @@ class InitialStatusViewController: UIViewController {
         let isInactivePoundButton = poundButton.backgroundColor == .white ? true : false
         
         if isInactivePoundButton {
+            isEnglishUnitsWeight = true
             poundButton.backgroundColor = .darkGray
             poundButton.setTitleColor(.white, for: .normal)
             kilogramButton.backgroundColor = .white
@@ -63,6 +66,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveMeterButton = meterButton.backgroundColor == .white ? true : false
         
         if isInactiveMeterButton {
+            isEnglishUnitsHeight = false
             meterButton.backgroundColor = .darkGray
             meterButton.setTitleColor(.white, for: .normal)
             feetButton.backgroundColor = .white
@@ -74,6 +78,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveFeetButton = feetButton.backgroundColor == .white ? true : false
         
         if isInactiveFeetButton {
+            isEnglishUnitsHeight = true
             feetButton.backgroundColor = .darkGray
             feetButton.setTitleColor(.white, for: .normal)
             meterButton.backgroundColor = .white
@@ -85,6 +90,7 @@ class InitialStatusViewController: UIViewController {
         let isInactiveMaleButton = maleButton.backgroundColor == .white ? true : false
         
         if isInactiveMaleButton {
+            genderSelected = "male"
             maleButton.backgroundColor = .darkGray
             maleButton.setTitleColor(.white, for: .normal)
             femaleButton.backgroundColor = .white
@@ -96,10 +102,24 @@ class InitialStatusViewController: UIViewController {
         let isInactiveFemaleButton = femaleButton.backgroundColor == .white ? true : false
         
         if isInactiveFemaleButton {
+            genderSelected = "female"
             femaleButton.backgroundColor = .darkGray
             femaleButton.setTitleColor(.white, for: .normal)
             maleButton.backgroundColor = .white
             maleButton.setTitleColor(.black, for: .normal)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTargetWeight" {
+            let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
+            let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
+            _ = UserBusinessController.init(nameUser: nameTextField.text!,
+                                                     genderUser: genderSelected,
+                                                     weightUser: Float(weightTextField.text!)!,
+                                                     unitWeight: unitWeightSelected,
+                                                     heightUser: Float(heightTextField.text!)!,
+                                                     unitHeight: unitHeightSelected)
         }
     }
 

@@ -163,7 +163,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Lzy-Qf-GNg">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="yeP-c5-MBj" kind="show" id="h3M-4W-dHe"/>
+                                <segue destination="yeP-c5-MBj" kind="show" identifier="goToTargetWeight" id="h3M-4W-dHe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

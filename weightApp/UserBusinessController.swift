@@ -14,15 +14,34 @@ protocol IUserDelegate {
 
 class UserBusinessController: IUserDelegate {
     
+    let convertorMeasure = ConvertorMeasure()
+    var englishUnitsHeight = false
+    var englishUnitsWeight = false
+
     var weight: Float = 0.0
     var height: Float = 0.0
     var gender: Gender
     
-    
-    init (weightUser:Float, heightUser: Float, genderUser: Gender) {
-        weight = weightUser
-        height = heightUser
-        gender = genderUser
+    init (nameUser: String, genderUser: String,
+          weightUser:Float, unitWeight: String,
+          heightUser: Float,unitHeight:String) {
+        
+        if unitHeight == "feet" {
+            englishUnitsHeight = true
+            height = convertorMeasure.feetToCentimeters(quantity: heightUser, decimals: 2)
+        } else {
+            height = heightUser
+        }
+        
+        if unitWeight == "pound" {
+            englishUnitsWeight = true
+            weight = convertorMeasure.poundsToKilograms(quantity: weightUser, decimals: 2)
+        } else {
+            weight = weightUser
+        }
+        
+        gender = genderUser == "male" ? Gender.male : Gender.female
+        
     }
     
     func getIdealWeightByLoretz() -> Float {
