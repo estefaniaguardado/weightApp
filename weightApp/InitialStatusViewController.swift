@@ -30,11 +30,6 @@ class InitialStatusViewController: UIViewController {
         super.viewDidLoad()
         
         weightTextField.text = "0.00"
-        
-        kilogramButton.setTitle("Kilos", for: .normal)
-        poundButton.setTitle("Pounds", for: .normal)
-        meterButton.setTitle("Meters", for: .normal)
-        feetButton.setTitle("Feet", for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
