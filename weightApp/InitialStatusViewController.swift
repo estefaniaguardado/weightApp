@@ -112,15 +112,29 @@ class InitialStatusViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTargetWeight" {
-            let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
-            let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
-            _ = UserBusinessController.init(nameUser: nameTextField.text!,
-                                                     genderUser: genderSelected,
-                                                     weightUser: Float(weightTextField.text!)!,
-                                                     unitWeight: unitWeightSelected,
-                                                     heightUser: Float(heightTextField.text!)!,
-                                                     unitHeight: unitHeightSelected)
+            
+            if isTheDataTemplateFilledIt() {
+                let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
+                let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
+                _ = UserBusinessController.init(nameUser: nameTextField.text!,
+                                                genderUser: genderSelected,
+                                                weightUser: Float(weightTextField.text!)!,
+                                                unitWeight: unitWeightSelected,
+                                                heightUser: Float(heightTextField.text!)!,
+                                                unitHeight: unitHeightSelected)
+            }
         }
+
+    }
+    
+    func isTheDataTemplateFilledIt() -> Bool {
+        if nameTextField.text == "" || genderSelected == ""
+            || weightTextField.text! == "" || Float(weightTextField.text!) == 0.0
+            || heightTextField.text! == "" || Float(heightTextField.text!) == 0.0 {
+            return false
+        }
+        
+        return true
     }
 
 }
