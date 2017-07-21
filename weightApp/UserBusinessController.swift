@@ -19,6 +19,7 @@ class UserBusinessController: IUserDelegate {
     var englishUnitsWeight = false
 
     var weight: Float = 0.0
+    var unitsWeight: String = ""
     var height: Float = 0.0
     var gender: Gender
     
@@ -33,20 +34,21 @@ class UserBusinessController: IUserDelegate {
             height = heightUser
         }
         
-        if unitWeight == "pound" {
-            englishUnitsWeight = true
-            weight = convertorMeasure.poundsToKilograms(quantity: weightUser, decimals: 2)
-        } else {
-            weight = weightUser
-        }
-        
+        unitsWeight = unitWeight
+        weight = weightUser
         gender = genderUser == "male" ? Gender.male : Gender.female
         
     }
     
     func getIdealWeightByLoretz() -> Float {
         let idealWeightLoretz = IdealWeightByLoretz.init(user: gender, userHeight: height)
-        return idealWeightLoretz.calculateIdealWeight()
+        var result = idealWeightLoretz.calculateIdealWeight()
+        
+        if unitsWeight == "pound" {
+            result = convertorMeasure.poundsToKilograms(quantity: result, decimals: 2)
+        }
+        
+        return result
     }
     
 }

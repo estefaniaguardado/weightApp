@@ -136,12 +136,13 @@ class InitialStatusViewController: UIViewController {
         if segue.identifier == "goToTargetWeight"{
             let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
             let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
-            _ = UserBusinessController.init(nameUser: nameTextField.text!,
+            let userBC = UserBusinessController.init(nameUser: nameTextField.text!,
                                             genderUser: genderSelected,
                                             weightUser: Float(weightTextField.text!)!,
                                             unitWeight: unitWeightSelected,
                                             heightUser: Float(heightTextField.text!)!,
                                             unitHeight: unitHeightSelected)
+            _ = userBC.getIdealWeightByLoretz()
         }
     }
     
