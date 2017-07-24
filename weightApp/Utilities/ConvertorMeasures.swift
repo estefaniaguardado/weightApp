@@ -18,33 +18,33 @@ extension Float {
 class ConvertorMeasure{
 
     func feetToCentimeters(quantity: Float, decimals: Int) -> Float {
-        let feets = quantity * 30.48
-        return feets.roundTo(places: decimals)
+        let centimeters = quantity * 30.48
+        return centimeters.roundTo(places: decimals)
     }
     
     func centimetersToFeets(quantity: Float, decimals: Int) -> Float {
-        let centimeters = quantity * 0.0328084
-        return centimeters.roundTo(places: decimals)
+        let feets = quantity * 0.0328084
+        return feets.roundTo(places: decimals)
     }
     
     func poundsToKilograms(quantity: Float, decimals: Int) -> Float{
-        let pounds = quantity * 0.453592
-        return pounds.roundTo(places: decimals)
+        let kilos = quantity * 0.453592
+        return kilos.roundTo(places: decimals)
     }
     
     func kilogramsToPounds(quantity: Float, decimals: Int) -> Float {
-        let kilogram = quantity * 2.20462
-        return kilogram.roundTo(places: decimals)
+        let pounds = quantity * 2.20462
+        return pounds.roundTo(places: decimals)
     }
     
     func metersToCentimeters(quantity: Float, decimals: Int) -> Float {
-        let meters = quantity * 100.0
-        return meters.roundTo(places: decimals)
+        let centimeters = quantity * 100.0
+        return centimeters.roundTo(places: decimals)
     }
     
     func centimetersToMeters(quantity: Float, decimals: Int) -> Float {
-        let centimeters = quantity / 100.0
-        return centimeters.roundTo(places: decimals)
+        let meters = quantity / 100.0
+        return meters.roundTo(places: decimals)
     }
     
     func kilosToGrams(quantity: Float, decimals: Int) -> Float {
