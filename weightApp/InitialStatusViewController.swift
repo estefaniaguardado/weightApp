@@ -13,7 +13,6 @@ class InitialStatusViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var maleButton: UIButton!
     @IBOutlet var femaleButton: UIButton!
-    @IBOutlet var dateTexField: UITextField!
     
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var kilogramButton: UIButton!
