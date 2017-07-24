@@ -265,6 +265,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8gX-n0-A8Y"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="heightTextField" destination="w6p-eV-r6R" id="B2r-YO-eAv"/>
+                        <outlet property="weightTextField" destination="tDk-L2-GeS" id="ngU-C8-3uQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5q-WB-Ljl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
