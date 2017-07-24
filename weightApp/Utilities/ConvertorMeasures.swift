@@ -41,4 +41,9 @@ class ConvertorMeasure{
         let meters = quantity * 100.0
         return meters.roundTo(places: decimals)
     }
+    
+    func centimetersToMeters(quantity: Float, decimals: Int) -> Float {
+        let centimeters = quantity / 100.0
+        return centimeters.roundTo(places: decimals)
+    }
 }

@@ -97,4 +97,14 @@ class convertorMeasuresTest: XCTestCase {
         let result = convertor.metersToCentimeters(quantity: 1.0, decimals: 2)
         XCTAssertEqual(result, 100.00)
     }
+    
+    func testOneCentimeterIsEqualToPoint0010Meters() {
+        let result = convertor.centimetersToMeters(quantity: 1.0, decimals:2)
+        XCTAssertEqual(result, 0.01)
+    }
+    
+    func test180CentimetersIsEqualTo1Point8Meters() {
+        let result = convertor.centimetersToMeters(quantity: 180.0, decimals:2)
+        XCTAssertEqual(result, 1.80)
+    }
 }
