@@ -92,4 +92,39 @@ class convertorMeasuresTest: XCTestCase {
         let result = convertor.kilogramsToPounds(quantity: 87.56, decimals: 2)
         XCTAssertNotEqual(result, 192.99)
     }
+    
+    func testOneMeterIsEqualTo100Centimeters() {
+        let result = convertor.metersToCentimeters(quantity: 1.0, decimals: 2)
+        XCTAssertEqual(result, 100.00)
+    }
+    
+    func testOneCentimeterIsEqualToPoint0010Meters() {
+        let result = convertor.centimetersToMeters(quantity: 1.0, decimals:2)
+        XCTAssertEqual(result, 0.01)
+    }
+    
+    func test180CentimetersIsEqualTo1Point8Meters() {
+        let result = convertor.centimetersToMeters(quantity: 180.0, decimals:2)
+        XCTAssertEqual(result, 1.80)
+    }
+    
+    func testOneKiloIsEqualTo1000Grams() {
+        let result = convertor.kilosToGrams(quantity: 1.0, decimals: 2)
+        XCTAssertEqual(result, 1000.00)
+    }
+    
+    func test100Point8KiloIsEqualTo100800Grams() {
+        let result = convertor.kilosToGrams(quantity: 100.8, decimals: 2)
+        XCTAssertEqual(result, 100800.00)
+    }
+    
+    func testOneGramIsEqualToPoint001Kilos() {
+        let result = convertor.gramsToKilos(quantity: 1.0, decimals: 3)
+        XCTAssertEqual(result, 0.001)
+    }
+    
+    func test196GramIsEqualToPoint19Kilos() {
+        let result = convertor.gramsToKilos(quantity: 196.0, decimals: 4)
+        XCTAssertEqual(result, 0.1960)
+    }
 }
