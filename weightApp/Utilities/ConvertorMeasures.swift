@@ -46,4 +46,9 @@ class ConvertorMeasure{
         let centimeters = quantity / 100.0
         return centimeters.roundTo(places: decimals)
     }
+    
+    func kilosToGrams(quantity: Float, decimals: Int) -> Float {
+        let grams = quantity * 1000.0
+        return grams.roundTo(places: decimals)
+    }
 }

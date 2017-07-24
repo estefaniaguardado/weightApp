@@ -107,4 +107,14 @@ class convertorMeasuresTest: XCTestCase {
         let result = convertor.centimetersToMeters(quantity: 180.0, decimals:2)
         XCTAssertEqual(result, 1.80)
     }
+    
+    func testOneKiloIsEqualTo1000Grams() {
+        let result = convertor.kilosToGrams(quantity: 1.0, decimals: 2)
+        XCTAssertEqual(result, 1000.00)
+    }
+    
+    func test100Point8KiloIsEqualTo100800Grams() {
+        let result = convertor.kilosToGrams(quantity: 100.8, decimals: 2)
+        XCTAssertEqual(result, 100800.00)
+    }
 }
