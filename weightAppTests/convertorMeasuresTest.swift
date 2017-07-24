@@ -92,4 +92,9 @@ class convertorMeasuresTest: XCTestCase {
         let result = convertor.kilogramsToPounds(quantity: 87.56, decimals: 2)
         XCTAssertNotEqual(result, 192.99)
     }
+    
+    func testOneMeterIsEqualTo100Centimeters() {
+        let result = convertor.metersToCentimeters(quantity: 1.0, decimals: 2)
+        XCTAssertEqual(result, 100.00)
+    }
 }

@@ -36,4 +36,9 @@ class ConvertorMeasure{
         let kilogram = quantity * 2.20462
         return kilogram.roundTo(places: decimals)
     }
+    
+    func metersToCentimeters(quantity: Float, decimals: Int) -> Float {
+        let meters = quantity * 100.0
+        return meters.roundTo(places: decimals)
+    }
 }
