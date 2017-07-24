@@ -151,10 +151,12 @@ class InitialStatusViewController: UIViewController {
                                             unitWeight: unitWeightSelected,
                                             heightUser: Float(heightTextField.text!)!,
                                             unitHeight: unitHeightSelected)
-            _ = userBC.getIdealWeightByLoretz()
+            
+            let initTargetVC = segue.destination as! InitTargetViewController
+            initTargetVC.weightTarget = userBC.getIdealWeightByLoretz()
+            initTargetVC.height = heightTextField.text
         }
     }
     
-
 }
 

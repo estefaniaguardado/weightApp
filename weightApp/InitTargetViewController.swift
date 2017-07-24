@@ -9,6 +9,9 @@
 import UIKit
 
 class InitTargetViewController: UIViewController {
+    
+    var weightTarget: Float!
+    var height: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
