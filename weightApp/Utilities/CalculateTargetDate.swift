@@ -10,9 +10,17 @@ import Foundation
 
 class CalculateTargetDate {
     
+    let weightInGramsToLosePerWeek: Float = 0.453
+    
     func kilosToWeeks(quantity: Float) -> Float {
-        let weeks = quantity / 0.453
+        let weeks = quantity / weightInGramsToLosePerWeek
         return weeks.roundTo(places: 1)
+    }
+    
+    func weeksToDays(quantity: Float) -> Int {
+        var days = quantity * 7
+        days = days.roundTo(places: 0)
+        return Int(days)
     }
     
 }

@@ -35,6 +35,16 @@ class targetDateTest: XCTestCase {
     
     func test10Point5IsEqualTo22Point2Weeks() {
         let result = calculationTarget.kilosToWeeks(quantity: 10.5)
-        XCTAssertEqual(result, 22.0)
+        XCTAssertEqual(result, 23.2)
+    }
+    
+    func test62Point5WeeksIsEqualTo438Days() {
+        let result = calculationTarget.weeksToDays(quantity: 62.5)
+        XCTAssertEqual(result, 438)
+    }
+    
+    func test10Point5WeeksIsEqualTo74Days() {
+        let result = calculationTarget.weeksToDays(quantity: 10.5)
+        XCTAssertEqual(result, 74)
     }
 }
