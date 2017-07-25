@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="425" y="-755"/>
         </scene>
-        <!--Initial Status View Controller-->
+        <!--Init Status View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InitialStatusViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="InitStatusViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

@@ -12,7 +12,7 @@
 		CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA26C8CA1F222C280001F21E /* UserBusinessController.swift */; };
 		CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
-		CA90CA681F0F976800BFEBE8 /* InitialStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA671F0F976800BFEBE8 /* InitialStatusViewController.swift */; };
+		CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */; };
 		CA90CA6B1F0F976800BFEBE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA691F0F976800BFEBE8 /* Main.storyboard */; };
 		CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA6C1F0F976800BFEBE8 /* weightApp.xcdatamodeld */; };
 		CA90CA701F0F976800BFEBE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA6F1F0F976800BFEBE8 /* Assets.xcassets */; };
@@ -47,7 +47,7 @@
 		CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitTargetViewController.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA90CA671F0F976800BFEBE8 /* InitialStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStatusViewController.swift; sourceTree = "<group>"; };
+		CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitStatusViewController.swift; sourceTree = "<group>"; };
 		CA90CA6A1F0F976800BFEBE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA90CA6D1F0F976800BFEBE8 /* weightApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weightApp.xcdatamodel; sourceTree = "<group>"; };
 		CA90CA6F1F0F976800BFEBE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */,
 				CAEA2E431F276D4600590875 /* StatusViewController.swift */,
 				CA26C8CA1F222C280001F21E /* UserBusinessController.swift */,
-				CA90CA671F0F976800BFEBE8 /* InitialStatusViewController.swift */,
+				CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */,
 				CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */,
 				CA90CA691F0F976800BFEBE8 /* Main.storyboard */,
 				CA90CA6F1F0F976800BFEBE8 /* Assets.xcassets */,
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */,
-				CA90CA681F0F976800BFEBE8 /* InitialStatusViewController.swift in Sources */,
+				CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
 				CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */,

@@ -13,7 +13,7 @@ class StatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presentInitialStatusVC()
+        presentInitialNavigationVC()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,10 +21,10 @@ class StatusViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func presentInitialStatusVC() {
+    func presentInitialNavigationVC() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let initialStatusVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
-        self.present(initialStatusVC, animated: true, completion: nil)
+        let initialNavigationVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
+        self.present(initialNavigationVC, animated: true, completion: nil)
     }
 
     /*
