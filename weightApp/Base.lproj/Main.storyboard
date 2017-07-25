@@ -297,7 +297,7 @@
             </objects>
             <point key="canvasLocation" x="-1454" y="35"/>
         </scene>
-        <!--Item-->
+        <!--Status-->
         <scene sceneID="RT8-Er-qkR">
             <objects>
                 <viewController id="5Rn-8x-e30" customClass="StatusViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -310,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6vZ-OO-hHK"/>
+                    <tabBarItem key="tabBarItem" title="Status" id="6vZ-OO-hHK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL7-qH-GMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
