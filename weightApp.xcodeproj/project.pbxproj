@@ -20,6 +20,7 @@
 		CA90CA891F0F976800BFEBE8 /* weightAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA881F0F976800BFEBE8 /* weightAppUITests.swift */; };
 		CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9996061F161AC50043096A /* ConvertorMeasures.swift */; };
 		CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */; };
+		CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E431F276D4600590875 /* StatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CA90CA8A1F0F976800BFEBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9996061F161AC50043096A /* ConvertorMeasures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertorMeasures.swift; path = Utilities/ConvertorMeasures.swift; sourceTree = "<group>"; };
 		CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convertorMeasuresTest.swift; sourceTree = "<group>"; };
+		CAEA2E431F276D4600590875 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				CA0157461F0FB4A7006E40AF /* Utilities */,
 				CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */,
+				CAEA2E431F276D4600590875 /* StatusViewController.swift */,
 				CA26C8CA1F222C280001F21E /* UserBusinessController.swift */,
 				CA90CA671F0F976800BFEBE8 /* InitialStatusViewController.swift */,
 				CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */,
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */,
 				CA90CA681F0F976800BFEBE8 /* InitialStatusViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
