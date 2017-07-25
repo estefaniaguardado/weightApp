@@ -22,13 +22,13 @@ class idealWeightLoretzTest: XCTestCase {
     }
     
     func testIdealWeightToWomen172cm() {
-        let data = IdealWeightByLoretz(user: Gender.female, userHeight: 172)
+        let data = IdealWeightByLoretz(user: Gender.female, userHeight: 1.72)
         let result = data.calculateIdealWeight()
         XCTAssertEqual(result, 61.0)
     }
     
     func testIdealWeightToMale180cm() {
-        let data = IdealWeightByLoretz(user: Gender.male, userHeight: 180)
+        let data = IdealWeightByLoretz(user: Gender.male, userHeight: 1.80)
         let result = data.calculateIdealWeight()
         XCTAssertEqual(result, 72.5)
     }
