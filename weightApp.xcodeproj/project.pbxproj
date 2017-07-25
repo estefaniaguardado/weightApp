@@ -21,6 +21,8 @@
 		CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9996061F161AC50043096A /* ConvertorMeasures.swift */; };
 		CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */; };
 		CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E431F276D4600590875 /* StatusViewController.swift */; };
+		CAEA2E481F277DCC00590875 /* CalculateTargetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E471F277DCC00590875 /* CalculateTargetDate.swift */; };
+		CAEA2E4A1F277E0400590875 /* calculateTargetDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		CA9996061F161AC50043096A /* ConvertorMeasures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertorMeasures.swift; path = Utilities/ConvertorMeasures.swift; sourceTree = "<group>"; };
 		CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convertorMeasuresTest.swift; sourceTree = "<group>"; };
 		CAEA2E431F276D4600590875 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		CAEA2E471F277DCC00590875 /* CalculateTargetDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculateTargetDate.swift; path = Utilities/CalculateTargetDate.swift; sourceTree = "<group>"; };
+		CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calculateTargetDateTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		CA0157461F0FB4A7006E40AF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CAEA2E471F277DCC00590875 /* CalculateTargetDate.swift */,
 				CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */,
 				CA9996061F161AC50043096A /* ConvertorMeasures.swift */,
 			);
@@ -140,6 +145,7 @@
 			children = (
 				CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */,
 				CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */,
+				CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */,
 				CA90CA7F1F0F976800BFEBE8 /* Info.plist */,
 			);
 			path = weightAppTests;
@@ -293,6 +299,7 @@
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
 				CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */,
+				CAEA2E481F277DCC00590875 /* CalculateTargetDate.swift in Sources */,
 				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
@@ -304,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */,
+				CAEA2E4A1F277E0400590875 /* calculateTargetDateTest.swift in Sources */,
 				CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
