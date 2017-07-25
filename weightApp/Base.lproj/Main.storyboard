@@ -264,7 +264,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="8gX-n0-A8Y"/>
+                    <navigationItem key="navigationItem" id="8gX-n0-A8Y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="MMw-j0-NBd">
+                            <connections>
+                                <action selector="doneInputTargetData:" destination="yeP-c5-MBj" id="2uS-my-hK8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="heightTextField" destination="w6p-eV-r6R" id="B2r-YO-eAv"/>
