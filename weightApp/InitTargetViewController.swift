@@ -9,11 +9,18 @@
 import UIKit
 
 class InitTargetViewController: UIViewController {
+    
+    var weightTarget: Float!
+    var height: String!
 
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var heightTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        weightTextField.text = String(weightTarget)
+        heightTextField.text = height
     }
 
     override func didReceiveMemoryWarning() {
