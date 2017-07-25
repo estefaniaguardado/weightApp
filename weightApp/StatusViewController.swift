@@ -1,26 +1,19 @@
 //
-//  InitTargetViewController.swift
+//  StatusViewController.swift
 //  weightApp
 //
-//  Created by Estefania Guardado on 20.07.17.
+//  Created by Estefania Guardado on 25.07.17.
 //  Copyright © 2017 Estefania Guardado. All rights reserved.
 //
 
 import UIKit
 
-class InitTargetViewController: UIViewController {
-    
-    var weightTarget: Float!
-    var height: String!
+class StatusViewController: UIViewController {
 
-    @IBOutlet weak var weightTextField: UITextField!
-    @IBOutlet weak var heightTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        weightTextField.text = String(weightTarget)
-        heightTextField.text = height
+        presentInitialNavigationVC()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,8 +21,10 @@ class InitTargetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneInputTargetData(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    func presentInitialNavigationVC() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let initialNavigationVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
+        self.present(initialNavigationVC, animated: true, completion: nil)
     }
 
     /*
