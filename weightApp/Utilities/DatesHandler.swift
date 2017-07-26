@@ -20,4 +20,8 @@ class DatesHandler {
         return calendar.date(from: components)!
     }
     
+    func addDaysToDate(date: Date, days: Int) -> Date {
+        return Calendar.current.date(byAdding: .day, value: days, to: date)!
+    }
+    
 }

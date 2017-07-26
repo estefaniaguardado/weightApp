@@ -10,6 +10,7 @@ import Foundation
 
 class CalculateTargetDate {
     
+    let dateHandler = DatesHandler()
     let weightInGramsToLosePerWeek: Float = 0.453
     
     func kilosToWeeks(quantity: Float) -> Float {
@@ -23,16 +24,11 @@ class CalculateTargetDate {
         return Int(days)
     }
     
-    func getTimeToReachTarget(kilos: Float) -> Int {
-        let resultWeeks = kilosToWeeks(quantity: kilos)
-        
-        return weeksToDays(quantity: resultWeeks)
-    }
-    
     func getTargetDate(currentDate: Date, kilos: Float) -> Date {
-        let timeToReachTarget = getTimeToReachTarget(kilos: kilos)
-        let targetDate = Calendar.current.date(byAdding: .day, value: timeToReachTarget, to: currentDate)
+        let resultWeeks = kilosToWeeks(quantity: kilos)
+        let totalDays = weeksToDays(quantity: resultWeeks)
+        let targetDate = dateHandler.addDaysToDate(date: currentDate, days: totalDays)
         
-        return targetDate!
+        return targetDate
     }
 }
