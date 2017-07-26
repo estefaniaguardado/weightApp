@@ -12,6 +12,7 @@ import XCTest
 class targetDateTest: XCTestCase {
     
     let calculationTarget = CalculateTargetDate()
+    let dateHandler = DatesHandler()
     
     override func setUp() {
         super.setUp()
@@ -47,4 +48,13 @@ class targetDateTest: XCTestCase {
         let result = calculationTarget.weeksToDays(quantity: 10.5)
         XCTAssertEqual(result, 74)
     }
+    
+    func testLose5KilosFrom26July2017Is11October2017TargetDate() {
+        let initDate = dateHandler.createDateFrom(year: 2017, month: 07, day: 26)
+        let targetDate = dateHandler.createDateFrom(year: 2017, month: 10, day: 11)
+
+        let result = calculationTarget.getTargetDate(currentDate: initDate, kilos: 5.0)
+        XCTAssertEqual(result, targetDate)
+    }
+    
 }

@@ -23,4 +23,16 @@ class CalculateTargetDate {
         return Int(days)
     }
     
+    func getTimeToReachTarget(kilos: Float) -> Int {
+        let resultWeeks = kilosToWeeks(quantity: kilos)
+        
+        return weeksToDays(quantity: resultWeeks)
+    }
+    
+    func getTargetDate(currentDate: Date, kilos: Float) -> Date {
+        let timeToReachTarget = getTimeToReachTarget(kilos: kilos)
+        let targetDate = Calendar.current.date(byAdding: .day, value: timeToReachTarget, to: currentDate)
+        
+        return targetDate!
+    }
 }
