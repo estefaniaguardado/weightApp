@@ -10,6 +10,7 @@
 		CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */; };
 		CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */; };
 		CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA26C8CA1F222C280001F21E /* UserBusinessController.swift */; };
+		CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */; };
 		CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
 		CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */; };
@@ -21,6 +22,8 @@
 		CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9996061F161AC50043096A /* ConvertorMeasures.swift */; };
 		CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */; };
 		CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E431F276D4600590875 /* StatusViewController.swift */; };
+		CAEA2E481F277DCC00590875 /* CalculateTargetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E471F277DCC00590875 /* CalculateTargetDate.swift */; };
+		CAEA2E4A1F277E0400590875 /* calculateTargetDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,7 @@
 		CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idealWeightLoretzTest.swift; sourceTree = "<group>"; };
 		CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdealWeightByLoretz.swift; path = Utilities/IdealWeightByLoretz.swift; sourceTree = "<group>"; };
 		CA26C8CA1F222C280001F21E /* UserBusinessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBusinessController.swift; sourceTree = "<group>"; };
+		CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatesHandler.swift; path = Utilities/DatesHandler.swift; sourceTree = "<group>"; };
 		CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitTargetViewController.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		CA9996061F161AC50043096A /* ConvertorMeasures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertorMeasures.swift; path = Utilities/ConvertorMeasures.swift; sourceTree = "<group>"; };
 		CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convertorMeasuresTest.swift; sourceTree = "<group>"; };
 		CAEA2E431F276D4600590875 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		CAEA2E471F277DCC00590875 /* CalculateTargetDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculateTargetDate.swift; path = Utilities/CalculateTargetDate.swift; sourceTree = "<group>"; };
+		CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calculateTargetDateTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +97,10 @@
 		CA0157461F0FB4A7006E40AF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CAEA2E471F277DCC00590875 /* CalculateTargetDate.swift */,
 				CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */,
 				CA9996061F161AC50043096A /* ConvertorMeasures.swift */,
+				CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 			children = (
 				CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */,
 				CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */,
+				CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */,
 				CA90CA7F1F0F976800BFEBE8 /* Info.plist */,
 			);
 			path = weightAppTests;
@@ -293,6 +302,8 @@
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
 				CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */,
+				CAEA2E481F277DCC00590875 /* CalculateTargetDate.swift in Sources */,
+				CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */,
 				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
@@ -304,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */,
+				CAEA2E4A1F277E0400590875 /* calculateTargetDateTest.swift in Sources */,
 				CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
