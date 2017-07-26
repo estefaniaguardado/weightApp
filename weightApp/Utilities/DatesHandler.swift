@@ -11,7 +11,7 @@ import Foundation
 class DatesHandler {
     
     func createDateFrom(year: Int, month: Int, day: Int) -> Date {
-        let calendar = Calendar.current
+        let calendar = Calendar.init(identifier: .gregorian)
         var components = DateComponents()
         components.setValue(year, for: .year)
         components.setValue(month, for: .month)

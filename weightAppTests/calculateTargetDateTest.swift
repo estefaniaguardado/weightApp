@@ -57,4 +57,12 @@ class targetDateTest: XCTestCase {
         XCTAssertEqual(result, targetDate)
     }
     
+    func testLose30KilosFrom26July2017Is1November2018TargetDate() {
+        let initDate = dateHandler.createDateFrom(year: 2017, month: 07, day: 26)
+        let targetDate = dateHandler.createDateFrom(year: 2018, month: 11, day: 1)
+        
+        let result = calculationTarget.getTargetDate(currentDate: initDate, kilos: 30.0)
+        XCTAssertEqual(result, targetDate)
+    }
+    
 }
