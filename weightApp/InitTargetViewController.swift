@@ -13,6 +13,7 @@ class InitTargetViewController: UIViewController {
     
     var weightTarget: Float!
     var height: String!
+    var targetDate: Date!
 
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!

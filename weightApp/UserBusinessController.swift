@@ -15,6 +15,7 @@ protocol IUserDelegate {
 class UserBusinessController: IUserDelegate {
     
     let convertorMeasure = ConvertorMeasure()
+    let targetDate = CalculateTargetDate()
     var englishUnitsHeight = false
     var englishUnitsWeight = false
 
@@ -49,6 +50,12 @@ class UserBusinessController: IUserDelegate {
         }
         
         return result
+    }
+    
+    func getTargetDate (idealWeight: Float) -> Date {
+        let kilosToLose = weight - idealWeight
+        
+        return targetDate.getTargetDate(currentDate: Date(), kilos: kilosToLose)
     }
     
 }
