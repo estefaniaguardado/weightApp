@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DatePickerDialog
 
 class InitTargetViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class InitTargetViewController: UIViewController {
 
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,13 @@ class InitTargetViewController: UIViewController {
     
     @IBAction func doneInputTargetData(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func editTargetDate(_ sender: UIButton) {
+        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+            (date) -> Void in
+            self.dateTextField.text = "\(date)"
+        }
     }
 
     /*
