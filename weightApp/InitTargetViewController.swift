@@ -24,6 +24,7 @@ class InitTargetViewController: UIViewController {
 
         weightTextField.text = String(weightTarget)
         heightTextField.text = height
+        dateTextField.text = formatDate(date: targetDate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,10 +37,19 @@ class InitTargetViewController: UIViewController {
     }
 
     @IBAction func editTargetDate(_ sender: UIButton) {
-        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: Date(), datePickerMode: .date) {
             (date) -> Void in
-            self.dateTextField.text = "\(date)"
+            if (date != nil) {
+                self.dateTextField.text = self.formatDate(date: date!)
+            }
         }
+    }
+    
+    func formatDate(date: Date) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "dd-MMMM-yyyy"
+        
+        return format.string(from: date)
     }
 
     /*
