@@ -9,7 +9,7 @@
 import UIKit
 import DatePickerDialog
 
-class InitTargetViewController: UIViewController {
+class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     var weightTarget: Float!
     var height: String!
@@ -25,11 +25,11 @@ class InitTargetViewController: UIViewController {
         weightTextField.text = String(weightTarget)
         heightTextField.text = height
         dateTextField.text = formatDate(date: targetDate)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func doneInputTargetData(_ sender: UIBarButtonItem) {
@@ -37,6 +37,7 @@ class InitTargetViewController: UIViewController {
     }
 
     @IBAction func editTargetDate(_ sender: UIButton) {
+        
         DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: Date(), datePickerMode: .date) {
             (date) -> Void in
             if (date != nil) {
@@ -51,15 +52,19 @@ class InitTargetViewController: UIViewController {
         
         return format.string(from: date)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if weightTextField.text != "" {
+            weightTextField.text = String(weightTarget)
+            self.view.endEditing(true)
+            return
+        }
+        
+        if weightTextField.text != String(weightTarget) {
+            print(weightTextField.text!)
+        }
+        
+        self.view.endEditing(true)
     }
-    */
 
 }
