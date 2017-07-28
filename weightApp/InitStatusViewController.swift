@@ -10,17 +10,17 @@ import UIKit
 
 class InitStatusViewController: UIViewController {
 
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var maleButton: UIButton!
-    @IBOutlet var femaleButton: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
     
-    @IBOutlet var weightTextField: UITextField!
-    @IBOutlet var kilogramButton: UIButton!
-    @IBOutlet var poundButton: UIButton!
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var kilogramButton: UIButton!
+    @IBOutlet weak var poundButton: UIButton!
     
-    @IBOutlet var heightTextField: UITextField!
-    @IBOutlet var meterButton: UIButton!
-    @IBOutlet var feetButton: UIButton!
+    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var meterButton: UIButton!
+    @IBOutlet weak var feetButton: UIButton!
     
     var isEnglishUnitsWeight = false
     var isEnglishUnitsHeight = false
@@ -142,6 +142,7 @@ class InitStatusViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToTargetWeight"{
+            //TODO : Data persistence #24
             let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
             let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
             let userBC = UserBusinessController.init(nameUser: nameTextField.text!,
@@ -152,10 +153,15 @@ class InitStatusViewController: UIViewController {
                                             unitHeight: unitHeightSelected)
             
             let initTargetVC = segue.destination as! InitTargetViewController
-            let weightTarget = userBC.getIdealWeightByLoretz()
-            initTargetVC.weightTarget = weightTarget
+            let targetWeight = userBC.getIdealWeightByLoretz()
+            initTargetVC.currentWeight = Float(weightTextField.text!)!
+            initTargetVC.targetWeight = targetWeight
             initTargetVC.height = heightTextField.text
-            initTargetVC.targetDate = userBC.getTargetDate(idealWeight: weightTarget)
+            initTargetVC.targetDate = userBC.getTargetDate(idealWeight: targetWeight)
+            initTargetVC.unitHeight = unitHeightSelected
+            initTargetVC.unitWeight = unitWeightSelected
+            initTargetVC.gender = genderSelected
+            initTargetVC.name = nameTextField.text!
         }
     }
     

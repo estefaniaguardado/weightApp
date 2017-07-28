@@ -9,27 +9,36 @@
 import UIKit
 import DatePickerDialog
 
-class InitTargetViewController: UIViewController {
+class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
-    var weightTarget: Float!
+    //TODO: Data Persistence #24
+    var targetWeight: Float!
+    var currentWeight: Float!
     var height: String!
     var targetDate: Date!
+    var unitWeight: String!
+    var unitHeight: String!
+    var gender: String!
+    var name: String!
 
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var unitWeightLabel: UILabel!
+    @IBOutlet weak var unitHeightLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        weightTextField.text = String(weightTarget)
+        weightTextField.text = String(targetWeight)
         heightTextField.text = height
         dateTextField.text = formatDate(date: targetDate)
+        unitWeightLabel.text = unitWeight
+        unitHeightLabel.text = unitHeight
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func doneInputTargetData(_ sender: UIBarButtonItem) {
@@ -37,6 +46,7 @@ class InitTargetViewController: UIViewController {
     }
 
     @IBAction func editTargetDate(_ sender: UIButton) {
+        
         DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: Date(), datePickerMode: .date) {
             (date) -> Void in
             if (date != nil) {
@@ -51,15 +61,47 @@ class InitTargetViewController: UIViewController {
         
         return format.string(from: date)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if weightTextField.text == "" {
+            weightTextField.text = String(targetWeight)
+            self.view.endEditing(true)
+            return
+        }
+        
+        if weightTextField.text != String(targetWeight) {
+            updateTargetWeightAndDate()
+        }
+        
+        self.view.endEditing(true)
     }
-    */
-
+    
+    func updateTargetWeightAndDate() {
+        let weightNumber = Float.init(weightTextField.text!)!
+        if  targetWeight.isLess(than: weightNumber) {
+            let userBC = UserBusinessController.init(nameUser: name,
+                                                     genderUser: gender,
+                                                     weightUser: currentWeight,
+                                                     unitWeight: unitWeight,
+                                                     heightUser: Float(height!)!,
+                                                     unitHeight: unitHeight)
+            
+            dateTextField.text = formatDate(date: userBC.getTargetDate(idealWeight: weightNumber))
+            return
+        
+        } else {
+            alertIsLessWeightThanIdealWeight()
+            weightTextField.text = String(targetWeight)
+        }
+    }
+    
+    func alertIsLessWeightThanIdealWeight() {
+        let alertController = UIAlertController(title: "Dangerous Target",
+                                                message:
+            "The inputted target weight is less than ideal weight suggested regarding with your specific measure of height and gender.",
+                                                preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

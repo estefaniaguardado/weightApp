@@ -24,6 +24,7 @@ class UserBusinessController: IUserDelegate {
     var height: Float = 0.0
     var gender: Gender
     
+    // TODO : Data Persistence #24
     init (nameUser: String, genderUser: String,
           weightUser:Float, unitWeight: String,
           heightUser: Float,unitHeight:String) {
