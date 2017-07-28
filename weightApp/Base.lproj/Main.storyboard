@@ -286,6 +286,8 @@
                     <connections>
                         <outlet property="dateTextField" destination="fK1-SV-7EF" id="WZo-Ty-Svy"/>
                         <outlet property="heightTextField" destination="w6p-eV-r6R" id="B2r-YO-eAv"/>
+                        <outlet property="unitHeightLabel" destination="YDE-JQ-cdA" id="hHT-bf-WE8"/>
+                        <outlet property="unitWeightLabel" destination="5k7-1J-0pw" id="BV1-yr-Hlj"/>
                         <outlet property="weightTextField" destination="tDk-L2-GeS" id="ngU-C8-3uQ"/>
                     </connections>
                 </viewController>

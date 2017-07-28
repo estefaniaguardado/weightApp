@@ -142,6 +142,7 @@ class InitStatusViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToTargetWeight"{
+            //TODO : Data persistence #24
             let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
             let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
             let userBC = UserBusinessController.init(nameUser: nameTextField.text!,
@@ -153,9 +154,14 @@ class InitStatusViewController: UIViewController {
             
             let initTargetVC = segue.destination as! InitTargetViewController
             let weightTarget = userBC.getIdealWeightByLoretz()
+            initTargetVC.currentWeight = Float(weightTextField.text!)!
             initTargetVC.weightTarget = weightTarget
             initTargetVC.height = heightTextField.text
             initTargetVC.targetDate = userBC.getTargetDate(idealWeight: weightTarget)
+            initTargetVC.unitHeight = unitHeightSelected
+            initTargetVC.unitWeight = unitWeightSelected
+            initTargetVC.gender = genderSelected
+            initTargetVC.name = nameTextField.text!
         }
     }
     

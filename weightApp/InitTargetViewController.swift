@@ -11,13 +11,21 @@ import DatePickerDialog
 
 class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
+    //TODO: Data Persistence #24
     var weightTarget: Float!
+    var currentWeight: Float!
     var height: String!
     var targetDate: Date!
+    var unitWeight: String!
+    var unitHeight: String!
+    var gender: String!
+    var name: String!
 
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var unitWeightLabel: UILabel!
+    @IBOutlet weak var unitHeightLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +33,8 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
         weightTextField.text = String(weightTarget)
         heightTextField.text = height
         dateTextField.text = formatDate(date: targetDate)
-        
+        unitWeightLabel.text = unitWeight
+        unitHeightLabel.text = unitHeight
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,17 +63,33 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if weightTextField.text != "" {
+        if weightTextField.text == "" {
             weightTextField.text = String(weightTarget)
             self.view.endEditing(true)
             return
         }
         
         if weightTextField.text != String(weightTarget) {
-            print(weightTextField.text!)
+            updateTargetWeightAndDate()
         }
         
         self.view.endEditing(true)
+    }
+    
+    func updateTargetWeightAndDate() {
+        let weightNumber = Float.init(weightTextField.text!)!
+        if  weightTarget.isLess(than: weightNumber) {
+            let userBC = UserBusinessController.init(nameUser: name,
+                                                     genderUser: gender,
+                                                     weightUser: currentWeight,
+                                                     unitWeight: unitWeight,
+                                                     heightUser: Float(height!)!,
+                                                     unitHeight: unitHeight)
+            
+            dateTextField.text = formatDate(date: userBC.getTargetDate(idealWeight: weightNumber))
+            return
+        }
+        
     }
 
 }
