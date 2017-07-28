@@ -10,17 +10,17 @@ import UIKit
 
 class InitStatusViewController: UIViewController {
 
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var maleButton: UIButton!
-    @IBOutlet var femaleButton: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
     
-    @IBOutlet var weightTextField: UITextField!
-    @IBOutlet var kilogramButton: UIButton!
-    @IBOutlet var poundButton: UIButton!
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var kilogramButton: UIButton!
+    @IBOutlet weak var poundButton: UIButton!
     
-    @IBOutlet var heightTextField: UITextField!
-    @IBOutlet var meterButton: UIButton!
-    @IBOutlet var feetButton: UIButton!
+    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var meterButton: UIButton!
+    @IBOutlet weak var feetButton: UIButton!
     
     var isEnglishUnitsWeight = false
     var isEnglishUnitsHeight = false

@@ -170,15 +170,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="feetButton" destination="MkM-FN-XlS" id="u64-Qn-VAJ"/>
-                        <outlet property="femaleButton" destination="XCL-Xm-GeS" id="l1p-pX-sXu"/>
-                        <outlet property="heightTextField" destination="yGs-jX-eZL" id="kdK-oQ-8ke"/>
-                        <outlet property="kilogramButton" destination="0Yg-0a-Zu6" id="8PP-18-BQf"/>
-                        <outlet property="maleButton" destination="34B-Nc-A5c" id="Ovg-Xp-HHt"/>
-                        <outlet property="meterButton" destination="ocj-SM-ewj" id="QVL-ZU-AUk"/>
-                        <outlet property="nameTextField" destination="TWe-Cn-tJE" id="lKW-Jx-HGX"/>
-                        <outlet property="poundButton" destination="mym-6D-hoo" id="OZS-ae-nO3"/>
-                        <outlet property="weightTextField" destination="ilT-zs-3Qf" id="UWl-dv-YRY"/>
+                        <outlet property="feetButton" destination="MkM-FN-XlS" id="BOR-vP-olh"/>
+                        <outlet property="femaleButton" destination="XCL-Xm-GeS" id="hbN-ga-Qzx"/>
+                        <outlet property="heightTextField" destination="yGs-jX-eZL" id="5Gb-j2-ZmN"/>
+                        <outlet property="kilogramButton" destination="0Yg-0a-Zu6" id="86T-FX-cbG"/>
+                        <outlet property="maleButton" destination="34B-Nc-A5c" id="Bzu-TN-Inp"/>
+                        <outlet property="meterButton" destination="ocj-SM-ewj" id="pBw-BF-y1M"/>
+                        <outlet property="nameTextField" destination="TWe-Cn-tJE" id="0Eg-iF-URA"/>
+                        <outlet property="poundButton" destination="mym-6D-hoo" id="ztk-Lg-rcL"/>
+                        <outlet property="weightTextField" destination="ilT-zs-3Qf" id="djh-92-2ac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
