@@ -153,11 +153,11 @@ class InitStatusViewController: UIViewController {
                                             unitHeight: unitHeightSelected)
             
             let initTargetVC = segue.destination as! InitTargetViewController
-            let weightTarget = userBC.getIdealWeightByLoretz()
+            let targetWeight = userBC.getIdealWeightByLoretz()
             initTargetVC.currentWeight = Float(weightTextField.text!)!
-            initTargetVC.weightTarget = weightTarget
+            initTargetVC.targetWeight = targetWeight
             initTargetVC.height = heightTextField.text
-            initTargetVC.targetDate = userBC.getTargetDate(idealWeight: weightTarget)
+            initTargetVC.targetDate = userBC.getTargetDate(idealWeight: targetWeight)
             initTargetVC.unitHeight = unitHeightSelected
             initTargetVC.unitWeight = unitWeightSelected
             initTargetVC.gender = genderSelected

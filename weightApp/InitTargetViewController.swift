@@ -12,7 +12,7 @@ import DatePickerDialog
 class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     //TODO: Data Persistence #24
-    var weightTarget: Float!
+    var targetWeight: Float!
     var currentWeight: Float!
     var height: String!
     var targetDate: Date!
@@ -30,7 +30,7 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        weightTextField.text = String(weightTarget)
+        weightTextField.text = String(targetWeight)
         heightTextField.text = height
         dateTextField.text = formatDate(date: targetDate)
         unitWeightLabel.text = unitWeight
@@ -64,12 +64,12 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if weightTextField.text == "" {
-            weightTextField.text = String(weightTarget)
+            weightTextField.text = String(targetWeight)
             self.view.endEditing(true)
             return
         }
         
-        if weightTextField.text != String(weightTarget) {
+        if weightTextField.text != String(targetWeight) {
             updateTargetWeightAndDate()
         }
         
@@ -78,7 +78,7 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     func updateTargetWeightAndDate() {
         let weightNumber = Float.init(weightTextField.text!)!
-        if  weightTarget.isLess(than: weightNumber) {
+        if  targetWeight.isLess(than: weightNumber) {
             let userBC = UserBusinessController.init(nameUser: name,
                                                      genderUser: gender,
                                                      weightUser: currentWeight,
@@ -91,7 +91,7 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
         
         } else {
             alertIsLessWeightThanIdealWeight()
-            weightTextField.text = String(weightTarget)
+            weightTextField.text = String(targetWeight)
         }
     }
     
