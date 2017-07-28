@@ -88,8 +88,20 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
             
             dateTextField.text = formatDate(date: userBC.getTargetDate(idealWeight: weightNumber))
             return
-        }
         
+        } else {
+            alertIsLessWeightThanIdealWeight()
+            weightTextField.text = String(weightTarget)
+        }
     }
-
+    
+    func alertIsLessWeightThanIdealWeight() {
+        let alertController = UIAlertController(title: "Dangerous Target",
+                                                message:
+            "The inputted target weight is less than ideal weight suggested regarding with your specific measure of height and gender.",
+                                                preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
