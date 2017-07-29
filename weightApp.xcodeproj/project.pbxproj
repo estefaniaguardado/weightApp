@@ -13,6 +13,8 @@
 		CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */; };
 		CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */; };
 		CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA26C8CA1F222C280001F21E /* UserBusinessController.swift */; };
+		CA3386C11F2CAA6300B52956 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3386C01F2CAA6300B52956 /* HealthKit.framework */; };
+		CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3386C31F2CAB0400B52956 /* HealthKitService.swift */; };
 		CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */; };
 		CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
@@ -58,6 +60,9 @@
 		CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idealWeightLoretzTest.swift; sourceTree = "<group>"; };
 		CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdealWeightByLoretz.swift; path = Utilities/IdealWeightByLoretz.swift; sourceTree = "<group>"; };
 		CA26C8CA1F222C280001F21E /* UserBusinessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBusinessController.swift; sourceTree = "<group>"; };
+		CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weightApp.entitlements; sourceTree = "<group>"; };
+		CA3386C01F2CAA6300B52956 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		CA3386C31F2CAB0400B52956 /* HealthKitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitService.swift; path = Services/HealthKitService.swift; sourceTree = "<group>"; };
 		CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatesHandler.swift; path = Utilities/DatesHandler.swift; sourceTree = "<group>"; };
 		CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitTargetViewController.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5405509F2EAA3AF835B3696 /* Pods_weightApp.framework in Frameworks */,
+				CA3386C11F2CAA6300B52956 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,7 @@
 		C661F6E95DA5EDFAE630477B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA3386C01F2CAA6300B52956 /* HealthKit.framework */,
 				30D332CDAD59C218F1B8635F /* Pods_weightApp.framework */,
 				E6EA520D7114675B8E3D747F /* Pods_weightAppTests.framework */,
 				8C78037EBC24542317D83EC9 /* Pods_weightAppUITests.framework */,
@@ -128,6 +135,14 @@
 				CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		CA3386C21F2CAAE700B52956 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA3386C31F2CAB0400B52956 /* HealthKitService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		CA90CA591F0F976700BFEBE8 = {
@@ -155,6 +170,8 @@
 		CA90CA641F0F976800BFEBE8 /* weightApp */ = {
 			isa = PBXGroup;
 			children = (
+				CA3386C21F2CAAE700B52956 /* Services */,
+				CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */,
 				CA0157461F0FB4A7006E40AF /* Utilities */,
 				CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */,
 				CAEA2E431F276D4600590875 /* StatusViewController.swift */,
@@ -280,7 +297,13 @@
 				TargetAttributes = {
 					CA90CA611F0F976700BFEBE8 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E95M86768V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					CA90CA781F0F976800BFEBE8 = {
 						CreatedOnToolsVersion = 8.1;
@@ -485,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */,
+				CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */,
 				CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
@@ -568,6 +592,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -618,6 +643,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -648,6 +674,8 @@
 			baseConfigurationReference = 88BDE107530184938EC7E799 /* Pods-weightApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = weightApp/weightApp.entitlements;
+				DEVELOPMENT_TEAM = E95M86768V;
 				INFOPLIST_FILE = weightApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightApp;
@@ -661,6 +689,8 @@
 			baseConfigurationReference = 2EC3E37A4A70FBA5D883EBD6 /* Pods-weightApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = weightApp/weightApp.entitlements;
+				DEVELOPMENT_TEAM = E95M86768V;
 				INFOPLIST_FILE = weightApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightApp;
