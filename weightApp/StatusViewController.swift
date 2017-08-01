@@ -12,13 +12,24 @@ class StatusViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        requestHealthKitData()
+        
+        PerformIfIsFirstLaunch()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func PerformIfIsFirstLaunch() {
+        let firstLaunch = UserDefaults.standard.bool(forKey: "hasBeenLaunchedBefore")
+        
+        if firstLaunch {
+            return
+        } else {
+            requestHealthKitData()
+            UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBefore")
+        }
     }
     
     func requestHealthKitData() {
