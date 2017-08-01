@@ -18,7 +18,7 @@ class StatusViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     func PerformIfIsFirstLaunch() {
@@ -28,29 +28,15 @@ class StatusViewController: UIViewController {
             return
             
         } else {
-            let healthKit = HealthKitService()
-            healthKit.authorizationHealthKit {(success, error) in
-                self.presentInitialNavigationVC()
-            }
-            
             UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBefore")
+            presentIntroductionVC()
         }
     }
     
-    func presentInitialNavigationVC() {
+    func presentIntroductionVC() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let initialNavigationVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
-        self.present(initialNavigationVC, animated: true, completion: nil)
+        let introductionVC = storyboard.instantiateViewController(withIdentifier: "IntroductionVC")
+        self.present(introductionVC, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

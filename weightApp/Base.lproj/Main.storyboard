@@ -9,6 +9,48 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Introduction View Controller-->
+        <scene sceneID="XwM-6p-PQI">
+            <objects>
+                <viewController storyboardIdentifier="IntroductionVC" id="6MK-Cv-4h1" customClass="IntroductionViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xhe-IM-cOh"/>
+                        <viewControllerLayoutGuide type="bottom" id="1sb-hF-fzU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E0t-fu-AjI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYB-Ro-RIQ">
+                                <rect key="frame" x="114" y="432" width="146" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Not use Health App">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sxB-Ks-jzb" kind="show" identifier="goToInitialStatus" id="I6R-4Y-N9l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73z-gE-a3t">
+                                <rect key="frame" x="114" y="363" width="146" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Access Health App">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AccessToHealthKit:" destination="6MK-Cv-4h1" eventType="touchUpInside" id="fWt-Bp-mvm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OME-YS-id2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="424.80000000000001" y="-727.28635682158927"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Obf-Gt-Zok">
             <objects>
@@ -23,7 +65,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQC-Ll-luT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="-755"/>
+            <point key="canvasLocation" x="1385" y="-727"/>
         </scene>
         <!--Init Status View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -183,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="-755"/>
+            <point key="canvasLocation" x="2358" y="-727"/>
         </scene>
         <!--Init Target View Controller-->
         <scene sceneID="b6K-CJ-d74">
@@ -293,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5q-WB-Ljl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="-755.17241379310349"/>
+            <point key="canvasLocation" x="3268" y="-727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cYW-lU-a2D">
