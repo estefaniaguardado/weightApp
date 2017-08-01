@@ -26,17 +26,14 @@ class StatusViewController: UIViewController {
         
         if firstLaunch {
             return
+            
         } else {
-            requestHealthKitData()
+            let healthKit = HealthKitService()
+            healthKit.authorizationHealthKit {(success, error) in
+                self.presentInitialNavigationVC()
+            }
+            
             UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBefore")
-        }
-    }
-    
-    func requestHealthKitData() {
-        let healthKit = HealthKitService()
-        
-        healthKit.authorizationHealthKit { (success, error) in
-            self.presentInitialNavigationVC()
         }
     }
     
