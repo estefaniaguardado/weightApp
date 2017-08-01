@@ -29,19 +29,12 @@ class InitStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        requestHealthKitData()
         weightTextField.text = "0.00"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func requestHealthKitData() {
-        let healthKit = HealthKitService()
-        
-        healthKit.authorizationHealthKit()
     }
     
     @IBAction func KilogramButtonSelected(_ sender: UIButton) {

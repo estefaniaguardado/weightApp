@@ -13,7 +13,7 @@ class HealthKitService {
 
     var healthKitStore:HKHealthStore! = nil
     
-    func authorizationHealthKit () {
+    func authorizationHealthKit (completion: ((_ success: Bool, _ error: NSError?) -> Void)!) {
         
         healthKitStore = {
             if HKHealthStore.isHealthDataAvailable() {
@@ -31,9 +31,11 @@ class HealthKitService {
                                     HK_bodyMass ?? "", HK_height ?? "")
         
         
-        healthKitStore.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) in
-            if !success {
-            print(error!)
+        healthKitStore.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) -> Void in
+            if success {
+                completion(true, error as NSError?)
+            } else {
+                completion(false, error as NSError?)
             }
         }
         
