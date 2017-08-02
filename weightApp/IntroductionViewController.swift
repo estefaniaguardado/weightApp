@@ -23,14 +23,15 @@ class IntroductionViewController: UIViewController {
     @IBAction func AccessToHealthKit(_ sender: UIButton) {
         let healthKit = HealthKitService()
         healthKit.authorizationHealthKit { (success, error) in
-            self.presentInitialNavigationVC()
+            self.presentInitStatusVC()
         }
     }
     
-    func presentInitialNavigationVC() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let initialNavigationVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
-        self.present(initialNavigationVC, animated: true, completion: nil)
+    func presentInitStatusVC() {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "initStatusVC") as! InitStatusViewController
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
+    
+    
 
 }

@@ -29,14 +29,14 @@ class StatusViewController: UIViewController {
             
         } else {
             UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBefore")
-            presentIntroductionVC()
+            presentInitialNavigationVC()
         }
     }
     
-    func presentIntroductionVC() {
+    func presentInitialNavigationVC() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let introductionVC = storyboard.instantiateViewController(withIdentifier: "IntroductionVC")
-        self.present(introductionVC, animated: true, completion: nil)
+        let initialNavigationVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
+        self.present(initialNavigationVC, animated: true, completion: nil)
     }
 
 }

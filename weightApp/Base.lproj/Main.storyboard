@@ -30,7 +30,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sxB-Ks-jzb" kind="show" identifier="goToInitialStatus" id="I6R-4Y-N9l"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="3pv-1B-ThD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73z-gE-a3t">
@@ -75,10 +75,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="x3i-e0-jRN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OME-YS-id2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="424.80000000000001" y="-727.28635682158927"/>
+            <point key="canvasLocation" x="1396" y="-727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Obf-Gt-Zok">
@@ -89,17 +90,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cgs-tu-oRu"/>
+                        <segue destination="6MK-Cv-4h1" kind="relationship" relationship="rootViewController" id="enb-MK-ICM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQC-Ll-luT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1385" y="-727"/>
+            <point key="canvasLocation" x="425" y="-727"/>
         </scene>
         <!--Init Status View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InitStatusViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="initStatusVC" id="BYZ-38-t0r" customClass="InitStatusViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
