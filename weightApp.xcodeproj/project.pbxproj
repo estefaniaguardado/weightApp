@@ -16,6 +16,7 @@
 		CA3386C11F2CAA6300B52956 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3386C01F2CAA6300B52956 /* HealthKit.framework */; };
 		CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3386C31F2CAB0400B52956 /* HealthKitService.swift */; };
 		CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */; };
+		CA6C72BC1F30B114005128E9 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6C72BB1F30B113005128E9 /* IntroductionViewController.swift */; };
 		CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
 		CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */; };
@@ -64,6 +65,7 @@
 		CA3386C01F2CAA6300B52956 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CA3386C31F2CAB0400B52956 /* HealthKitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitService.swift; path = Services/HealthKitService.swift; sourceTree = "<group>"; };
 		CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatesHandler.swift; path = Utilities/DatesHandler.swift; sourceTree = "<group>"; };
+		CA6C72BB1F30B113005128E9 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitTargetViewController.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				CA26C8CA1F222C280001F21E /* UserBusinessController.swift */,
 				CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */,
 				CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */,
+				CA6C72BB1F30B113005128E9 /* IntroductionViewController.swift */,
 				CA90CA691F0F976800BFEBE8 /* Main.storyboard */,
 				CA90CA6F1F0F976800BFEBE8 /* Assets.xcassets */,
 				CA90CA711F0F976800BFEBE8 /* LaunchScreen.storyboard */,
@@ -511,6 +514,7 @@
 				CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */,
 				CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
+				CA6C72BC1F30B114005128E9 /* IntroductionViewController.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
 				CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */,
 				CAEA2E481F277DCC00590875 /* CalculateTargetDate.swift in Sources */,

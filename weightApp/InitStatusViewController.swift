@@ -25,9 +25,12 @@ class InitStatusViewController: UIViewController {
     var isEnglishUnitsWeight = false
     var isEnglishUnitsHeight = false
     var genderSelected: String = ""
+    var hideBackButton = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = hideBackButton
         
         weightTextField.text = "0.00"
     }
