@@ -29,6 +29,7 @@ class IntroductionViewController: UIViewController {
     
     func presentInitStatusVC() {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "initStatusVC") as! InitStatusViewController
+        secondViewController.setValue(true, forKey: "hideBackButton")
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
