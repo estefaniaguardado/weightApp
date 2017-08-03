@@ -43,6 +43,11 @@ class HealthKitService {
     
     func readProfile()
     {
+        
+    }
+    
+    func getWeight (completion: @escaping (_ weight: HKQuantitySample?, _ error: NSError?) -> Void) -> Void {
+        
         guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass) else {
             print("Unable to create quantity type")
             return
@@ -53,27 +58,18 @@ class HealthKitService {
             query, results, error in
             
             if error != nil {
-                print(error as! NSError)
+                completion (nil, error as NSError?)
                 return
             }
             
-            guard let results = results else {
-                print("No results of query")
+            if results?.count != 0 {
+                let bodymass = results?[0] as? HKQuantitySample
+                completion(bodymass, nil)
+                return
+            } else {
+                completion(nil, error as NSError?)
                 return
             }
-            
-            if results.count == 0 {
-                print("Zero samples")
-                return
-            }
-            
-            guard let bodymass = results[0] as? HKQuantitySample else {
-                print("Type problem with weight")
-                return
-            }
-            
-            print(bodymass.quantity)
-            print(bodymass.quantityType)
         }
         
         self.healthKitStore.execute(weightQuery)
