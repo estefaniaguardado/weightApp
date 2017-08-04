@@ -22,9 +22,9 @@ class IntroductionViewController: UIViewController {
     
     @IBAction func AccessToHealthKit(_ sender: UIButton) {
         let healthKit = HealthKitService()
-        healthKit.accessHealthKit().then { (result) in
+        healthKit.accessHealthKit().then { result in
             self.presentInitStatusVC()
-        }.catch { (error) in
+        }.catch { error in
             print(error)
         }
         
@@ -35,7 +35,4 @@ class IntroductionViewController: UIViewController {
         secondViewController.setValue(true, forKey: "hideBackButton")
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
-    
-    
-
 }
