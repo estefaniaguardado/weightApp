@@ -11,25 +11,23 @@ import HealthKit
 import PromiseKit
 
 class HealthKitService {
-
-    var healthKitStore:HKHealthStore! = nil
+    private var healthKitStore:HKHealthStore?
     
-    func accessHealthKit() -> Promise <HKQuantitySample?> {
+    init() {
+        healthKitStore = HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil;
+    }
+    
+    func accessHealthKit() -> Promise<Double?>? {
+        if healthKitStore == nil { return nil }
+        
         return authorizationHealthKit()
             .then { success in self.getWeight() }
     }
     
     private func authorizationHealthKit() -> Promise<Bool> {
+        
         return Promise<Bool> { fulfill, reject in
-            
-            healthKitStore = {
-                if HKHealthStore.isHealthDataAvailable() {
-                    return HKHealthStore()
-                } else {
-                    return nil
-                }
-            }()
-            
+
             let HK_biologicalSex = HKCharacteristicType.characteristicType(forIdentifier: .biologicalSex)
             let HK_bodyMass = HKQuantityType.quantityType(forIdentifier: .bodyMass)
             let HK_height = HKQuantityType.quantityType(forIdentifier: .height)
@@ -37,8 +35,7 @@ class HealthKitService {
             let dataTypesToRead = NSSet(objects: HK_biologicalSex ?? "",
                                         HK_bodyMass ?? "", HK_height ?? "")
             
-            
-            healthKitStore.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) -> Void in
+            healthKitStore?.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) -> Void in
                 
                 guard error == nil else {
                     reject(error!)
@@ -51,9 +48,9 @@ class HealthKitService {
         
     }
     
-    private func getWeight() -> Promise<HKQuantitySample?> {
+    private func getWeight() -> Promise<Double?> {
 
-        return Promise<HKQuantitySample?> { fulfill, reject in
+        return Promise<Double?> { fulfill, reject in
             let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
             
             let weightQuery = HKSampleQuery(sampleType: quantityType!, predicate: nil, limit: 1, sortDescriptors: nil) {
@@ -65,11 +62,11 @@ class HealthKitService {
                 }
                 
                 let bodymass = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
-                fulfill(bodymass)
+                fulfill(bodymass?.quantity.doubleValue(for: HKUnit.gram()))
                 
             }
             
-            self.healthKitStore.execute(weightQuery)
+            self.healthKitStore?.execute(weightQuery)
         }
     }
     
