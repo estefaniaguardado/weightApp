@@ -14,18 +14,19 @@ class HealthKitService {
 
     var healthKitStore:HKHealthStore! = nil
     
-    func readProfile() {
+    func accessHealthKit() -> Promise<HKQuantitySample?> {
         
-        firstly{
-            authorizationHealthKit()
-            }.then{ (success) -> Promise<HKQuantitySample?> in
+        return Promise<HKQuantitySample?> { fulfill, reject in
+            
+            authorizationHealthKit() .then{ (success) -> Promise<HKQuantitySample?> in
                 self.getWeight()
-            }.then{ (weightResult) in
-                print(weightResult as Any)
+            }.then { (weightResult) in
+                fulfill(weightResult)
             }.catch { (error) in
-                print(error)
+                reject(error)
+            }
         }
-        
+    
     }
     
     private func authorizationHealthKit() -> Promise<Bool> {
