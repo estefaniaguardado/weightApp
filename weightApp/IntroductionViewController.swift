@@ -23,6 +23,7 @@ class IntroductionViewController: UIViewController {
     @IBAction func AccessToHealthKit(_ sender: UIButton) {
         let healthKit = HealthKitService()
         healthKit.authorizationHealthKit { (success, error) in
+            healthKit.readProfile()
             self.presentInitStatusVC()
         }
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 import HealthKit
+import PromiseKit
 
 class HealthKitService {
 
@@ -43,37 +44,35 @@ class HealthKitService {
     
     func readProfile()
     {
+        getWeight().then { (weightResult) in
+            print(weightResult as Any)
+        }.catch { (error) in
+            print(error)
+        }
         
     }
     
-    func getWeight (completion: @escaping (_ weight: HKQuantitySample?, _ error: NSError?) -> Void) -> Void {
-        
-        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass) else {
-            print("Unable to create quantity type")
-            return
-        }
-        
-        let weightQuery = HKSampleQuery(sampleType: quantityType, predicate: nil, limit: 1, sortDescriptors: nil) {
+    private func getWeight() -> Promise<HKQuantitySample?> {
+    
+        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
+
+        return Promise<HKQuantitySample?> { fulfill, reject in
             
-            query, results, error in
-            
-            if error != nil {
-                completion (nil, error as NSError?)
-                return
+            let weightQuery = HKSampleQuery(sampleType: quantityType!, predicate: nil, limit: 1, sortDescriptors: nil) {
+                query, results, error in
+                
+                guard error == nil else {
+                    reject(error!)
+                    return
+                }
+                
+                let bodymass = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
+                fulfill(bodymass)
+                
             }
             
-            if results?.count != 0 {
-                let bodymass = results?[0] as? HKQuantitySample
-                completion(bodymass, nil)
-                return
-            } else {
-                completion(nil, error as NSError?)
-                return
-            }
+            self.healthKitStore.execute(weightQuery)
         }
-        
-        self.healthKitStore.execute(weightQuery)
-        
     }
     
 }
