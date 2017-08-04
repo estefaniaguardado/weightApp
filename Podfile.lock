@@ -1,12 +1,25 @@
 PODS:
   - DatePickerDialog (1.1.7)
+  - PromiseKit (4.2.2):
+    - PromiseKit/Foundation (= 4.2.2)
+    - PromiseKit/QuartzCore (= 4.2.2)
+    - PromiseKit/UIKit (= 4.2.2)
+  - PromiseKit/CorePromise (4.2.2)
+  - PromiseKit/Foundation (4.2.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.2.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.2.2):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - DatePickerDialog
+  - PromiseKit (~> 4.0)
 
 SPEC CHECKSUMS:
   DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
+  PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
 
-PODFILE CHECKSUM: 27c22d087f621587614ef342aa0ae32335fc5675
+PODFILE CHECKSUM: 41c5d34e8c2d930d452d098dc5380f1f80ed29c7
 
 COCOAPODS: 1.2.1
