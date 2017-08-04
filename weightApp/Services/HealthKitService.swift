@@ -14,7 +14,7 @@ class HealthKitService {
 
     var healthKitStore:HKHealthStore! = nil
     
-    func authorizationHealthKit (completion: ((_ success: Bool, _ error: NSError?) -> Void)!) {
+    func authorizationHealthKit() -> Promise<Bool> {
         
         healthKitStore = {
             if HKHealthStore.isHealthDataAvailable() {
@@ -31,12 +31,13 @@ class HealthKitService {
         let dataTypesToRead = NSSet(objects: HK_biologicalSex ?? "",
                                     HK_bodyMass ?? "", HK_height ?? "")
         
-        
-        healthKitStore.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) -> Void in
-            if success {
-                completion(true, error as NSError?)
-            } else {
-                completion(false, error as NSError?)
+        return Promise<Bool> { fulfill, reject in
+            healthKitStore.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) -> Void in
+                if success {
+                    fulfill(success)
+                } else {
+                    reject(error!)
+                }
             }
         }
         
