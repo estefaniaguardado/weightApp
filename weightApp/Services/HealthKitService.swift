@@ -17,11 +17,12 @@ class HealthKitService {
         healthKitStore = HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil;
     }
     
-    func accessHealthKit() -> Promise<Double?>? {
+    func accessHealthKit() -> Promise<String?>? {
         if healthKitStore == nil { return nil }
         
         return authorizationHealthKit()
             .then { success in self.getWeight() }
+            .then { weight in self.getBiologicalSex()}
     }
     
     private func authorizationHealthKit() -> Promise<Bool> {
@@ -46,6 +47,30 @@ class HealthKitService {
             }
         }
         
+    }
+    
+    private func getBiologicalSex() -> Promise<String?> {
+        
+        return Promise<String?> { fulfill, reject in
+            
+            do{
+                if let biologicalSex = try healthKitStore?.biologicalSex() {
+                    switch biologicalSex.biologicalSex {
+                    case .female:
+                        return fulfill("Female")
+                    case .male:
+                        return fulfill("Male")
+                    case .notSet:
+                        return fulfill("notSet")
+                    default:
+                        return fulfill(nil)
+                    }
+                }
+            } catch {
+                reject(error)
+                return
+            }
+        }
     }
     
     private func getWeight() -> Promise<Double?> {
