@@ -24,15 +24,16 @@ class IntroductionViewController: UIViewController {
         
         let healthKit = HealthKitService()
         healthKit.accessHealthKit()?.then { result in
-            self.presentInitStatusVC()
+            self.presentInitStatusVC(initialData: result)
         }.catch { error in
             print(error)
         }
     }
     
-    func presentInitStatusVC() {
+    func presentInitStatusVC(initialData: User) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "initStatusVC") as! InitStatusViewController
         secondViewController.setValue(true, forKey: "hideBackButton")
+        secondViewController.userData = initialData
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }

@@ -26,18 +26,36 @@ class InitStatusViewController: UIViewController {
     var isEnglishUnitsHeight = false
     var genderSelected: String = ""
     var hideBackButton = false
+    var userData: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.hidesBackButton = hideBackButton
         
-        weightTextField.text = "0.00"
+        initDataValues()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initDataValues() {
+        weightTextField.text = userData.userWeight != nil ? String(format:"%.2f", userData.userWeight!) : "0.00"
+        heightTextField.text = userData.userHeight != nil ? String(format:"%.2f", userData.userHeight!) : "0.00"
+        genderSelected = userData.userBiologicalSex != nil ? userData.userBiologicalSex! : ""
+        
+        switch genderSelected {
+            case "female":
+                femaleButton.backgroundColor = .darkGray
+                femaleButton.setTitleColor(.white, for: .normal)
+            case "male":
+                maleButton.backgroundColor = .darkGray
+                maleButton.setTitleColor(.white, for: .normal)
+            default:
+                return
+        }
     }
     
     @IBAction func KilogramButtonSelected(_ sender: UIButton) {

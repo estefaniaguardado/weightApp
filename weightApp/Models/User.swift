@@ -13,6 +13,12 @@ struct User {
     var userWeight: Double?
     var userHeight: Double?
     
+    init() {
+        userBiologicalSex = nil
+        userWeight = nil
+        userHeight = nil
+    }
+    
     init(biologicalSex: String?, weight: Double?, height: Double?) {
         userBiologicalSex = biologicalSex
         userWeight = weight
