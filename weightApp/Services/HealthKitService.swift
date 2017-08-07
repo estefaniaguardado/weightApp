@@ -17,12 +17,13 @@ class HealthKitService {
         healthKitStore = HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil;
     }
     
-    func accessHealthKit() -> Promise<String?>? {
+    func accessHealthKit() -> Promise<Double?>? {
         if healthKitStore == nil { return nil }
         
         return authorizationHealthKit()
-            .then { success in self.getWeight() }
-            .then { weight in self.getBiologicalSex()}
+            .then { success in self.getBiologicalSex()}
+            .then { weight in self.getWeight() }
+            .then { height in self.getHeight() }
     }
     
     private func authorizationHealthKit() -> Promise<Bool> {
@@ -92,6 +93,28 @@ class HealthKitService {
             }
             
             self.healthKitStore?.execute(weightQuery)
+        }
+    }
+    
+    private func getHeight() -> Promise<Double?> {
+        
+        return Promise<Double?> { fulfill, reject in
+            let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
+            
+            let heightQuery = HKSampleQuery(sampleType: quantityType!, predicate: nil, limit: 1, sortDescriptors: nil) {
+                query, results, error in
+                
+                guard error == nil else {
+                    reject(error!)
+                    return
+                }
+                
+                let height = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
+                fulfill(height?.quantity.doubleValue(for: HKUnit.meter()))
+                
+            }
+            
+            self.healthKitStore?.execute(heightQuery)
         }
     }
     
