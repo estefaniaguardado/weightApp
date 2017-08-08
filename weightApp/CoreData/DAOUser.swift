@@ -48,13 +48,33 @@ class DAOUser {
         
     }
     
+    func createUser(data: User) {
+        
+        let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: managedObjectContext) as! UserCD
+        
+        user.setValuesForKeys(["biologicalSex": data.userBiologicalSex,
                                      "currentWeight": data.userWeight,
                                      "height": data.userHeight])
         
         do {
-            try managedContext.save()
+            try managedObjectContext.save()
         } catch let error as NSError {
             print("Could dont save: \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetchUser() -> User {
+        
+        let user = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            let fetchedUser = try managedObjectContext.fetch(user)
+            
+            return User.init(biologicalSex: fetchedUser.first?.value(forKey: "biologicalSex") as! String?,
+                             weight: fetchedUser.first?.value(forKey: "currentWeight") as! Double?,
+                             height: fetchedUser.first?.value(forKey: "height") as! Double?)
+        } catch {
+            fatalError("Failed to fetch user: \(error)")
         }
     }
     
