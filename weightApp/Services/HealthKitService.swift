@@ -12,9 +12,6 @@ import PromiseKit
 
 class HealthKitService {
     private var healthKitStore:HKHealthStore?
-    private var HK_resultHeight: Double?
-    private var HK_resultWeight: Double?
-    private var HK_resultBiologicalSex: String?
     
     init() {
         healthKitStore = HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil;
@@ -22,12 +19,20 @@ class HealthKitService {
     
     func accessHealthKit() -> Promise<User>? {
         if healthKitStore == nil { return nil }
+        var user = User()
         
         return authorizationHealthKit()
-            .then { success in self.getBiologicalSex() }
-            .then { biologicaSex in self.getWeight() }
-            .then { weight in self.getHeight() }
-            .then { height in self.getUserData() }
+            .then { success -> Promise<String?> in
+                return self.getBiologicalSex() }
+            .then { biologicalSex -> Promise<Double?> in
+                user.userBiologicalSex = biologicalSex
+                return self.getWeight() }
+            .then { weight -> Promise<Double?> in
+                user.userWeight = weight
+                return self.getHeight() }
+            .then { height -> User in
+                user.userHeight = height
+                return user }
     }
     
     private func authorizationHealthKit() -> Promise<Bool> {
@@ -62,14 +67,9 @@ class HealthKitService {
                 if let biologicalSex = try healthKitStore?.biologicalSex() {
                     switch biologicalSex.biologicalSex {
                     case .female:
-                        HK_resultBiologicalSex = "female"
-                        return fulfill(HK_resultBiologicalSex)
+                        return fulfill("female")
                     case .male:
-                        HK_resultBiologicalSex = "male"
-                        return fulfill(HK_resultBiologicalSex)
-                    case .notSet:
-                        HK_resultBiologicalSex = nil
-                        return fulfill(HK_resultBiologicalSex)
+                        return fulfill("male")
                     default:
                         return fulfill(nil)
                     }
@@ -95,8 +95,7 @@ class HealthKitService {
                 }
                 
                 let bodymass = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
-                self.HK_resultWeight = bodymass?.quantity.doubleValue(for: HKUnit.gram())
-                fulfill(self.HK_resultWeight)
+                fulfill(bodymass?.quantity.doubleValue(for: HKUnit.gram()))
                 
             }
             
@@ -118,21 +117,11 @@ class HealthKitService {
                 }
                 
                 let heightResult = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
-                self.HK_resultHeight = heightResult?.quantity.doubleValue(for: HKUnit.meter())
-                fulfill(self.HK_resultHeight)
+                fulfill(heightResult?.quantity.doubleValue(for: HKUnit.meter()))
                 
             }
             
             self.healthKitStore?.execute(heightQuery)
-        }
-    }
-    
-    private func getUserData() -> Promise<User> {
-        
-        return Promise<User>{ fulfill, reject in
-            fulfill(User.init(biologicalSex: HK_resultBiologicalSex,
-                              weight: HK_resultWeight,
-                              height: HK_resultHeight))
         }
     }
     
