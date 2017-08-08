@@ -11,18 +11,43 @@ import CoreData
 
 class DAOUser {
     
-    func saveUserData(data: User) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
+    var managedObjectContext: NSManagedObjectContext
+    
+    init(completionClosure: @escaping () -> ()) {
+        
+        guard let modelURL = Bundle.main.url(forResource: "weightApp", withExtension:"momd") else {
+            fatalError("Error loading model from bundle")
+        }
+
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Error initializing mom from: \(modelURL)")
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
         
-        let entity = NSEntityDescription.entity(forEntityName: "UserData", in: managedContext)!
+        managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = psc
         
-        let repository = NSManagedObject.init(entity: entity, insertInto: managedContext)
+        let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+        queue.async {
+            
+            guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
+                fatalError("Unable to resolve document directory")
+            }
+            
+            let storeURL = docURL.appendingPathComponent("weightApp.sqlite")
+            
+            do {
+                try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
+                DispatchQueue.main.sync(execute: completionClosure)
+                
+            } catch {
+                fatalError("Error migrating store: \(error)")
+            }
+        }
         
-        repository.setValuesForKeys(["biologicalSex": data.userBiologicalSex,
+    }
+    
                                      "currentWeight": data.userWeight,
                                      "height": data.userHeight])
         
