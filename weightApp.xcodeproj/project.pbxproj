@@ -12,6 +12,7 @@
 		C5405509F2EAA3AF835B3696 /* Pods_weightApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D332CDAD59C218F1B8635F /* Pods_weightApp.framework */; };
 		CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */; };
 		CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */; };
+		CA12EF341F39FEFB00C6477D /* DAOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12EF331F39FEFB00C6477D /* DAOUser.swift */; };
 		CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA26C8CA1F222C280001F21E /* UserBusinessController.swift */; };
 		CA3386C11F2CAA6300B52956 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3386C01F2CAA6300B52956 /* HealthKit.framework */; };
 		CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3386C31F2CAB0400B52956 /* HealthKitService.swift */; };
@@ -61,6 +62,7 @@
 		C50AB08B3312D391B96F67FA /* Pods-weightAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weightAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weightAppUITests/Pods-weightAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idealWeightLoretzTest.swift; sourceTree = "<group>"; };
 		CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdealWeightByLoretz.swift; path = Utilities/IdealWeightByLoretz.swift; sourceTree = "<group>"; };
+		CA12EF331F39FEFB00C6477D /* DAOUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAOUser.swift; path = CoreData/DAOUser.swift; sourceTree = "<group>"; };
 		CA26C8CA1F222C280001F21E /* UserBusinessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBusinessController.swift; sourceTree = "<group>"; };
 		CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weightApp.entitlements; sourceTree = "<group>"; };
 		CA3386C01F2CAA6300B52956 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -141,6 +143,14 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		CA12EF321F39FED100C6477D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CA12EF331F39FEFB00C6477D /* DAOUser.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		CA3386C21F2CAAE700B52956 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 		CA90CA641F0F976800BFEBE8 /* weightApp */ = {
 			isa = PBXGroup;
 			children = (
+				CA12EF321F39FED100C6477D /* CoreData */,
 				CA749F1E1F38B0B3007DB162 /* Models */,
 				CA3386C21F2CAAE700B52956 /* Services */,
 				CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */,
@@ -534,6 +545,7 @@
 				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA26C8CB1F222C280001F21E /* UserBusinessController.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
+				CA12EF341F39FEFB00C6477D /* DAOUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
