@@ -9,20 +9,20 @@
 import Foundation
 
 struct User {
-    var userBiologicalSex: String?
-    var userWeight: Double?
-    var userHeight: Double?
+    var userBiologicalSex: String!
+    var userWeight: Double!
+    var userHeight: Double!
     
     init() {
-        userBiologicalSex = nil
-        userWeight = nil
-        userHeight = nil
+        userBiologicalSex = "notSet"
+        userWeight = 0.0
+        userHeight = 0.0
     }
     
     init(biologicalSex: String?, weight: Double?, height: Double?) {
-        userBiologicalSex = biologicalSex
-        userWeight = weight
-        userHeight = height
+        userBiologicalSex = biologicalSex != nil ? biologicalSex : "notSet"
+        userWeight = weight != nil ? weight : 0.0
+        userHeight = height != nil ? height : 0.0
     }
     
 }

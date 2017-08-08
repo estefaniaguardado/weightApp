@@ -42,9 +42,9 @@ class InitStatusViewController: UIViewController {
     }
     
     func initDataValues() {
-        weightTextField.text = userData.userWeight != nil ? String(format:"%.2f", userData.userWeight!) : "0.00"
-        heightTextField.text = userData.userHeight != nil ? String(format:"%.2f", userData.userHeight!) : "0.00"
-        genderSelected = userData.userBiologicalSex != nil ? userData.userBiologicalSex! : ""
+        weightTextField.text = String(format:"%.2f", userData.userWeight!)
+        heightTextField.text = String(format:"%.2f", userData.userHeight!)
+        genderSelected = userData.userBiologicalSex!
         
         switch genderSelected {
             case "female":
