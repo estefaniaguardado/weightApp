@@ -21,18 +21,19 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func AccessToHealthKit(_ sender: UIButton) {
+        
         let healthKit = HealthKitService()
-        healthKit.authorizationHealthKit { (success, error) in
-            self.presentInitStatusVC()
+        healthKit.accessHealthKit()?.then { result in
+            self.presentInitStatusVC(initialData: result)
+        }.catch { error in
+            print(error)
         }
     }
     
-    func presentInitStatusVC() {
+    func presentInitStatusVC(initialData: User) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "initStatusVC") as! InitStatusViewController
-        secondViewController.setValue(true, forKey: "hideBackButton")
+        secondViewController.hideBackButton = true
+        secondViewController.userData = initialData
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
-    
-    
-
 }

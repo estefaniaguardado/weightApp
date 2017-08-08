@@ -17,6 +17,7 @@
 		CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3386C31F2CAB0400B52956 /* HealthKitService.swift */; };
 		CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */; };
 		CA6C72BC1F30B114005128E9 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6C72BB1F30B113005128E9 /* IntroductionViewController.swift */; };
+		CA749F201F38B0EF007DB162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA749F1F1F38B0EF007DB162 /* User.swift */; };
 		CA7CCAE71F20FF6F00223692 /* InitTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
 		CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA671F0F976800BFEBE8 /* InitStatusViewController.swift */; };
@@ -66,6 +67,7 @@
 		CA3386C31F2CAB0400B52956 /* HealthKitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitService.swift; path = Services/HealthKitService.swift; sourceTree = "<group>"; };
 		CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatesHandler.swift; path = Utilities/DatesHandler.swift; sourceTree = "<group>"; };
 		CA6C72BB1F30B113005128E9 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		CA749F1F1F38B0EF007DB162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		CA7CCAE61F20FF6F00223692 /* InitTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitTargetViewController.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		CA749F1E1F38B0B3007DB162 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA749F1F1F38B0EF007DB162 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		CA90CA591F0F976700BFEBE8 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +182,7 @@
 		CA90CA641F0F976800BFEBE8 /* weightApp */ = {
 			isa = PBXGroup;
 			children = (
+				CA749F1E1F38B0B3007DB162 /* Models */,
 				CA3386C21F2CAAE700B52956 /* Services */,
 				CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */,
 				CA0157461F0FB4A7006E40AF /* Utilities */,
@@ -510,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA749F201F38B0EF007DB162 /* User.swift in Sources */,
 				CAEA2E441F276D4600590875 /* StatusViewController.swift in Sources */,
 				CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */,
 				CA90CA681F0F976800BFEBE8 /* InitStatusViewController.swift in Sources */,
