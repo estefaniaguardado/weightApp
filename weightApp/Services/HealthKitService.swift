@@ -25,13 +25,13 @@ class HealthKitService {
             .then { success -> Promise<String?> in
                 return self.getBiologicalSex() }
             .then { biologicalSex -> Promise<Double?> in
-                user.userBiologicalSex = biologicalSex
+                user.userBiologicalSex = biologicalSex != nil ? biologicalSex : "notSet"
                 return self.getWeight() }
             .then { weight -> Promise<Double?> in
-                user.userWeight = weight
+                user.userWeight = weight != nil ? weight : 0.0
                 return self.getHeight() }
             .then { height -> User in
-                user.userHeight = height
+                user.userHeight = height != nil ? height : 0.0
                 return user }
     }
     
