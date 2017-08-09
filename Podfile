@@ -6,6 +6,7 @@ target 'weightApp' do
   use_frameworks!
   pod 'DatePickerDialog'
   pod 'PromiseKit', '~> 4.0'
+  pod 'Typhoon'
   # Pods for weightApp
 
   target 'weightAppTests' do
