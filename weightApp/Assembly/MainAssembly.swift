@@ -17,7 +17,7 @@ class MainAssembly: TyphoonAssembly {
         return TyphoonDefinition.withClass(IntroductionViewController.self, configuration: {
             (definition) in
             
-            definition?.injectProperty(Selector!.init("healthKit"), with: self.healthKitService())
+            definition?.injectProperty(Selector(("healthKit")), with: self.healthKitService())
             
             definition?.scope = TyphoonScope.singleton
         }) as AnyObject
@@ -28,7 +28,7 @@ class MainAssembly: TyphoonAssembly {
         return TyphoonDefinition.withClass(HealthKitService.self, configuration: {
             (definition) in
             
-            definition?.injectProperty(Selector!.init("healthKitStore"), with: self.healthStore())
+            definition?.injectProperty(Selector(("healthKitStore")), with: self.healthStore())
             
             definition?.scope = TyphoonScope.lazySingleton
         }) as AnyObject
