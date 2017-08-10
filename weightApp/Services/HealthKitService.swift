@@ -10,12 +10,9 @@ import Foundation
 import HealthKit
 import PromiseKit
 
-class HealthKitService {
-    private var healthKitStore:HKHealthStore?
+class HealthKitService: NSObject {
     
-    init() {
-        healthKitStore = HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil;
-    }
+    var healthKitStore:HKHealthStore?
     
     func accessHealthKit() -> Promise<User>? {
         if healthKitStore == nil { return nil }
