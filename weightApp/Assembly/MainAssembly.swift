@@ -39,9 +39,11 @@ class MainAssembly: TyphoonAssembly {
         return TyphoonDefinition.withClass(HKHealthStore.self, configuration: {
             (definition) in
             
-            definition?.useInitializer(Selector("isHealthDataAvailable"))
-            
-            definition?.scope = TyphoonScope.lazySingleton
+            if HKHealthStore.isHealthDataAvailable() {
+                definition?.useInitializer(#selector(HKHealthStore.init))
+                definition?.scope = TyphoonScope.lazySingleton
+            }
+
         }) as AnyObject
     }
     
