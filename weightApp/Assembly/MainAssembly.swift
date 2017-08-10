@@ -12,6 +12,17 @@ import Typhoon
 
 class MainAssembly: TyphoonAssembly {
     
+    public dynamic func introductionVC () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(IntroductionViewController.self, configuration: {
+            (definition) in
+            
+            definition?.injectProperty(Selector!.init("healthKit"), with: self.healthKitService())
+            
+            definition?.scope = TyphoonScope.singleton
+        }) as AnyObject
+    }
+    
     public dynamic func healthKitService () -> AnyObject {
     
         return TyphoonDefinition.withClass(HealthKitService.self, configuration: {
