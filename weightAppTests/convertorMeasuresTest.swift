@@ -58,9 +58,9 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertNotEqual(result, 44680)
     }
     
-    func testOneMeterIsEqualTo100Centimeters() {
-        let result = convertor.metersToCentimeters(quantity: 1.0, decimals: 2)
-        XCTAssertEqual(result, 100.00)
+    func test2MeterIsEqualTo100Centimeters() {
+        let result = convertor.metersToCentimeters(quantity: 2.0)
+        XCTAssertEqual(result, 200)
     }
     
     func testOneCentimeterIsEqualToPoint0010Meters() {
