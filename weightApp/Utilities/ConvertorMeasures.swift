@@ -17,9 +17,10 @@ extension Float {
 
 class ConvertorMeasure{
 
-    func feetToCentimeters(quantity: Float, decimals: Int) -> Float {
-        let centimeters = quantity * 30.48
-        return centimeters.roundTo(places: decimals)
+    
+    func feetToCentimeters(quantity: Float) -> Int {
+        let meters = quantity * 30.48
+        return Int(meters.rounded())
     }
     
     func centimetersToFeets(quantity: Float, decimals: Int) -> Float {

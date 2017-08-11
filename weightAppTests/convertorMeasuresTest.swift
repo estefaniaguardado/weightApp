@@ -23,19 +23,19 @@ class convertorMeasuresTest: XCTestCase {
         super.tearDown()
     }
     
-    func testOneFeetIsEqualTo30Point48Centimeters() {
-        let result = convertor.feetToCentimeters(quantity: 1.0, decimals: 2)
-        XCTAssertEqual(result, 30.48)
+    func testOneFeetIsEqualTo30CentimetersRounded() { //30.48cm
+        let result = convertor.feetToCentimeters(quantity: 1.0)
+        XCTAssertEqual(result, 30)
     }
     
-    func testFourFeetIsEqualTo121Point92Centimeters() {
-        let result = convertor.feetToCentimeters(quantity: 4.0, decimals: 2)
-        XCTAssertEqual(result, 121.92)
+    func testFourFeetIsEqualTo122CentimetersRounded() { //121.92cm
+        let result = convertor.feetToCentimeters(quantity: 4.0)
+        XCTAssertEqual(result, 122)
     }
     
-    func test6Point5FeetIsEqualTo198Point12Centimeters() {
-        let result = convertor.feetToCentimeters(quantity: 6.5, decimals: 2)
-        XCTAssertEqual(result, 198.12)
+    func test6Point5FeetIsEqualTo198CentimetersRounded() { //198.12cm
+        let result = convertor.feetToCentimeters(quantity: 6.5)
+        XCTAssertEqual(result, 198)
     }
     
     func test156Point97CentimeterIsNotEqualTo5Point14Feets() {
