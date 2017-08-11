@@ -11,7 +11,7 @@ import Foundation
 class CalculateTargets {
     
     let dateHandler = DatesHandler()
-    var idealWeightByLoretz: IdealWeightByLoretz!
+    var idealWeightByLoretz = IdealWeightByLoretz()
     let weightInGramsToLosePerWeek: Float = 0.453
     
     func kilosToWeeks(quantity: Int) -> Int {
