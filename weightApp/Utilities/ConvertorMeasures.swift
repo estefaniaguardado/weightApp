@@ -28,9 +28,9 @@ class ConvertorMeasure{
         return Int(feets.rounded())
     }
     
-    func poundsToKilograms(quantity: Float, decimals: Int) -> Float{
+    func poundsToGrams(quantity: Float) -> Int {
         let kilos = quantity * 0.453592
-        return kilos.roundTo(places: decimals)
+        return kilosToGrams(quantity: kilos)
     }
     
     func kilogramsToPounds(quantity: Float, decimals: Int) -> Float {
@@ -48,9 +48,9 @@ class ConvertorMeasure{
         return meters.roundTo(places: decimals)
     }
     
-    func kilosToGrams(quantity: Float, decimals: Int) -> Float {
+    func kilosToGrams(quantity: Float) -> Int {
         let grams = quantity * 1000.0
-        return grams.roundTo(places: decimals)
+        return Int(grams.rounded())
     }
     
     func gramsToKilos(quantity: Float, decimals: Int) -> Float {

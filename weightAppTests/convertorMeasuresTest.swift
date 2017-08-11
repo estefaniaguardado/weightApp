@@ -53,24 +53,24 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertEqual(result, 6)
     }
     
-    func testOnePoundIsEqualToPoint4536Kilograms() {
-        let result = convertor.poundsToKilograms(quantity: 1.0, decimals: 4)
-        XCTAssertEqual(result, 0.4536)
+    func testOnePoundIsEqualTo454GramsRounded() { //453.59gr
+        let result = convertor.poundsToGrams(quantity: 1.0)
+        XCTAssertEqual(result, 454)
     }
     
-    func test4Point56PoundsIsEqualTo2Point0684Kilograms() {
-        let result = convertor.poundsToKilograms(quantity: 4.56, decimals: 4)
-        XCTAssertEqual(result, 2.0684)
+    func test4Point56PoundsIsEqualTo2068GramsRounded() { // 2068.4gr
+        let result = convertor.poundsToGrams(quantity: 4.56)
+        XCTAssertEqual(result, 2068)
     }
     
-    func test100Point69PoundsIsNotEqualTo45Point6721Kilograms() {
-        let result = convertor.poundsToKilograms(quantity:100.69, decimals: 4)
-        XCTAssertNotEqual(result, 45.6721)
+    func test100Point69PoundsIsEqualTo45672GramsRounded() { //45672.1gr
+        let result = convertor.poundsToGrams(quantity:100.69)
+        XCTAssertEqual(result, 45672)
     }
     
-    func test98Point52PoundIsNotEqualTo44Point68Kilograms() {
-        let result = convertor.poundsToKilograms(quantity: 98.52, decimals: 2)
-        XCTAssertNotEqual(result, 44.68)
+    func test98Point52PoundIsNotEqualTo44680Grams() { //44680gr
+        let result = convertor.poundsToGrams(quantity: 98.52)
+        XCTAssertNotEqual(result, 44680)
     }
     
     func testOneKilogramIsEqualTo2Point2046Pounds() {
@@ -109,13 +109,13 @@ class convertorMeasuresTest: XCTestCase {
     }
     
     func testOneKiloIsEqualTo1000Grams() {
-        let result = convertor.kilosToGrams(quantity: 1.0, decimals: 2)
-        XCTAssertEqual(result, 1000.00)
+        let result = convertor.kilosToGrams(quantity: 1.0)
+        XCTAssertEqual(result, 1000)
     }
     
     func test100Point8KiloIsEqualTo100800Grams() {
-        let result = convertor.kilosToGrams(quantity: 100.8, decimals: 2)
-        XCTAssertEqual(result, 100800.00)
+        let result = convertor.kilosToGrams(quantity: 100.8)
+        XCTAssertEqual(result, 100800)
     }
     
     func testOneGramIsEqualToPoint001Kilos() {
