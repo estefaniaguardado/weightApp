@@ -38,21 +38,6 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertEqual(result, 198)
     }
     
-    func test156CentimeterIsEqualTo5FeetsRounded() { //5.11fts
-        let result = convertor.centimetersToFeets(quantity: 156)
-        XCTAssertEqual(result, 5)
-    }
-    
-    func testOneCentimeterIsEqualTo0FeetsRounded() { //0.03fts
-        let result = convertor.centimetersToFeets(quantity: 1)
-        XCTAssertEqual(result, 0)
-    }
-    
-    func test172CentimeterIsEqualTo6FeetsRounded() { //5.64fts
-        let result = convertor.centimetersToFeets(quantity: 172)
-        XCTAssertEqual(result, 6)
-    }
-    
     func testOnePoundIsEqualTo454GramsRounded() { //453.59gr
         let result = convertor.poundsToGrams(quantity: 1.0)
         XCTAssertEqual(result, 454)
@@ -71,26 +56,6 @@ class convertorMeasuresTest: XCTestCase {
     func test98Point52PoundIsNotEqualTo44680Grams() { //44680gr
         let result = convertor.poundsToGrams(quantity: 98.52)
         XCTAssertNotEqual(result, 44680)
-    }
-    
-    func testOneKilogramIsEqualTo2Point2046Pounds() {
-        let result = convertor.kilogramsToPounds(quantity: 1.0, decimals: 4)
-        XCTAssertEqual(result, 2.2046)
-    }
-    
-    func test100Point59KilogramsIsEqualTo221Point7627Pounds() {
-        let result = convertor.kilogramsToPounds(quantity: 100.59, decimals: 4)
-        XCTAssertEqual(result, 221.7627)
-    }
-    
-    func test78Point98KilogramsIsNotEqualTo172Point1208Pounds() {
-        let result = convertor.kilogramsToPounds(quantity: 78.98, decimals: 4)
-        XCTAssertNotEqual(result, 174.1208)
-    }
-    
-    func test87Point56KilogramIsNotEqualTo192Point99Pounds() {
-        let result = convertor.kilogramsToPounds(quantity: 87.56, decimals: 2)
-        XCTAssertNotEqual(result, 192.99)
     }
     
     func testOneMeterIsEqualTo100Centimeters() {
