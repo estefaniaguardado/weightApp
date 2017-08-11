@@ -8,31 +8,17 @@
 
 import Foundation
 
-enum Gender {
-    case male, female
-}
-
 class IdealWeightByLoretz{
-
-    var gender: Gender
-    var height: Float
     
-    let convertor = ConvertorMeasure()
-
-    init(user: Gender, userHeight: Float) {
-        gender = user
-        height = convertor.metersToCentimeters(quantity: userHeight, decimals: 2)
-    }
-    
-    func calculateIdealWeight() -> Float {
+    func calculateIdealWeight(userGender: String, userHeight: Int) -> Int {
         
-        if gender == Gender.female {
-            let formulaLoretzToFemale = (height - 100.0) - ((height - 150) / 2)
+        if userGender == "female" {
+            let formulaLoretzToFemale = (userHeight - 100) - ((userHeight - 150) / 2)
             return formulaLoretzToFemale
         }
         
-        if gender == Gender.male {
-            let formulaLoretzToMale = (height - 100.0) - ((height - 150) / 4)
+        if userGender == "male" {
+            let formulaLoretzToMale = (userHeight - 100) - ((userHeight - 150) / 4)
             return formulaLoretzToMale
         }
         

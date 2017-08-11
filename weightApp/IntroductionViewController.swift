@@ -34,7 +34,7 @@ class IntroductionViewController: UIViewController {
     func presentInitStatusVC(initialData: User) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "initStatusVC") as! InitStatusViewController
         secondViewController.hideBackButton = true
-        secondViewController.userData = initialData
+        //TODO: secondViewController.userData = User.init()
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
