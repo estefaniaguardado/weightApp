@@ -62,15 +62,10 @@ class convertorMeasuresTest: XCTestCase {
         let result = convertor.metersToCentimeters(quantity: 2.0)
         XCTAssertEqual(result, 200)
     }
-    
-    func testOneCentimeterIsEqualToPoint0010Meters() {
-        let result = convertor.centimetersToMeters(quantity: 1.0, decimals:2)
-        XCTAssertEqual(result, 0.01)
-    }
-    
-    func test180CentimetersIsEqualTo1Point8Meters() {
-        let result = convertor.centimetersToMeters(quantity: 180.0, decimals:2)
-        XCTAssertEqual(result, 1.80)
+
+    func test180CentimetersIsEqualTo2MetersRounded () { //1.8mt
+        let result = convertor.centimetersToMeters(quantity: 180)
+        XCTAssertEqual(result, 2)
     }
     
     func testOneKiloIsEqualTo1000Grams() {
@@ -83,13 +78,8 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertEqual(result, 100800)
     }
     
-    func testOneGramIsEqualToPoint001Kilos() {
-        let result = convertor.gramsToKilos(quantity: 1.0, decimals: 3)
-        XCTAssertEqual(result, 0.001)
-    }
-    
-    func test196GramIsEqualToPoint19Kilos() {
-        let result = convertor.gramsToKilos(quantity: 196.0, decimals: 4)
-        XCTAssertEqual(result, 0.1960)
+    func test1960GramIsEqualTo2KilosRounded() { //1.96kg
+        let result = convertor.gramsToKilos(quantity: 1960)
+        XCTAssertEqual(result, 2)
     }
 }
