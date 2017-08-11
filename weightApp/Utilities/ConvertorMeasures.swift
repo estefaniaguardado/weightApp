@@ -10,7 +10,6 @@ import Foundation
 
 class ConvertorMeasure{
 
-    
     func feetToCentimeters(quantity: Float) -> Int {
         let centimeters = quantity * 30.48
         return Int(centimeters.rounded())
