@@ -8,7 +8,7 @@
 
 import Foundation
 
-class IdealWeightByLoretz{
+class IdealWeightByLoretz: NSObject {
     
     func calculateIdealWeight(userGender: String, userHeight: Int) -> Int {
         

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ConvertorMeasure{
+class ConvertorMeasure: NSObject {
 
     func feetToCentimeters(quantity: Float) -> Int {
         let centimeters = quantity * 30.48

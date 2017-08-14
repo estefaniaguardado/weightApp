@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CalculateTargets {
+class CalculateTargets: NSObject {
     
     let dateHandler = DatesHandler()
     var idealWeightByLoretz = IdealWeightByLoretz()
