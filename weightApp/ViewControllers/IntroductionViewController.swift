@@ -9,6 +9,8 @@
 import UIKit
 
 class IntroductionViewController: UIViewController {
+    
+    var healthKit: HealthKitService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,6 @@ class IntroductionViewController: UIViewController {
     
     @IBAction func AccessToHealthKit(_ sender: UIButton) {
         
-        let healthKit = HealthKitService()
         healthKit.accessHealthKit()?.then { result in
             self.presentInitStatusVC(initialData: result)
         }.catch { error in
@@ -33,7 +34,7 @@ class IntroductionViewController: UIViewController {
     func presentInitStatusVC(initialData: User) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "initStatusVC") as! InitStatusViewController
         secondViewController.hideBackButton = true
-        secondViewController.userData = initialData
+        //TODO: secondViewController.userData = User.init()
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }

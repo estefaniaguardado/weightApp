@@ -24,14 +24,18 @@ class InitStatusViewController: UIViewController {
     
     var isEnglishUnitsWeight = false
     var isEnglishUnitsHeight = false
-    var genderSelected: String = ""
+    var genderSelected = "notSet"
     var hideBackButton = false
     var userData: User!
+    var convertorMeasure: ConvertorMeasure!
+    var calculateTargets: CalculateTargets!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.hidesBackButton = hideBackButton
+        
+        if userData == nil { userData = User.init() }
         
         initDataValues()
     }
@@ -163,27 +167,39 @@ class InitStatusViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToTargetWeight"{
-            //TODO : Data persistence #24
-            let unitWeightSelected = isEnglishUnitsWeight == true ? "pound" : "kilo"
-            let unitHeightSelected = isEnglishUnitsHeight == true ? "feet" : "meter"
-            let userBC = UserBusinessController.init(nameUser: nameTextField.text!,
-                                            genderUser: genderSelected,
-                                            weightUser: Float(weightTextField.text!)!,
-                                            unitWeight: unitWeightSelected,
-                                            heightUser: Float(heightTextField.text!)!,
-                                            unitHeight: unitHeightSelected)
             
             let initTargetVC = segue.destination as! InitTargetViewController
-            let targetWeight = userBC.getIdealWeightByLoretz()
-            initTargetVC.currentWeight = Float(weightTextField.text!)!
-            initTargetVC.targetWeight = targetWeight
+            initTargetVC.currentWeight = weightTextField.text!
             initTargetVC.height = heightTextField.text
-            initTargetVC.targetDate = userBC.getTargetDate(idealWeight: targetWeight)
-            initTargetVC.unitHeight = unitHeightSelected
-            initTargetVC.unitWeight = unitWeightSelected
+            let height = getHeight()
+            let targetWeight = calculateTargets.getTargetWeight(gender: genderSelected,
+                                                                height: height)
+            initTargetVC.targetWeight = String(targetWeight)
+            initTargetVC.targetDate = calculateTargets.getTargetDate(currentDate: Date(), kilos: targetWeight)
+            initTargetVC.unitHeight = isEnglishUnitsHeight == true ? "feet" : "meter"
+            initTargetVC.unitWeight = isEnglishUnitsWeight == true ? "pound" : "kilo"
             initTargetVC.gender = genderSelected
             initTargetVC.name = nameTextField.text!
         }
+    }
+    
+    func getCurrentWeight() -> Int {
+        
+        if isEnglishUnitsWeight {
+            let grams = convertorMeasure.poundsToGrams(quantity: Float(weightTextField.text!)!)
+            return convertorMeasure.gramsToKilos(quantity: Float(grams))
+        }
+        
+        return Int(weightTextField.text!)!
+    }
+    
+    func getHeight() -> Int {
+
+        if isEnglishUnitsHeight {
+            return convertorMeasure.feetToCentimeters(quantity: Float(heightTextField.text!)!)
+        }
+        
+        return convertorMeasure.metersToCentimeters(quantity: Float(heightTextField.text!)!)
     }
     
 }

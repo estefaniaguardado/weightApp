@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DatesHandler {
+class DatesHandler: NSObject {
     
     func createDateFrom(year: Int, month: Int, day: Int) -> Date {
         let calendar = Calendar.init(identifier: .gregorian)
