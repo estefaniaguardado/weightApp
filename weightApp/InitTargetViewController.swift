@@ -81,10 +81,8 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
         let newTargetWeight = Float(weightTextField.text!)!
         let actualTargetWeight = Float(targetWeight)!
         if  actualTargetWeight.isLess(than: newTargetWeight) {
-            
-            dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(actualTargetWeight)))
+            dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(newTargetWeight)))
             return
-        
         } else {
             alertIsLessWeightThanIdealWeight()
             weightTextField.text = String(targetWeight)
