@@ -79,4 +79,26 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
+    public dynamic func convertorMeasureUtility () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(ConvertorMeasure.self, configuration: {
+            (definition) in
+            
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
+    public dynamic func initStatusVC () -> AnyObject {
+    
+        return TyphoonDefinition.withClass(InitStatusViewController.self, configuration: {
+            (definition) in
+            
+            definition?.injectProperty(Selector(("calculateTargets")), with: self.calculateTargetsUtility())
+            definition?.injectProperty(Selector(("convertorMeasure")), with: self.convertorMeasureUtility())
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
 }
