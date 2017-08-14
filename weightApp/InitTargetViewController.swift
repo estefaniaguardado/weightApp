@@ -20,7 +20,7 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     var unitHeight: String!
     var gender: String!
     var name: String!
-    var calculateTargets = CalculateTargets()
+    var calculateTargets: CalculateTargets!
 
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!

@@ -101,4 +101,15 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
+    public dynamic func initTargetVC () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(InitTargetViewController.self, configuration: {
+            (definition) in
+            
+            definition?.injectProperty(Selector(("calculateTargets")), with: self.calculateTargetsUtility())
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
 }
