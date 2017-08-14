@@ -27,8 +27,8 @@ class InitStatusViewController: UIViewController {
     var genderSelected = "notSet"
     var hideBackButton = false
     var userData: User!
-    var convertorMeasure = ConvertorMeasure()
-    var calculateTargets = CalculateTargets()
+    var convertorMeasure: ConvertorMeasure!
+    var calculateTargets: CalculateTargets!
     
     override func viewDidLoad() {
         super.viewDidLoad()

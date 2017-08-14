@@ -47,4 +47,36 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
+    public dynamic func idealWeightByLoretzUtility () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(IdealWeightByLoretz.self, configuration: {
+            (definition) in
+            
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
+    public dynamic func datesHandlerUtility () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(DatesHandler.self, configuration: {
+            (definition) in
+            
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
+    public dynamic func calculateTargetsUtility () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(CalculateTargets.self, configuration: {
+            (definition) in
+            
+            definition?.injectProperty(Selector(("idealWeightByLoretz")), with: self.idealWeightByLoretzUtility())
+            definition?.injectProperty(Selector(("dateHandler")), with: self.datesHandlerUtility())
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
 }
