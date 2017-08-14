@@ -43,23 +43,19 @@ class HealthKitService: NSObject {
             let dataTypesToRead = NSSet(objects: HK_biologicalSex ?? "",
                                         HK_bodyMass ?? "", HK_height ?? "")
             
-            healthKitStore?.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) { (success, error) -> Void in
-                
+            healthKitStore?.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>) {
+                (success, error) -> Void in
                 guard error == nil else {
-                    reject(error!)
-                    return
+                    return reject(error!)
                 }
-                
                 fulfill(success)
             }
         }
-        
     }
     
     private func getBiologicalSex() -> Promise<String?> {
         
         return Promise<String?> { fulfill, reject in
-            
             do{
                 if let biologicalSex = try healthKitStore?.biologicalSex() {
                     switch biologicalSex.biologicalSex {
@@ -72,8 +68,7 @@ class HealthKitService: NSObject {
                     }
                 }
             } catch {
-                reject(error)
-                return
+                return reject(error)
             }
         }
     }
@@ -85,15 +80,11 @@ class HealthKitService: NSObject {
             
             let weightQuery = HKSampleQuery(sampleType: quantityType!, predicate: nil, limit: 1, sortDescriptors: nil) {
                 query, results, error in
-                
                 guard error == nil else {
-                    reject(error!)
-                    return
+                    return reject(error!)
                 }
-                
                 let bodymass = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
                 fulfill(bodymass?.quantity.doubleValue(for: HKUnit.gram()))
-                
             }
             
             self.healthKitStore?.execute(weightQuery)
@@ -107,15 +98,11 @@ class HealthKitService: NSObject {
             
             let heightQuery = HKSampleQuery(sampleType: quantityType!, predicate: nil, limit: 1, sortDescriptors: nil) {
                 query, results, error in
-                
                 guard error == nil else {
-                    reject(error!)
-                    return
+                    return reject(error!)
                 }
-                
                 let heightResult = (results?.count)! > 0 ? results?[0] as? HKQuantitySample : nil
                 fulfill(heightResult?.quantity.doubleValue(for: HKUnit.meter()))
-                
             }
             
             self.healthKitStore?.execute(heightQuery)
