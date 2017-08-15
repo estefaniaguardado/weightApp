@@ -18,23 +18,28 @@ class InitStatusViewController: UIViewController {
     @IBOutlet weak var kilogramButton: UIButton!
     @IBOutlet weak var poundButton: UIButton!
     
-    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var heightTextField: VSTextField!
     @IBOutlet weak var meterButton: UIButton!
     @IBOutlet weak var feetButton: UIButton!
     
     var isEnglishUnitsWeight = false
     var isEnglishUnitsHeight = false
     var genderSelected = "notSet"
-    var hideBackButton = false
-    var userData: User!
+        var userData: User!
     var convertorMeasure: ConvertorMeasure!
     var calculateTargets: CalculateTargets!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        weightTextField.setFormatting("###.##", replacementChar: "#")
+        heightTextField.setFormatting("#.##", replacementChar: "#")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if userData == nil { userData = User.init() }
-        navigationItem.hidesBackButton = hideBackButton
         initDataValues()
     }
     
@@ -43,9 +48,8 @@ class InitStatusViewController: UIViewController {
     }
     
     func initDataValues() {
-        weightTextField.setFormatting("###.##", replacementChar: "#")
         weightTextField.text = userData.userWeight.isZero ? "0" : String(format:"%.2f", userData.userWeight!)
-        heightTextField.text = String(format:"%.2f", userData.userHeight!)
+        heightTextField.text = userData.userHeight.isZero ? "0" : String(format:"%.2f", userData.userHeight!)
         genderSelected = userData.userBiologicalSex!
         
         switch genderSelected {
