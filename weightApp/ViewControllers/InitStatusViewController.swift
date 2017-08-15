@@ -14,7 +14,7 @@ class InitStatusViewController: UIViewController {
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     
-    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var weightTextField: VSTextField!
     @IBOutlet weak var kilogramButton: UIButton!
     @IBOutlet weak var poundButton: UIButton!
     
@@ -33,20 +33,18 @@ class InitStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.hidesBackButton = hideBackButton
-        
         if userData == nil { userData = User.init() }
-        
+        navigationItem.hidesBackButton = hideBackButton
         initDataValues()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func initDataValues() {
-        weightTextField.text = String(format:"%.2f", userData.userWeight!)
+        weightTextField.setFormatting("###.##", replacementChar: "#")
+        weightTextField.text = userData.userWeight.isZero ? "0" : String(format:"%.2f", userData.userWeight!)
         heightTextField.text = String(format:"%.2f", userData.userHeight!)
         genderSelected = userData.userBiologicalSex!
         

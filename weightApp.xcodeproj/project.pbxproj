@@ -19,6 +19,7 @@
 		CA494DAD1F41D18800550AF5 /* InitTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA494DA91F41D18800550AF5 /* InitTargetViewController.swift */; };
 		CA494DAE1F41D18800550AF5 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */; };
 		CA494DAF1F41D18800550AF5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA494DAB1F41D18800550AF5 /* StatusViewController.swift */; };
+		CA494DB41F42000E00550AF5 /* VSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA494DB31F42000E00550AF5 /* VSTextField.swift */; };
 		CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */; };
 		CA749F201F38B0EF007DB162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA749F1F1F38B0EF007DB162 /* User.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		CA494DA91F41D18800550AF5 /* InitTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitTargetViewController.swift; path = ViewControllers/InitTargetViewController.swift; sourceTree = "<group>"; };
 		CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroductionViewController.swift; path = ViewControllers/IntroductionViewController.swift; sourceTree = "<group>"; };
 		CA494DAB1F41D18800550AF5 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusViewController.swift; path = ViewControllers/StatusViewController.swift; sourceTree = "<group>"; };
+		CA494DB31F42000E00550AF5 /* VSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VSTextField.swift; path = Artifacts/VSTextField.swift; sourceTree = "<group>"; };
 		CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatesHandler.swift; path = Utilities/DatesHandler.swift; sourceTree = "<group>"; };
 		CA749F1F1F38B0EF007DB162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		CA494DB21F41FFC600550AF5 /* Artifacts */ = {
+			isa = PBXGroup;
+			children = (
+				CA494DB31F42000E00550AF5 /* VSTextField.swift */,
+			);
+			name = Artifacts;
+			sourceTree = "<group>";
+		};
 		CA749F1E1F38B0B3007DB162 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +215,7 @@
 			children = (
 				CA9917EB1F3C9E1000B8E457 /* Assembly */,
 				CA494DA71F41D13100550AF5 /* ViewControllers */,
+				CA494DB21F41FFC600550AF5 /* Artifacts */,
 				CA12EF321F39FED100C6477D /* CoreData */,
 				CA749F1E1F38B0B3007DB162 /* Models */,
 				CA3386C21F2CAAE700B52956 /* Services */,
@@ -577,6 +588,7 @@
 				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
 				CA494DAF1F41D18800550AF5 /* StatusViewController.swift in Sources */,
+				CA494DB41F42000E00550AF5 /* VSTextField.swift in Sources */,
 				CA12EF341F39FEFB00C6477D /* DAOUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
