@@ -74,7 +74,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
         switch textField {
         case weightTextField:
             weightTextField.text = ""
@@ -83,8 +82,41 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         default:
             return true
         }
-        
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.isEqual(weightTextField) {
+            if textField.text == "" && (string == "0") {
+            return false
+            }
+        }
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.isEqual(weightTextField) {
+            let quantityTextField = weightTextField.text != "" ? Int(weightTextField.text!)! : 0
+            let lenghtWeightString = String(quantityTextField).characters.count
+            let isValidWeight = lenghtWeightString > 1 && quantityTextField > 10 ? true : false
+            if isValidWeight  {
+                weightTextField.text = String(quantityTextField)
+                return true
+            } else {
+                self.alertInvalidInformation()
+                weightTextField.text = ""
+                return false
+            }
+        }
+        return true
+    }
+    
+    func alertInvalidInformation() {
+        let alertController = UIAlertController(title: "Invalid Information", message:
+            "Complete correctily the fields.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func KilogramButtonSelected(_ sender: UIButton) {
