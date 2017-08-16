@@ -36,6 +36,26 @@ class convertorMeasuresTest: XCTestCase {
         XCTAssertEqual(result, 198)
     }
     
+    func test6Point5FeetIsEqualTo78Inches() {
+        let result = convertor.feetToInches(quantity: 6.5)
+        XCTAssertEqual(result, 78)
+    }
+    
+    func test78InchesIsEqualTo198CentimetersRounded(){
+        let result = convertor.inchesToCentimeters(quantity: 78)
+        XCTAssertEqual(result, 198)
+    }
+    
+    func test1Point98FeetsIsEqualTo24InchesRounde(){ //23.76in
+        let result = convertor.feetToInches(quantity: 1.98)
+        XCTAssertEqual(result, 24)
+    }
+    
+    func test24InchesTo61CentimetersRounded() { //60.96cm
+        let result = convertor.inchesToCentimeters(quantity: 24)
+        XCTAssertEqual(result, 61)
+    }
+    
     func testOnePoundIsEqualTo454GramsRounded() { //453.59gr
         let result = convertor.poundsToGrams(quantity: 1.0)
         XCTAssertEqual(result, 454)

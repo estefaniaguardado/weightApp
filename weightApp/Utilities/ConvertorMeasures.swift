@@ -15,6 +15,16 @@ class ConvertorMeasure: NSObject {
         return Int(centimeters.rounded())
     }
     
+    func feetToInches(quantity: Float) -> Int {
+        let feets = quantity * 12
+        return Int(feets.rounded())
+    }
+    
+    func inchesToCentimeters(quantity: Int) -> Int {
+        let centimeters = Float(quantity) * 2.54
+        return Int(centimeters.rounded())
+    }
+    
     func poundsToGrams(quantity: Float) -> Int {
         let kilos = quantity * 0.453592
         return kilosToGrams(quantity: kilos)
