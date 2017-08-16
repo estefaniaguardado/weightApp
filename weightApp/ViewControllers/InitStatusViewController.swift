@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitStatusViewController: UIViewController {
+class InitStatusViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var maleButton: UIButton!
@@ -32,6 +32,11 @@ class InitStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        weightTextField.delegate = self
+        heightTextField.delegate = self
         weightTextField.setFormatting("###.##", replacementChar: "#")
         heightTextField.setFormatting("#.##", replacementChar: "#")
     }
@@ -45,6 +50,10 @@ class InitStatusViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func initDataValues() {
@@ -62,6 +71,20 @@ class InitStatusViewController: UIViewController {
             default:
                 return
         }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        switch textField {
+        case weightTextField:
+            weightTextField.text = ""
+        case heightTextField:
+            heightTextField.text = ""
+        default:
+            return true
+        }
+        
+        return true
     }
     
     @IBAction func KilogramButtonSelected(_ sender: UIButton) {
