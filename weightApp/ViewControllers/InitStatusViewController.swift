@@ -169,13 +169,13 @@ class InitStatusViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToTargetWeight"{
-            
-            let initTargetVC = segue.destination as! InitTargetViewController
-            initTargetVC.currentWeight = weightTextField.text!
-            initTargetVC.height = heightTextField.text
             let height = getHeight()
             let targetWeight = calculateTargets.getTargetWeight(gender: genderSelected,
                                                                 height: height)
+            
+            let initTargetVC = segue.destination as! InitTargetViewController
+            initTargetVC.currentWeight = String(Float(weightTextField.text!)! / 100)
+            initTargetVC.height = String(Float(height) / 100)
             initTargetVC.targetWeight = String(targetWeight)
             initTargetVC.targetDate = calculateTargets.getTargetDate(currentDate: Date(), kilos: targetWeight)
             initTargetVC.unitHeight = isEnglishUnitsHeight == true ? "feet" : "meter"
@@ -183,16 +183,6 @@ class InitStatusViewController: UIViewController {
             initTargetVC.gender = genderSelected
             initTargetVC.name = nameTextField.text!
         }
-    }
-    
-    func getCurrentWeight() -> Int {
-        
-        if isEnglishUnitsWeight {
-            let grams = convertorMeasure.poundsToGrams(quantity: Float(weightTextField.text!)!)
-            return convertorMeasure.gramsToKilos(quantity: Float(grams))
-        }
-        
-        return Int(weightTextField.text!)!
     }
     
     func getHeight() -> Int {
