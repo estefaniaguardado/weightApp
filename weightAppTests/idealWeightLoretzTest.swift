@@ -11,25 +11,23 @@ import XCTest
 
 class idealWeightLoretzTest: XCTestCase {
     
+    private let data = IdealWeightByLoretz()
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
     func testIdealWeightToWomen172cm() {
-        let data = IdealWeightByLoretz(user: Gender.female, userHeight: 1.72)
-        let result = data.calculateIdealWeight()
-        XCTAssertEqual(result, 61.0)
+        let result = data.calculateIdealWeight(userGender: "female", userHeight: 172)
+        XCTAssertEqual(result, 61)
     }
     
     func testIdealWeightToMale180cm() {
-        let data = IdealWeightByLoretz(user: Gender.male, userHeight: 1.80)
-        let result = data.calculateIdealWeight()
-        XCTAssertEqual(result, 72.5)
+        let result = data.calculateIdealWeight(userGender: "male", userHeight: 180)
+        XCTAssertEqual(result, 73)
     }
 }
