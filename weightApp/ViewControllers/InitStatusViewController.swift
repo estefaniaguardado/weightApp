@@ -197,11 +197,12 @@ class InitStatusViewController: UIViewController {
     
     func getHeight() -> Int {
 
-        if isEnglishUnitsHeight {
-            return convertorMeasure.feetToCentimeters(quantity: Float(heightTextField.text!)!)
+        if !isEnglishUnitsHeight {
+            return Int(heightTextField.text!)!
         }
         
-        return convertorMeasure.metersToCentimeters(quantity: Float(heightTextField.text!)!)
+        let feets = Float(heightTextField.text!)! / 100
+        return convertorMeasure.feetToCentimeters(quantity: feets)
     }
     
 }
