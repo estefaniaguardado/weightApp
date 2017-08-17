@@ -17,10 +17,12 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var weightTextField: VSTextField!
     @IBOutlet weak var kilogramButton: UIButton!
     @IBOutlet weak var poundButton: UIButton!
+    @IBOutlet weak var validWeightLabel: UILabel!
     
     @IBOutlet weak var heightTextField: VSTextField!
     @IBOutlet weak var meterButton: UIButton!
     @IBOutlet weak var feetButton: UIButton!
+    @IBOutlet weak var validHeightLabel: UILabel!
     
     var isEnglishUnitsWeight = false
     var isEnglishUnitsHeight = false
@@ -76,8 +78,10 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {
         case weightTextField:
+            validWeightLabel.backgroundColor = .lightGray
             weightTextField.text = ""
         case heightTextField:
+            validHeightLabel.backgroundColor = .lightGray
             heightTextField.text = ""
         default:
             return
@@ -94,18 +98,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.isEqual(weightTextField) {
-            let quantityTextField = weightTextField.text != "" ? Int(weightTextField.text!)! : 0
-            let lenghtWeightString = String(quantityTextField).characters.count
-            let isValidWeight = lenghtWeightString > 1 && quantityTextField > 10 ? true : false
-            if isValidWeight  {
-                weightTextField.text = String(quantityTextField)
-                return true
-            } else {
-                self.alertInvalidInformation()
-                weightTextField.text = ""
-                return false
-            }
         switch textField {
         case weightTextField:
             return isValidWeightTextField()
@@ -116,20 +108,29 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func alertInvalidInformation() {
-        let alertController = UIAlertController(title: "Invalid Information", message:
-            "Complete correctily the fields.", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
-        
-        self.present(alertController, animated: true, completion: nil)
+    func isValidWeightTextField () -> Bool {
+        let quantityTextField = weightTextField.text.isEmpty ? 0 : Int(weightTextField.text!)!
+        let isValidWeight = quantityTextField > 10 ? true : false
+        if isValidWeight  {
+            validWeightLabel.backgroundColor = .green
+            weightTextField.text = String(quantityTextField)
+            return true
+        } else {
+            validWeightLabel.backgroundColor = .red
+            weightTextField.text = ""
+            return false
+        }
+    }
     
     func isValidHeightTextField () -> Bool {
         let quantityTextField = heightTextField.text.isEmpty ? 0 : Int(heightTextField.text!)!
         let isValidHeight = quantityTextField > 1 ? true : false
         if isValidHeight  {
+            validHeightLabel.backgroundColor = .green
             heightTextField.text = String(quantityTextField)
             return true
         } else {
+            validHeightLabel.backgroundColor = .red
             heightTextField.text = ""
             return false
         }
