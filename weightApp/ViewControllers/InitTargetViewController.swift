@@ -21,7 +21,7 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     var name: String!
     var calculateTargets: CalculateTargets!
 
-    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var weightTextField: VSTextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var unitWeightLabel: UILabel!
@@ -29,7 +29,8 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        weightTextField.setFormatting("###.##", replacementChar: "#")
         weightTextField.text = String(targetWeight)
         heightTextField.text = String(Float(height) / 100.00)
         dateTextField.text = formatDate(date: targetDate)
@@ -76,15 +77,32 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.isEqual(weightTextField) {
+            weightTextField.text = ""
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.isEqual(weightTextField) {
+            if textField.text == "" && (string == "0") {
+                return false
+            }
+        }
+        return true
+    }
+    
     func updateTargetWeightAndDate() {
-        let newTargetWeight = Float(weightTextField.text!)!
-        let actualTargetWeight = Float(targetWeight)
-        if  actualTargetWeight.isLess(than: newTargetWeight) {
+        let newTargetWeight = weightTextField.text.isEmpty ? 0 : Int(weightTextField.text!)!
+        let isValidWeight = newTargetWeight > 10 && targetWeight < newTargetWeight ? true : false
+        if isValidWeight  {
+            weightTextField.text = String(newTargetWeight)
             dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(newTargetWeight)))
             return
         } else {
             alertIsLessWeightThanIdealWeight()
             weightTextField.text = String(targetWeight)
+            return
         }
     }
     
