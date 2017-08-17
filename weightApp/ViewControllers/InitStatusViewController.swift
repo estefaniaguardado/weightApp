@@ -123,9 +123,10 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isValidHeightTextField () -> Bool {
-        let quantityTextField = heightTextField.text.isEmpty ? 0 : Int(heightTextField.text!)!
+        var quantityTextField = heightTextField.text.isEmpty ? 0 : Int(heightTextField.text!)!
         let isValidHeight = quantityTextField > 1 ? true : false
         if isValidHeight  {
+            quantityTextField = quantityTextField < 100 ? quantityTextField * 10 : quantityTextField
             validHeightLabel.backgroundColor = .green
             heightTextField.text = String(quantityTextField)
             return true
@@ -222,8 +223,8 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     
     func isTheDataTemplateFilledIt() -> Bool {
         if nameTextField.text! == "" || genderSelected == ""
-            || weightTextField.text! == "" || Int(weightTextField.text!)! > 10
-            || heightTextField.text! == "" || Int(heightTextField.text!)! > 1 {
+            || weightTextField.text! == "" || Int(weightTextField.text!)! < 10
+            || heightTextField.text! == "" || Int(heightTextField.text!)! < 1 {
             return false
         }
         
@@ -246,9 +247,8 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
                                                                 height: height)
             
             let initTargetVC = segue.destination as! InitTargetViewController
-            initTargetVC.currentWeight = String(Float(weightTextField.text!)! / 100)
-            initTargetVC.height = String(Float(height) / 100)
-            initTargetVC.targetWeight = String(targetWeight)
+            initTargetVC.height = height
+            initTargetVC.targetWeight = targetWeight
             initTargetVC.targetDate = calculateTargets.getTargetDate(currentDate: Date(), kilos: targetWeight)
             initTargetVC.unitHeight = isEnglishUnitsHeight == true ? "feet" : "meter"
             initTargetVC.unitWeight = isEnglishUnitsWeight == true ? "pound" : "kilo"
@@ -257,12 +257,16 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func getCurrentWeight () -> Int {
+        return Int(weightTextField.text!)! * 100
+    }
+    
     func getHeight() -> Int {
-
         if !isEnglishUnitsHeight {
-            return Int(heightTextField.text!)!
+            let height = Int(heightTextField.text!)! < 100 ?
+                Int(heightTextField.text!)! * 10 : Int(heightTextField.text!)!
+            return height
         }
-        
         let feets = Float(heightTextField.text!)! / 100
         return convertorMeasure.feetToCentimeters(quantity: feets)
     }

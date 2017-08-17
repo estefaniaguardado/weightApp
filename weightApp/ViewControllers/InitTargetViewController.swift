@@ -12,9 +12,8 @@ import DatePickerDialog
 class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     //TODO: Data Persistence #24
-    var targetWeight: String!
-    var currentWeight: String!
-    var height: String!
+    var targetWeight: Int!
+    var height: Int!
     var targetDate: Date!
     var unitWeight: String!
     var unitHeight: String!
@@ -31,8 +30,8 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        weightTextField.text = targetWeight
-        heightTextField.text = height
+        weightTextField.text = String(targetWeight)
+        heightTextField.text = String(Float(height) / 100.00)
         dateTextField.text = formatDate(date: targetDate)
         unitWeightLabel.text = unitWeight
         unitHeightLabel.text = unitHeight
@@ -65,12 +64,12 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if weightTextField.text == "" {
-            weightTextField.text = targetWeight
+            weightTextField.text = String(targetWeight)
             self.view.endEditing(true)
             return
         }
         
-        if weightTextField.text != targetWeight {
+        if weightTextField.text != String(targetWeight) {
             updateTargetWeightAndDate()
         }
         
@@ -79,7 +78,7 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     
     func updateTargetWeightAndDate() {
         let newTargetWeight = Float(weightTextField.text!)!
-        let actualTargetWeight = Float(targetWeight)!
+        let actualTargetWeight = Float(targetWeight)
         if  actualTargetWeight.isLess(than: newTargetWeight) {
             dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(newTargetWeight)))
             return
