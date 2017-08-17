@@ -73,22 +73,21 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {
         case weightTextField:
             weightTextField.text = ""
         case heightTextField:
             heightTextField.text = ""
         default:
-            return true
+            return
         }
-        return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.isEqual(weightTextField) {
+        if textField.isEqual(weightTextField) || textField.isEqual(heightTextField) {
             if textField.text == "" && (string == "0") {
-            return false
+                return false
             }
         }
         return true
@@ -107,8 +106,14 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
                 weightTextField.text = ""
                 return false
             }
+        switch textField {
+        case weightTextField:
+            return isValidWeightTextField()
+        case heightTextField:
+            return isValidHeightTextField()
+        default:
+            return true
         }
-        return true
     }
     
     func alertInvalidInformation() {
@@ -117,6 +122,17 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
         
         self.present(alertController, animated: true, completion: nil)
+    
+    func isValidHeightTextField () -> Bool {
+        let quantityTextField = heightTextField.text.isEmpty ? 0 : Int(heightTextField.text!)!
+        let isValidHeight = quantityTextField > 1 ? true : false
+        if isValidHeight  {
+            heightTextField.text = String(quantityTextField)
+            return true
+        } else {
+            heightTextField.text = ""
+            return false
+        }
     }
     
     @IBAction func KilogramButtonSelected(_ sender: UIButton) {
