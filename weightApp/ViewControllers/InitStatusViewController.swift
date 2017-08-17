@@ -34,9 +34,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                 action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
         weightTextField.delegate = self
         heightTextField.delegate = self
         weightTextField.setFormatting("###.##", replacementChar: "#")
@@ -54,7 +51,7 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func dismissKeyboard() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
