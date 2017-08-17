@@ -221,9 +221,9 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isTheDataTemplateFilledIt() -> Bool {
-        if nameTextField.text == "" || genderSelected == ""
-            || weightTextField.text! == "" || Float(weightTextField.text!) == 0.0
-            || heightTextField.text! == "" || Float(heightTextField.text!) == 0.0 {
+        if nameTextField.text! == "" || genderSelected == ""
+            || weightTextField.text! == "" || Int(weightTextField.text!)! > 10
+            || heightTextField.text! == "" || Int(heightTextField.text!)! > 1 {
             return false
         }
         
