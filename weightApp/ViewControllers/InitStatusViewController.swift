@@ -37,6 +37,7 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         weightTextField.delegate = self
         heightTextField.delegate = self
         weightTextField.setFormatting("###.##", replacementChar: "#")
+        weightTextField.setFormatting("##.##", replacementChar: "#")
         heightTextField.setFormatting("#.##", replacementChar: "#")
     }
     
@@ -110,7 +111,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         let isValidWeight = quantityTextField > 10 ? true : false
         if isValidWeight  {
             validWeightLabel.backgroundColor = .green
-            weightTextField.text = String(quantityTextField)
             return true
         } else {
             validWeightLabel.backgroundColor = .red
@@ -125,7 +125,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         if isValidHeight  {
             quantityTextField = quantityTextField < 100 ? quantityTextField * 10 : quantityTextField
             validHeightLabel.backgroundColor = .green
-            heightTextField.text = String(quantityTextField)
             return true
         } else {
             validHeightLabel.backgroundColor = .red
