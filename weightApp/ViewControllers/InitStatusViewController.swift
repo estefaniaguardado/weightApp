@@ -14,10 +14,10 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     
-    @IBOutlet weak var weightTextField: VSTextField!
+    @IBOutlet weak var weightStepper: UIStepper!
+    @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var kilogramButton: UIButton!
     @IBOutlet weak var poundButton: UIButton!
-    @IBOutlet weak var validWeightLabel: UILabel!
     
     @IBOutlet weak var heightTextField: VSTextField!
     @IBOutlet weak var meterButton: UIButton!
@@ -25,6 +25,7 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var validHeightLabel: UILabel!
     
     var isEnglishUnitsWeight = false
+    var hasWeightValueDecimals = false
     var isEnglishUnitsHeight = false
     var genderSelected = "notSet"
         var userData: User!
@@ -34,11 +35,11 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weightTextField.delegate = self
         heightTextField.delegate = self
-        weightTextField.setFormatting("###.##", replacementChar: "#")
-        weightTextField.setFormatting("##.##", replacementChar: "#")
         heightTextField.setFormatting("#.##", replacementChar: "#")
+        weightLabel.text = "25"
+        weightStepper.minimumValue = 25
+        weightStepper.stepValue = 0.5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +58,11 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initDataValues() {
-        weightTextField.text = userData.userWeight.isZero ? "0" : String(format:"%.2f", userData.userWeight!)
+        if !userData.userWeight.isZero {
+            weightLabel.text = String(format:"%.2f", userData.userWeight!)
+            weightStepper.value = userData.userWeight!
+        }
+                
         heightTextField.text = userData.userHeight.isZero ? "0" : String(format:"%.2f", userData.userHeight!)
         genderSelected = userData.userBiologicalSex!
         
@@ -75,9 +80,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {
-        case weightTextField:
-            validWeightLabel.backgroundColor = .lightGray
-            weightTextField.text = ""
         case heightTextField:
             validHeightLabel.backgroundColor = .lightGray
             heightTextField.text = ""
@@ -87,7 +89,7 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.isEqual(weightTextField) || textField.isEqual(heightTextField) {
+        if textField.isEqual(heightTextField) {
             if textField.text == "" && (string == "0") {
                 return false
             }
@@ -97,8 +99,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         switch textField {
-        case weightTextField:
-            return isValidWeightTextField()
         case heightTextField:
             return isValidHeightTextField()
         default:
@@ -106,15 +106,17 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func isValidWeightTextField () -> Bool {
-        let quantityTextField = weightTextField.text.isEmpty ? 0 : Int(weightTextField.text!)!
-        let isValidWeight = quantityTextField > 10 ? true : false
+    @IBAction func weightStepperAction(_ sender: Any) {
+        hasWeightValueDecimals = hasWeightValueDecimals == false ? true : false
+        weightLabel.text = "\(Double(weightStepper.value))"
+    }
+    
+    func isValidWeightLabel () -> Bool {
+        let isValidWeight = Int(weightLabel.text!)! > 10 ? true : false
         if isValidWeight  {
-            validWeightLabel.backgroundColor = .green
             return true
         } else {
-            validWeightLabel.backgroundColor = .red
-            weightTextField.text = ""
+            weightLabel.text = ""
             return false
         }
     }
@@ -213,17 +215,14 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
                 return false
             }
         }
-        
         return true
     }
     
     func isTheDataTemplateFilledIt() -> Bool {
         if nameTextField.text! == "" || genderSelected == ""
-            || weightTextField.text! == "" || Int(weightTextField.text!)! < 10
             || heightTextField.text! == "" || Int(heightTextField.text!)! < 1 {
             return false
         }
-        
         return true
     }
     
@@ -236,7 +235,6 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goToTargetWeight"{
             let height = getHeight()
             let targetWeight = calculateTargets.getTargetWeight(gender: genderSelected,
@@ -252,10 +250,9 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
             initTargetVC.name = nameTextField.text!
         }
     }
-    
-    func getCurrentWeight () -> Int {
-        return Int(weightTextField.text!)! * 100
-    }
+
+    //TODO: exist decimals in weight number
+    //func getCurrentWeight () {}
     
     func getHeight() -> Int {
         if !isEnglishUnitsHeight {
