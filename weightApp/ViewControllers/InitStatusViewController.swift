@@ -190,8 +190,10 @@ class InitStatusViewController: UIViewController {
             
             let initTargetVC = segue.destination as! InitTargetViewController
             initTargetVC.height = Double(heightStepper.value)
+            initTargetVC.currentWeight = Double(weightStepper.value)
             initTargetVC.targetWeight = targetWeight
-            initTargetVC.targetDate = calculateTargets.getTargetDate(currentDate: Date(), kilos: targetWeight)
+            let weightToLose = Int(weightStepper.value) - targetWeight
+            initTargetVC.targetDate = calculateTargets.getTargetDate(currentDate: Date(), kilos: weightToLose)
             initTargetVC.unitHeight = isEnglishUnitsHeight == true ? "feet" : "meter"
             initTargetVC.unitWeight = isEnglishUnitsWeight == true ? "pound" : "kilo"
             initTargetVC.gender = genderSelected

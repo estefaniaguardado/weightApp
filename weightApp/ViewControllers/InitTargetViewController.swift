@@ -12,6 +12,7 @@ import DatePickerDialog
 class InitTargetViewController: UIViewController {
     
     //TODO: Data Persistence #24
+    var currentWeight: Double!
     var targetWeight: Int!
     var height: Double!
     var targetDate: Date!
@@ -67,7 +68,8 @@ class InitTargetViewController: UIViewController {
     
     @IBAction func weightStepperAction(_ sender: Any) {
         targetWeightLabel.text = "\(Double(weightStepper.value))"
-        dateLabel.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(weightStepper.value)))
+        let newTargetWeight = Int(currentWeight - weightStepper.value)
+        dateLabel.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: newTargetWeight))
     }
       
 }
