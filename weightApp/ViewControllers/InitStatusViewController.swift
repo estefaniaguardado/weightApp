@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitStatusViewController: UIViewController, UITextFieldDelegate {
+class InitStatusViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var maleButton: UIButton!
@@ -185,12 +185,11 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTargetWeight"{
-            let height = getHeight()
             let targetWeight = calculateTargets.getTargetWeight(gender: genderSelected,
-                                                                height: height)
+                                                                height: getHeight())
             
             let initTargetVC = segue.destination as! InitTargetViewController
-            initTargetVC.height = height
+            initTargetVC.height = Double(heightStepper.value)
             initTargetVC.targetWeight = targetWeight
             initTargetVC.targetDate = calculateTargets.getTargetDate(currentDate: Date(), kilos: targetWeight)
             initTargetVC.unitHeight = isEnglishUnitsHeight == true ? "feet" : "meter"
