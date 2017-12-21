@@ -24,7 +24,7 @@ class InitTargetViewController: UIViewController {
     @IBOutlet weak var targetWeightLabel: UILabel!
     @IBOutlet weak var targetHeightLabel: UILabel!
     @IBOutlet weak var weightStepper: UIStepper!
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var unitWeightLabel: UILabel!
     @IBOutlet weak var unitHeightLabel: UILabel!
     
@@ -36,7 +36,7 @@ class InitTargetViewController: UIViewController {
         weightStepper.minimumValue = Double(targetWeight)
         weightStepper.stepValue = 1
         weightStepper.maximumValue = Double(targetWeight + 40)
-        dateTextField.text = formatDate(date: targetDate)
+        dateLabel.text = formatDate(date: targetDate)
         unitWeightLabel.text = unitWeight
         unitHeightLabel.text = unitHeight
     }
@@ -54,7 +54,7 @@ class InitTargetViewController: UIViewController {
         DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: Date(), datePickerMode: .date) {
             (date) -> Void in
             if (date != nil) {
-                self.dateTextField.text = self.formatDate(date: date!)
+                self.dateLabel.text = self.formatDate(date: date!)
             }
         }
     }
@@ -62,13 +62,12 @@ class InitTargetViewController: UIViewController {
     func formatDate(date: Date) -> String {
         let format = DateFormatter()
         format.dateFormat = "dd-MMMM-yyyy"
-        
         return format.string(from: date)
     }
     
     @IBAction func weightStepperAction(_ sender: Any) {
         targetWeightLabel.text = "\(Double(weightStepper.value))"
-        dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(weightStepper.value)))
+        dateLabel.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(weightStepper.value)))
     }
       
 }
