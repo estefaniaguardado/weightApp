@@ -206,8 +206,7 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     func getHeight() -> Int {
         let height = Double(heightStepper.value) < 10 ? Double(heightStepper.value) * 100 : Double(heightStepper.value)
         if isEnglishUnitsHeight {
-            //TODO: Change Float
-            return convertorMeasure.feetToCentimeters(quantity: Float(heightStepper.value))
+            return convertorMeasure.feetToCentimeters(quantity: Double(heightStepper.value))
         }
         return Int(height)
     }
