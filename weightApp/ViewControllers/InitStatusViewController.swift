@@ -204,13 +204,12 @@ class InitStatusViewController: UIViewController, UITextFieldDelegate {
     //func getCurrentWeight () {}
     
     func getHeight() -> Int {
-        if !isEnglishUnitsHeight {
-            let height = Double(heightStepper.value) < 100 ? Double(heightStepper.value) * 10 : Double(heightStepper.value)
-            return Int(height)
+        let height = Double(heightStepper.value) < 10 ? Double(heightStepper.value) * 100 : Double(heightStepper.value)
+        if isEnglishUnitsHeight {
+            //TODO: Change Float
+            return convertorMeasure.feetToCentimeters(quantity: Float(heightStepper.value))
         }
-        //TODO: Change float value
-        let feets = Float(weightStepper.value) / 100
-        return convertorMeasure.feetToCentimeters(quantity: feets)
+        return Int(height)
     }
     
 }
