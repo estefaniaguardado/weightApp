@@ -9,11 +9,11 @@
 import UIKit
 import DatePickerDialog
 
-class InitTargetViewController: UIViewController, UITextFieldDelegate {
+class InitTargetViewController: UIViewController {
     
     //TODO: Data Persistence #24
     var targetWeight: Int!
-    var height: Int!
+    var height: Double!
     var targetDate: Date!
     var unitWeight: String!
     var unitHeight: String!
@@ -21,8 +21,9 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     var name: String!
     var calculateTargets: CalculateTargets!
 
-    @IBOutlet weak var weightTextField: VSTextField!
-    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var targetWeightLabel: UILabel!
+    @IBOutlet weak var targetHeightLabel: UILabel!
+    @IBOutlet weak var weightStepper: UIStepper!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var unitWeightLabel: UILabel!
     @IBOutlet weak var unitHeightLabel: UILabel!
@@ -30,9 +31,11 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weightTextField.setFormatting("###.##", replacementChar: "#")
-        weightTextField.text = String(targetWeight)
-        heightTextField.text = String(Float(height) / 100.00)
+        targetWeightLabel.text = String(targetWeight)
+        targetHeightLabel.text = String(height)
+        weightStepper.minimumValue = Double(targetWeight)
+        weightStepper.stepValue = 1
+        weightStepper.maximumValue = Double(targetWeight + 40)
         dateTextField.text = formatDate(date: targetDate)
         unitWeightLabel.text = unitWeight
         unitHeightLabel.text = unitHeight
@@ -63,56 +66,9 @@ class InitTargetViewController: UIViewController, UITextFieldDelegate {
         return format.string(from: date)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if weightTextField.text == "" {
-            weightTextField.text = String(targetWeight)
-            self.view.endEditing(true)
-            return
-        }
-        
-        if weightTextField.text != String(targetWeight) {
-            updateTargetWeightAndDate()
-        }
-        
-        self.view.endEditing(true)
+    @IBAction func weightStepperAction(_ sender: Any) {
+        targetWeightLabel.text = "\(Double(weightStepper.value))"
+        dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(weightStepper.value)))
     }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.isEqual(weightTextField) {
-            weightTextField.text = ""
-        }
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.isEqual(weightTextField) {
-            if textField.text == "" && (string == "0") {
-                return false
-            }
-        }
-        return true
-    }
-    
-    func updateTargetWeightAndDate() {
-        let newTargetWeight = weightTextField.text.isEmpty ? 0 : Int(weightTextField.text!)!
-        let isValidWeight = newTargetWeight > 10 && targetWeight < newTargetWeight ? true : false
-        if isValidWeight  {
-            weightTextField.text = String(newTargetWeight)
-            dateTextField.text = formatDate(date: calculateTargets.getTargetDate(currentDate: Date(), kilos: Int(newTargetWeight)))
-            return
-        } else {
-            alertIsLessWeightThanIdealWeight()
-            weightTextField.text = String(targetWeight)
-            return
-        }
-    }
-    
-    func alertIsLessWeightThanIdealWeight() {
-        let alertController = UIAlertController(title: "Dangerous Target",
-                                                message:
-            "The inputted target weight is less than ideal weight suggested regarding with your specific measure of height and gender.",
-                                                preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default))
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
+      
 }
