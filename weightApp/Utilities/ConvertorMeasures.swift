@@ -10,12 +10,12 @@ import Foundation
 
 class ConvertorMeasure: NSObject {
 
-    func feetToCentimeters(quantity: Float) -> Int {
+    func feetToCentimeters(quantity: Double) -> Int {
         let centimeters = quantity * 30.48
         return Int(centimeters.rounded())
     }
     
-    func feetToInches(quantity: Float) -> Int {
+    func feetToInches(quantity: Double) -> Int {
         let feets = quantity * 12
         return Int(feets.rounded())
     }
@@ -25,27 +25,27 @@ class ConvertorMeasure: NSObject {
         return Int(centimeters.rounded())
     }
     
-    func poundsToGrams(quantity: Float) -> Int {
+    func poundsToGrams(quantity: Double) -> Int {
         let kilos = quantity * 0.453592
         return kilosToGrams(quantity: kilos)
     }
     
-    func metersToCentimeters(quantity: Float) -> Int {
+    func metersToCentimeters(quantity: Double) -> Int {
         let centimeters = quantity * 100.0
         return Int(centimeters.rounded())
     }
     
-    func centimetersToMeters(quantity: Float) -> Int {
+    func centimetersToMeters(quantity: Double) -> Int {
         let meters = Float(quantity) / 100.0
         return Int(meters.rounded())
     }
     
-    func kilosToGrams(quantity: Float) -> Int {
+    func kilosToGrams(quantity: Double) -> Int {
         let grams = quantity * 1000.0
         return Int(grams.rounded())
     }
     
-    func gramsToKilos(quantity: Float) -> Int {
+    func gramsToKilos(quantity: Double) -> Int {
         return Int((quantity / 1000.0).rounded())
     }
 }
