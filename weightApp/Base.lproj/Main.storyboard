@@ -123,13 +123,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGs-jX-eZL" customClass="VSTextField" customModule="weightApp" customModuleProvider="target">
-                                <rect key="frame" x="208" y="258" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocj-SM-ewj">
                                 <rect key="frame" x="313" y="242" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -223,16 +216,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5j-1m-Hh2">
-                                <rect key="frame" x="208" y="291" width="97" height="5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLf-LB-74B">
+                                <rect key="frame" x="16" y="258" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLf-LB-74B">
-                                <rect key="frame" x="16" y="258" width="94" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOi-w0-1Jj">
+                                <rect key="frame" x="209" y="256" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -245,6 +237,15 @@
                                 <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="weightStepperAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="u9U-Si-afq"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="GbK-B6-89V">
+                                <rect key="frame" x="209" y="287" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="heightStepperAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mvs-U8-4kh"/>
                                 </connections>
                             </stepper>
                         </subviews>
@@ -261,13 +262,13 @@
                     <connections>
                         <outlet property="feetButton" destination="MkM-FN-XlS" id="BOR-vP-olh"/>
                         <outlet property="femaleButton" destination="XCL-Xm-GeS" id="hbN-ga-Qzx"/>
-                        <outlet property="heightTextField" destination="yGs-jX-eZL" id="5Gb-j2-ZmN"/>
+                        <outlet property="heightLabel" destination="MOi-w0-1Jj" id="oET-Jx-PRI"/>
+                        <outlet property="heightStepper" destination="GbK-B6-89V" id="Rv4-Oe-P5O"/>
                         <outlet property="kilogramButton" destination="0Yg-0a-Zu6" id="86T-FX-cbG"/>
                         <outlet property="maleButton" destination="34B-Nc-A5c" id="Bzu-TN-Inp"/>
                         <outlet property="meterButton" destination="ocj-SM-ewj" id="pBw-BF-y1M"/>
                         <outlet property="nameTextField" destination="TWe-Cn-tJE" id="0Eg-iF-URA"/>
                         <outlet property="poundButton" destination="mym-6D-hoo" id="ztk-Lg-rcL"/>
-                        <outlet property="validHeightLabel" destination="n5j-1m-Hh2" id="0TB-SJ-iiY"/>
                         <outlet property="weightLabel" destination="uLf-LB-74B" id="4wW-yD-nn2"/>
                         <outlet property="weightStepper" destination="Rsh-qr-Fya" id="CcM-eZ-MOz"/>
                     </connections>
