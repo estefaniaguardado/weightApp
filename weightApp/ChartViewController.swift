@@ -11,16 +11,20 @@ import PNChart
 
 class ChartViewController: UIViewController {
     
+    @IBOutlet weak var GraphView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let lineChart = self.setLineChart()
-        self.view.addSubview(lineChart)
+        lineChart.center = CGPoint(x: GraphView.bounds.midX,
+                                        y: GraphView.bounds.midY);
+        GraphView.addSubview(lineChart)
 
     }
     
     private func setLineChart() -> PNLineChart {
-        let lineChart = PNLineChart(frame: CGRect(x: 0, y: 135, width: UIScreen.main.bounds.width - 25, height: 250))
+        let lineChart = PNLineChart(frame: CGRect(x: 0, y: 135, width: GraphView.bounds.width, height: GraphView.bounds.height))
         lineChart.yLabelFormat = "%1.1f"
         lineChart.showLabel = true
         lineChart.backgroundColor = UIColor.clear
