@@ -12,6 +12,7 @@
 		C5405509F2EAA3AF835B3696 /* Pods_weightApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D332CDAD59C218F1B8635F /* Pods_weightApp.framework */; };
 		CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */; };
 		CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */; };
+		CA0E03E71FFD02C9007DB8F3 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E03E61FFD02C9007DB8F3 /* ChartViewController.swift */; };
 		CA12EF341F39FEFB00C6477D /* DAOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12EF331F39FEFB00C6477D /* DAOUser.swift */; };
 		CA3386C11F2CAA6300B52956 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3386C01F2CAA6300B52956 /* HealthKit.framework */; };
 		CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3386C31F2CAB0400B52956 /* HealthKitService.swift */; };
@@ -63,6 +64,7 @@
 		C50AB08B3312D391B96F67FA /* Pods-weightAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weightAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weightAppUITests/Pods-weightAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idealWeightLoretzTest.swift; sourceTree = "<group>"; };
 		CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdealWeightByLoretz.swift; path = Utilities/IdealWeightByLoretz.swift; sourceTree = "<group>"; };
+		CA0E03E61FFD02C9007DB8F3 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		CA12EF331F39FEFB00C6477D /* DAOUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAOUser.swift; path = CoreData/DAOUser.swift; sourceTree = "<group>"; };
 		CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weightApp.entitlements; sourceTree = "<group>"; };
 		CA3386C01F2CAA6300B52956 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -168,6 +170,7 @@
 				CA494DA91F41D18800550AF5 /* InitTargetViewController.swift */,
 				CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */,
 				CA494DAB1F41D18800550AF5 /* StatusViewController.swift */,
+				CA0E03E61FFD02C9007DB8F3 /* ChartViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 					CA90CA611F0F976700BFEBE8 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = E95M86768V;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -359,11 +363,13 @@
 					};
 					CA90CA781F0F976800BFEBE8 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CA90CA611F0F976700BFEBE8;
 					};
 					CA90CA831F0F976800BFEBE8 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CA90CA611F0F976700BFEBE8;
 					};
@@ -554,14 +560,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-weightApp/Pods-weightApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/PNChart/PNChart.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Typhoon/Typhoon.framework",
+				"${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Typhoon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICountingLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -580,6 +590,7 @@
 				CA494DAD1F41D18800550AF5 /* InitTargetViewController.swift in Sources */,
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA494DAE1F41D18800550AF5 /* IntroductionViewController.swift in Sources */,
+				CA0E03E71FFD02C9007DB8F3 /* ChartViewController.swift in Sources */,
 				CA494DAC1F41D18800550AF5 /* InitStatusViewController.swift in Sources */,
 				CAE722EA1F3DFECB005D2B7F /* CalculateTargets.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
@@ -752,7 +763,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -767,7 +779,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -781,7 +794,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weightApp.app/weightApp";
 			};
 			name = Debug;
@@ -796,7 +810,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weightApp.app/weightApp";
 			};
 			name = Release;
@@ -810,7 +825,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = weightApp;
 			};
 			name = Debug;
@@ -824,7 +840,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = estefaniaguardado.weightAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = weightApp;
 			};
 			name = Release;
