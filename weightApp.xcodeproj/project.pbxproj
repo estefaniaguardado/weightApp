@@ -12,6 +12,7 @@
 		C5405509F2EAA3AF835B3696 /* Pods_weightApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D332CDAD59C218F1B8635F /* Pods_weightApp.framework */; };
 		CA0157451F0FB22F006E40AF /* idealWeightLoretzTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */; };
 		CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */; };
+		CA082E4B1FFE6DD40085EBCE /* SwiftChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA082E4A1FFE6DD40085EBCE /* SwiftChartViewController.swift */; };
 		CA0E03E71FFD02C9007DB8F3 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E03E61FFD02C9007DB8F3 /* ChartViewController.swift */; };
 		CA12EF341F39FEFB00C6477D /* DAOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12EF331F39FEFB00C6477D /* DAOUser.swift */; };
 		CA3386C11F2CAA6300B52956 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3386C01F2CAA6300B52956 /* HealthKit.framework */; };
@@ -64,6 +65,7 @@
 		C50AB08B3312D391B96F67FA /* Pods-weightAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weightAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weightAppUITests/Pods-weightAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA0157441F0FB22F006E40AF /* idealWeightLoretzTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idealWeightLoretzTest.swift; sourceTree = "<group>"; };
 		CA0157471F0FB4EE006E40AF /* IdealWeightByLoretz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdealWeightByLoretz.swift; path = Utilities/IdealWeightByLoretz.swift; sourceTree = "<group>"; };
+		CA082E4A1FFE6DD40085EBCE /* SwiftChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChartViewController.swift; sourceTree = "<group>"; };
 		CA0E03E61FFD02C9007DB8F3 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		CA12EF331F39FEFB00C6477D /* DAOUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAOUser.swift; path = CoreData/DAOUser.swift; sourceTree = "<group>"; };
 		CA3386BF1F2CAA6300B52956 /* weightApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weightApp.entitlements; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */,
 				CA494DAB1F41D18800550AF5 /* StatusViewController.swift */,
 				CA0E03E61FFD02C9007DB8F3 /* ChartViewController.swift */,
+				CA082E4A1FFE6DD40085EBCE /* SwiftChartViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/PNChart/PNChart.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/Typhoon/Typhoon.framework",
 				"${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework",
 			);
@@ -570,6 +574,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Typhoon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICountingLabel.framework",
 			);
@@ -598,6 +603,7 @@
 				CA9917ED1F3C9E3300B8E457 /* MainAssembly.swift in Sources */,
 				CA0157481F0FB4EE006E40AF /* IdealWeightByLoretz.swift in Sources */,
 				CA90CA6E1F0F976800BFEBE8 /* weightApp.xcdatamodeld in Sources */,
+				CA082E4B1FFE6DD40085EBCE /* SwiftChartViewController.swift in Sources */,
 				CA494DAF1F41D18800550AF5 /* StatusViewController.swift in Sources */,
 				CA494DB41F42000E00550AF5 /* VSTextField.swift in Sources */,
 				CA12EF341F39FEFB00C6477D /* DAOUser.swift in Sources */,

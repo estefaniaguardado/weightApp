@@ -8,6 +8,7 @@ target 'weightApp' do
   pod 'PromiseKit', '~> 4.0'
   pod 'Typhoon'
   pod 'PNChart'
+  pod 'SwiftCharts', '~> 0.6.1'
   # Pods for weightApp
 
   target 'weightAppTests' do

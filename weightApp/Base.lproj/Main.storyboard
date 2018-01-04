@@ -88,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Test"/>
                                 <connections>
-                                    <segue destination="FkX-aR-f4A" kind="presentation" id="cPU-76-Due"/>
+                                    <segue destination="U51-We-IHS" kind="presentation" id="Fzz-aQ-7Cv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -478,6 +478,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzS-DF-9cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1396" y="-0.44977511244377816"/>
+        </scene>
+        <!--Swift Chart View Controller-->
+        <scene sceneID="xp3-dw-szR">
+            <objects>
+                <viewController id="U51-We-IHS" customClass="SwiftChartViewController" customModule="weightApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IT8-j8-FUN"/>
+                        <viewControllerLayoutGuide type="bottom" id="agZ-8a-QBO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cxr-M4-Dna">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVi-gA-6az" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XZw-Yc-Rr0">
