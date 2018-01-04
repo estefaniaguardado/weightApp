@@ -52,7 +52,7 @@ class InitTargetViewController: UIViewController {
 
     @IBAction func editTargetDate(_ sender: UIButton) {
         
-        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: Date(), datePickerMode: .date) {
+        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: Date(), datePickerMode: .date) {
             (date) -> Void in
             if (date != nil) {
                 self.dateLabel.text = self.formatDate(date: date!)

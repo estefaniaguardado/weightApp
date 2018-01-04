@@ -12,7 +12,7 @@ import Typhoon
 
 class MainAssembly: TyphoonAssembly {
     
-    public dynamic func introductionVC () -> AnyObject {
+    @objc public dynamic func introductionVC () -> AnyObject {
         
         return TyphoonDefinition.withClass(IntroductionViewController.self, configuration: {
             (definition) in
@@ -23,7 +23,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func healthKitService () -> AnyObject {
+    @objc public dynamic func healthKitService () -> AnyObject {
     
         return TyphoonDefinition.withClass(HealthKitService.self, configuration: {
             (definition) in
@@ -34,7 +34,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func healthStore () -> AnyObject {
+    @objc public dynamic func healthStore () -> AnyObject {
 
         return TyphoonDefinition.withClass(HKHealthStore.self, configuration: {
             (definition) in
@@ -47,7 +47,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func idealWeightByLoretzUtility () -> AnyObject {
+    @objc public dynamic func idealWeightByLoretzUtility () -> AnyObject {
         
         return TyphoonDefinition.withClass(IdealWeightByLoretz.self, configuration: {
             (definition) in
@@ -57,7 +57,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func datesHandlerUtility () -> AnyObject {
+    @objc public dynamic func datesHandlerUtility () -> AnyObject {
         
         return TyphoonDefinition.withClass(DatesHandler.self, configuration: {
             (definition) in
@@ -67,7 +67,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func calculateTargetsUtility () -> AnyObject {
+    @objc public dynamic func calculateTargetsUtility () -> AnyObject {
         
         return TyphoonDefinition.withClass(CalculateTargets.self, configuration: {
             (definition) in
@@ -79,7 +79,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func convertorMeasureUtility () -> AnyObject {
+    @objc public dynamic func convertorMeasureUtility () -> AnyObject {
         
         return TyphoonDefinition.withClass(ConvertorMeasure.self, configuration: {
             (definition) in
@@ -89,7 +89,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func initStatusVC () -> AnyObject {
+    @objc public dynamic func initStatusVC () -> AnyObject {
     
         return TyphoonDefinition.withClass(InitStatusViewController.self, configuration: {
             (definition) in
@@ -101,7 +101,7 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
-    public dynamic func initTargetVC () -> AnyObject {
+    @objc public dynamic func initTargetVC () -> AnyObject {
         
         return TyphoonDefinition.withClass(InitTargetViewController.self, configuration: {
             (definition) in
