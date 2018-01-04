@@ -44,7 +44,19 @@ class ChartViewController: UIViewController {
             return PNLineChartDataItem(y: yValue)
         })
         
-        lineChart.chartData = [data]
+        let dataArr2 = [54.2, 140.1, 106.4, 132.2, 286.2, 227.2, 76.2]
+        let data2 = PNLineChartData()
+        data2.color = .red
+        data2.itemCount = UInt(dataArr.count)
+        data2.inflexionPointStyle = .none
+        data2.getData = ({
+            (index) -> PNLineChartDataItem in
+            let idx = Int(index)
+            let yValue = CGFloat(dataArr2[idx])
+            return PNLineChartDataItem(y: yValue)
+        })
+        
+        lineChart.chartData = [data, data2]
         lineChart.stroke()
         return lineChart
     }
