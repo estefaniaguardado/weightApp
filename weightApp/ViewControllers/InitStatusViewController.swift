@@ -28,9 +28,9 @@ class InitStatusViewController: UIViewController {
     var hasWeightValueDecimals = false
     var isEnglishUnitsHeight = false
     var genderSelected = "notSet"
-        var userData: User!
-    var convertorMeasure: ConvertorMeasure!
-    var calculateTargets: CalculateTargets!
+    var userData: User!
+    @objc var convertorMeasure: ConvertorMeasure!
+    @objc var calculateTargets: CalculateTargets!
     
     override func viewDidLoad() {
         super.viewDidLoad()

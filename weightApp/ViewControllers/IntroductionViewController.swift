@@ -10,7 +10,7 @@ import UIKit
 
 class IntroductionViewController: UIViewController {
     
-    var healthKit: HealthKitService!
+    @objc var healthKit: HealthKitService!
 
     override func viewDidLoad() {
         super.viewDidLoad()

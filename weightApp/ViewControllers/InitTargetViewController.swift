@@ -20,7 +20,7 @@ class InitTargetViewController: UIViewController {
     var unitHeight: String!
     var gender: String!
     var name: String!
-    var calculateTargets: CalculateTargets!
+    @objc var calculateTargets: CalculateTargets!
 
     @IBOutlet weak var targetWeightLabel: UILabel!
     @IBOutlet weak var targetHeightLabel: UILabel!

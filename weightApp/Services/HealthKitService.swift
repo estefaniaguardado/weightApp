@@ -12,7 +12,7 @@ import PromiseKit
 
 class HealthKitService: NSObject {
     
-    var healthKitStore:HKHealthStore?
+    @objc var healthKitStore:HKHealthStore?
     
     func accessHealthKit() -> Promise<User>? {
         if healthKitStore == nil { return nil }
