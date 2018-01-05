@@ -11,6 +11,12 @@ import UIKit
 class StatusViewController: UIViewController {
 
     var circleLayer: CAShapeLayer!
+    @IBOutlet weak var startWeightLabel: UILabel!
+    @IBOutlet weak var startBmiWeightLabel: UILabel!
+    @IBOutlet weak var startDateWeightLabel: UILabel!
+    @IBOutlet weak var targetWeightLabel: UILabel!
+    @IBOutlet weak var targetBmiLabel: UILabel!
+    @IBOutlet weak var targetDateLabel: UILabel!
     @IBOutlet weak var currentWeightView: UIView!
     
     override func viewDidLoad() {

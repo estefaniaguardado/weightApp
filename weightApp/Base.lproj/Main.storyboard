@@ -574,7 +574,7 @@
                     <tabBarItem key="tabBarItem" title="Status" id="6vZ-OO-hHK"/>
                     <connections>
                         <outlet property="currentWeightView" destination="hHH-Re-uRp" id="Wiw-ne-CXZ"/>
-                        <outlet property="startBmiWeightLabel" destination="vKz-38-8jO" id="HIQ-tG-88W"/>
+                        <outlet property="startBmiLabel" destination="vKz-38-8jO" id="3aF-YA-arE"/>
                         <outlet property="startDateWeightLabel" destination="DRv-9C-Jsv" id="Hdh-gY-RXt"/>
                         <outlet property="startWeightLabel" destination="03y-0h-n3B" id="ydC-Lq-NVG"/>
                         <outlet property="targetBmiLabel" destination="jVg-bt-GmI" id="NGO-8Y-A3x"/>
