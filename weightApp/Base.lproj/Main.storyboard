@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16G1114" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3CZ-I9-xbL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3CZ-I9-xbL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GillSans.ttc">
+            <string>GillSans</string>
+            <string>GillSans-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Introduction View Controller-->
         <scene sceneID="XwM-6p-PQI">
@@ -86,7 +92,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navigationInitial" id="sxB-Ks-jzb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="frD-cd-yon">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -402,7 +408,7 @@
             <objects>
                 <navigationController id="3CZ-I9-xbL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9uy-a2-Zd9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -424,13 +430,30 @@
                     <view key="view" contentMode="scaleToFill" id="OY2-c2-kP9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-Re-uRp">
+                                <rect key="frame" x="112" y="94" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="K59-lc-hcB"/>
+                                    <constraint firstAttribute="width" constant="150" id="hy4-th-NIr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="top" secondItem="ZaH-wM-x1i" secondAttribute="bottom" constant="30" id="A03-98-R9O"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="centerX" secondItem="OY2-c2-kP9" secondAttribute="centerX" id="sjf-we-Ktc"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Status" id="6vZ-OO-hHK"/>
+                    <connections>
+                        <outlet property="currentWeightView" destination="hHH-Re-uRp" id="Wiw-ne-CXZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL7-qH-GMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="35"/>
+            <point key="canvasLocation" x="1396" y="34.632683658170919"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XZw-Yc-Rr0">
@@ -448,7 +471,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wa1-ET-N9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="36"/>
+            <point key="canvasLocation" x="425" y="35"/>
         </scene>
     </scenes>
     <resources>

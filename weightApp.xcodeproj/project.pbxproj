@@ -30,6 +30,7 @@
 		CA9917ED1F3C9E3300B8E457 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9917EC1F3C9E3300B8E457 /* MainAssembly.swift */; };
 		CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9996061F161AC50043096A /* ConvertorMeasures.swift */; };
 		CA99960B1F161C1B0043096A /* convertorMeasuresTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */; };
+		CAD5FDE21FFFA0F500A615F7 /* circleCurrentWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD5FDE11FFFA0F500A615F7 /* circleCurrentWeightView.swift */; };
 		CAE722EA1F3DFECB005D2B7F /* CalculateTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE722E91F3DFECB005D2B7F /* CalculateTargets.swift */; };
 		CAEA2E4A1F277E0400590875 /* calculateTargetDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		CA9917EC1F3C9E3300B8E457 /* MainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainAssembly.swift; path = Assembly/MainAssembly.swift; sourceTree = "<group>"; };
 		CA9996061F161AC50043096A /* ConvertorMeasures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertorMeasures.swift; path = Utilities/ConvertorMeasures.swift; sourceTree = "<group>"; };
 		CA99960A1F161C1B0043096A /* convertorMeasuresTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convertorMeasuresTest.swift; sourceTree = "<group>"; };
+		CAD5FDE11FFFA0F500A615F7 /* circleCurrentWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleCurrentWeightView.swift; sourceTree = "<group>"; };
 		CAE722E91F3DFECB005D2B7F /* CalculateTargets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculateTargets.swift; path = Utilities/CalculateTargets.swift; sourceTree = "<group>"; };
 		CAEA2E491F277E0400590875 /* calculateTargetDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calculateTargetDateTest.swift; sourceTree = "<group>"; };
 		E6EA520D7114675B8E3D747F /* Pods_weightAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weightAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 		CA90CA641F0F976800BFEBE8 /* weightApp */ = {
 			isa = PBXGroup;
 			children = (
+				CAD5FDE31FFFA0FD00A615F7 /* Artifcats */,
 				CA9917EB1F3C9E1000B8E457 /* Assembly */,
 				CA494DA71F41D13100550AF5 /* ViewControllers */,
 				CA12EF321F39FED100C6477D /* CoreData */,
@@ -246,6 +249,14 @@
 				CA9917EC1F3C9E3300B8E457 /* MainAssembly.swift */,
 			);
 			name = Assembly;
+			sourceTree = "<group>";
+		};
+		CAD5FDE31FFFA0FD00A615F7 /* Artifcats */ = {
+			isa = PBXGroup;
+			children = (
+				CAD5FDE11FFFA0F500A615F7 /* circleCurrentWeightView.swift */,
+			);
+			name = Artifcats;
 			sourceTree = "<group>";
 		};
 		F9360B15BE2A6EE6CB89B5B1 /* Pods */ = {
@@ -567,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD5FDE21FFFA0F500A615F7 /* circleCurrentWeightView.swift in Sources */,
 				CA749F201F38B0EF007DB162 /* User.swift in Sources */,
 				CA3386C41F2CAB0400B52956 /* HealthKitService.swift in Sources */,
 				CA494DAD1F41D18800550AF5 /* InitTargetViewController.swift in Sources */,
