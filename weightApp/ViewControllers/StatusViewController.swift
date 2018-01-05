@@ -17,6 +17,13 @@ class StatusViewController: UIViewController {
     @IBOutlet weak var targetWeightLabel: UILabel!
     @IBOutlet weak var targetBmiLabel: UILabel!
     @IBOutlet weak var targetDateLabel: UILabel!
+    @IBOutlet weak var lostWeightLabel: UILabel!
+    @IBOutlet weak var remainingLabel: UILabel!
+    @IBOutlet weak var currentBmiLabel: UILabel!
+    @IBOutlet weak var nameBmiLabel: UILabel!
+    @IBOutlet weak var avgDailyLossLabel: UILabel!
+    @IBOutlet weak var avgDailyGoalLabel: UILabel!
+    @IBOutlet weak var avgWeeklyLossLabel: UILabel!
     @IBOutlet weak var currentWeightView: UIView!
     
     override func viewDidLoad() {
