@@ -63,4 +63,16 @@ class StatusViewController: UIViewController {
         circleView.animateCircle(duration: 1.0)
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        let testView = UIViewController.init()
+        let currentOrientation = UIDevice.current.orientation
+        let currentViewController = self.navigationController?.visibleViewController
+        let isLandscapeMode = UIDeviceOrientationIsLandscape(currentOrientation) && !(currentViewController?.isEqual(testView))!
+        
+        if isLandscapeMode {
+            self.navigationController?.pushViewController(testView, animated: false)
+        } else{
+            self.navigationController?.popViewController(animated: false)
+        }
+    }
 }
