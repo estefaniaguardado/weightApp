@@ -25,6 +25,8 @@ class StatusViewController: UIViewController {
     @IBOutlet weak var avgDailyGoalLabel: UILabel!
     @IBOutlet weak var avgWeeklyLossLabel: UILabel!
     @IBOutlet weak var currentWeightView: UIView!
+    @objc var graphWeightStatsViewController: GraphWeightStatsViewController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,13 +66,11 @@ class StatusViewController: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        let testView = UIViewController.init()
-        let currentOrientation = UIDevice.current.orientation
-        let currentViewController = self.navigationController?.visibleViewController
-        let isLandscapeMode = UIDeviceOrientationIsLandscape(currentOrientation) && !(currentViewController?.isEqual(testView))!
+        let isLandscapeMode = UIDeviceOrientationIsLandscape(UIDevice.current.orientation) &&
+            !(self.navigationController?.visibleViewController?.isEqual(graphWeightStatsViewController))!
         
         if isLandscapeMode {
-            self.navigationController?.pushViewController(testView, animated: false)
+            self.navigationController?.pushViewController(graphWeightStatsViewController, animated: false)
         } else{
             self.navigationController?.popViewController(animated: false)
         }

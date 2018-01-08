@@ -20,6 +20,7 @@
 		CA494DAE1F41D18800550AF5 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */; };
 		CA494DAF1F41D18800550AF5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA494DAB1F41D18800550AF5 /* StatusViewController.swift */; };
 		CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */; };
+		CA4B10172003ABC200F4DDDC /* GraphWeightStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4B10162003ABC200F4DDDC /* GraphWeightStatsViewController.swift */; };
 		CA749F201F38B0EF007DB162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA749F1F1F38B0EF007DB162 /* User.swift */; };
 		CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */; };
 		CA90CA6B1F0F976800BFEBE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90CA691F0F976800BFEBE8 /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 		CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroductionViewController.swift; path = ViewControllers/IntroductionViewController.swift; sourceTree = "<group>"; };
 		CA494DAB1F41D18800550AF5 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusViewController.swift; path = ViewControllers/StatusViewController.swift; sourceTree = "<group>"; };
 		CA49A42D1F28CDB900B2EBD9 /* DatesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatesHandler.swift; path = Utilities/DatesHandler.swift; sourceTree = "<group>"; };
+		CA4B10162003ABC200F4DDDC /* GraphWeightStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GraphWeightStatsViewController.swift; path = ViewControllers/GraphWeightStatsViewController.swift; sourceTree = "<group>"; };
 		CA749F1F1F38B0EF007DB162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		CA90CA621F0F976800BFEBE8 /* weightApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weightApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA90CA651F0F976800BFEBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				CA494DA91F41D18800550AF5 /* InitTargetViewController.swift */,
 				CA494DAA1F41D18800550AF5 /* IntroductionViewController.swift */,
 				CA494DAB1F41D18800550AF5 /* StatusViewController.swift */,
+				CA4B10162003ABC200F4DDDC /* GraphWeightStatsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -344,7 +347,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Estefania Guardado";
 				TargetAttributes = {
 					CA90CA611F0F976700BFEBE8 = {
@@ -558,12 +561,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-weightApp/Pods-weightApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/Typhoon/Typhoon.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Typhoon.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +590,7 @@
 				CA90CA661F0F976800BFEBE8 /* AppDelegate.swift in Sources */,
 				CA494DAE1F41D18800550AF5 /* IntroductionViewController.swift in Sources */,
 				CA494DAC1F41D18800550AF5 /* InitStatusViewController.swift in Sources */,
+				CA4B10172003ABC200F4DDDC /* GraphWeightStatsViewController.swift in Sources */,
 				CAE722EA1F3DFECB005D2B7F /* CalculateTargets.swift in Sources */,
 				CA9996071F161AC50043096A /* ConvertorMeasures.swift in Sources */,
 				CA49A42E1F28CDB900B2EBD9 /* DatesHandler.swift in Sources */,
@@ -658,7 +664,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -666,7 +674,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -709,7 +721,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -717,7 +731,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;

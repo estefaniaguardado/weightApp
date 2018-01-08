@@ -7,6 +7,7 @@ target 'weightApp' do
   pod 'DatePickerDialog'
   pod 'PromiseKit', '~> 4.4'
   pod 'Typhoon'
+  pod 'SwiftCharts', '~> 0.6.1'
   # Pods for weightApp
 
   target 'weightAppTests' do
