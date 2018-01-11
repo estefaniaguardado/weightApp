@@ -7,23 +7,41 @@
 //
 
 import UIKit
-import SwiftCharts
+import PNChart
 
 class GraphWeightStatsViewController: UIViewController {
     
     override func viewDidLoad() {
-        let chartConfig = ChartConfigXY(
-        xAxisConfig: ChartAxisConfig(from: 2, to: 14, by: 2),
-        yAxisConfig: ChartAxisConfig(from: 0, to: 14, by: 2)
-        )
-        
-        let frame = CGRect(x: 0, y: 70, width: 300, height: 500)
-        let chart = LineChart(frame: frame, chartConfig: chartConfig,
-        xTitle: "X axis", yTitle: "Y axis",
-        lines: [
-        (chartPoints: [(2.0, 10.6), (4.2, 5.1), (7.3, 3.0), (8.1, 5.5), (14.0, 8.0)], color: UIColor.red),
-        (chartPoints: [(2.0, 2.6), (4.2, 4.1), (7.3, 1.0), (8.1, 11.5), (14.0, 3.0)], color: UIColor.blue)])
-        
-        self.view.addSubview(chart.view)
+        let lineChart = self.setLineChart()
+        lineChart.center = CGPoint(x: self.view.center.y, y: self.view.center.x)
+        lineChart.backgroundColor = .white
+        self.view.addSubview(lineChart)
     }
+    
+    private func setLineChart() -> PNLineChart {
+        let lineChart = PNLineChart(frame: CGRect(x: 0, y: 135, width: UIScreen.main.bounds.width - 25, height: 250))
+        lineChart.yLabelFormat = "%1.1f"
+        lineChart.showLabel = true
+        lineChart.backgroundColor = UIColor.clear
+        lineChart.xLabels = ["Sep 1", "Sep 2", "Sep 3", "Sep 4", "Sep 5", "Sep 6", "Sep 7"]
+        lineChart.isShowCoordinateAxis = true
+        lineChart.center = self.view.center
+        
+        let dataArr = [60.1, 160.1, 126.4, 232.2, 186.2, 127.2, 176.2]
+        let data = PNLineChartData()
+        data.color = .green
+        data.itemCount = UInt(dataArr.count)
+        data.inflexionPointStyle = .none
+        data.getData = ({
+            (index) -> PNLineChartDataItem in
+            let idx = Int(index)
+            let yValue = CGFloat(dataArr[idx])
+            return PNLineChartDataItem(y: yValue)
+        })
+        
+        lineChart.chartData = [data]
+        lineChart.stroke()
+        return lineChart
+    }
+    
 }
