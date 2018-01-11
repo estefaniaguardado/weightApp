@@ -18,8 +18,12 @@ class GraphWeightStatsViewController: UIViewController {
         self.view.addSubview(lineChart)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func setLineChart() -> PNLineChart {
-        let lineChart = PNLineChart(frame: CGRect(x: 0, y: 135, width: UIScreen.main.bounds.width - 25, height: 250))
+        let lineChart = PNLineChart(frame: CGRect(x: 0, y: 135, width: self.view.bounds.height - 25, height: self.view.bounds.width - 30))
         lineChart.yLabelFormat = "%1.1f"
         lineChart.showLabel = true
         lineChart.backgroundColor = UIColor.clear

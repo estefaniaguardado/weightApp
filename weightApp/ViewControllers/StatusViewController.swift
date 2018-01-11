@@ -32,6 +32,10 @@ class StatusViewController: UIViewController {
         super.viewDidLoad()
         addCircleView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
