@@ -70,12 +70,13 @@ class StatusViewController: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        let isLandscapeMode = UIDeviceOrientationIsLandscape(UIDevice.current.orientation) &&
+        let isLandscapeMode = UIDevice.current.orientation.isLandscape &&
             !(self.navigationController?.visibleViewController?.isEqual(graphWeightStatsViewController))!
+        let isPortraitMode = UIDevice.current.orientation.isPortrait
         
         if isLandscapeMode {
             self.navigationController?.pushViewController(graphWeightStatsViewController, animated: false)
-        } else{
+        } else if isPortraitMode {
             self.navigationController?.popViewController(animated: false)
         }
     }
