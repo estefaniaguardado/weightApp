@@ -30,7 +30,7 @@ class StatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCircleView()
+        PerformIfIsFirstLaunch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,17 +45,18 @@ class StatusViewController: UIViewController {
         let firstLaunch = UserDefaults.standard.bool(forKey: "hasBeenLaunchedBefore")
         
         if firstLaunch {
+            addCircleView()
             return
         } else {
             UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBefore")
-            presentInitialNavigationVC()
+            presentIntroductionVC()
         }
     }
     
-    func presentInitialNavigationVC() {
+    func presentIntroductionVC() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let initialNavigationVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
-        self.present(initialNavigationVC, animated: true, completion: nil)
+        let introductionVC = storyboard.instantiateViewController(withIdentifier: "navigationInitial")
+        self.present(introductionVC, animated: true, completion: nil)
     }
     
     func addCircleView() {

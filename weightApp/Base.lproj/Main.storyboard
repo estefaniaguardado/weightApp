@@ -102,7 +102,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQC-Ll-luT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="-727"/>
+            <point key="canvasLocation" x="494" y="-727"/>
         </scene>
         <!--Init Status View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -404,11 +404,11 @@
             </objects>
             <point key="canvasLocation" x="3268" y="-727.28635682158927"/>
         </scene>
-        <!--Item-->
+        <!--Status-->
         <scene sceneID="cYW-lU-a2D">
             <objects>
                 <navigationController id="3CZ-I9-xbL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nNZ-rs-3fN"/>
+                    <tabBarItem key="tabBarItem" title="Status" id="nNZ-rs-3fN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9uy-a2-Zd9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
