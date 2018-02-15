@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16G1114" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3CZ-I9-xbL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3CZ-I9-xbL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GillSans.ttc">
+            <string>GillSans</string>
+            <string>GillSans-Light</string>
+            <string>GillSans-LightItalic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Introduction View Controller-->
         <scene sceneID="XwM-6p-PQI">
@@ -86,7 +93,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navigationInitial" id="sxB-Ks-jzb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="frD-cd-yon">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -402,7 +409,7 @@
             <objects>
                 <navigationController id="3CZ-I9-xbL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9uy-a2-Zd9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -424,13 +431,267 @@
                     <view key="view" contentMode="scaleToFill" id="OY2-c2-kP9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-Re-uRp">
+                                <rect key="frame" x="112" y="94" width="150" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aK-J0-hku">
+                                        <rect key="frame" x="41" y="62" width="69" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-bV-xxh">
+                                        <rect key="frame" x="44" y="24" width="63" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="AEP-Xj-aY6"/>
+                                    <constraint firstAttribute="width" constant="150" id="NRT-3O-wOX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="75"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-V9-AlL">
+                                <rect key="frame" x="39" y="94" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="7i9-dQ-VfO"/>
+                                    <constraint firstAttribute="height" constant="21" id="90A-2D-ET0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKz-38-8jO">
+                                <rect key="frame" x="16" y="165" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3bp-vp-eBX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="Q5y-Pu-v7v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRv-9C-Jsv">
+                                <rect key="frame" x="16" y="194" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="C48-0f-FcX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="JE1-Ot-UAq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVg-bt-GmI">
+                                <rect key="frame" x="270" y="165" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2Ng-5y-owh"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="H0L-qB-FkG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zm2-CV-Vej">
+                                <rect key="frame" x="270" y="194" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Jok-ki-AlF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="qzC-Wn-5nW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebh-ea-er1">
+                                <rect key="frame" x="270" y="135" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="jbF-jG-uhS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="vMT-ox-MvV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbz-wT-z2C">
+                                <rect key="frame" x="83" y="428" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lost Weight:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-j7-DeM">
+                                <rect key="frame" x="83" y="334" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETV-H3-JiH">
+                                <rect key="frame" x="208" y="334" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85n-Oi-ue8">
+                                <rect key="frame" x="83" y="399" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-Xj-T4U">
+                                <rect key="frame" x="47" y="510" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avg. daily loss:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-Zj-aBj">
+                                <rect key="frame" x="47" y="481" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEh-4q-DFQ">
+                                <rect key="frame" x="143" y="510" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Daily Goal:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqm-Rk-X9Y">
+                                <rect key="frame" x="143" y="481" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-sh-J7J">
+                                <rect key="frame" x="239" y="512" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avg, weekly loss:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0Y-GZ-9IW">
+                                <rect key="frame" x="232" y="483" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFO-a4-aqf">
+                                <rect key="frame" x="208" y="363" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03y-0h-n3B">
+                                <rect key="frame" x="16" y="135" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="pFZ-v8-9Gf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="uqr-Mm-4tB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mh-Wc-wpJ">
+                                <rect key="frame" x="288" y="94" width="52" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="52" id="Opv-xM-S4i"/>
+                                    <constraint firstAttribute="height" constant="21" id="syY-6g-m6W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Statics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5E-zY-9uq">
+                                <rect key="frame" x="129" y="298" width="117" height="22"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9H-fl-NOR">
+                                <rect key="frame" x="179" y="411" width="155" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-ck-FMI">
+                                <rect key="frame" x="83" y="361" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="03y-0h-n3B" firstAttribute="leading" secondItem="OY2-c2-kP9" secondAttribute="leading" constant="16" id="3Lp-ar-hQ0"/>
+                            <constraint firstItem="cFB-V9-AlL" firstAttribute="leading" secondItem="OY2-c2-kP9" secondAttribute="leading" constant="39" id="5kg-2l-RIh"/>
+                            <constraint firstItem="zm2-CV-Vej" firstAttribute="leading" secondItem="hHH-Re-uRp" secondAttribute="trailing" constant="8" id="7jc-lg-2al"/>
+                            <constraint firstItem="vKz-38-8jO" firstAttribute="leading" secondItem="OY2-c2-kP9" secondAttribute="leading" constant="16" id="CFZ-iL-A7I"/>
+                            <constraint firstAttribute="trailing" secondItem="jVg-bt-GmI" secondAttribute="trailing" constant="17" id="Dt2-Qq-NBe"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="top" secondItem="ZaH-wM-x1i" secondAttribute="bottom" constant="30" id="Knj-Tk-jL3"/>
+                            <constraint firstItem="03y-0h-n3B" firstAttribute="top" secondItem="cFB-V9-AlL" secondAttribute="bottom" constant="20" id="MD9-3T-Eqh"/>
+                            <constraint firstItem="DRv-9C-Jsv" firstAttribute="leading" secondItem="OY2-c2-kP9" secondAttribute="leading" constant="16" id="NYC-ln-01G"/>
+                            <constraint firstItem="8Mh-Wc-wpJ" firstAttribute="top" secondItem="ZaH-wM-x1i" secondAttribute="bottom" constant="30" id="SRb-ol-X42"/>
+                            <constraint firstItem="DRv-9C-Jsv" firstAttribute="top" secondItem="vKz-38-8jO" secondAttribute="bottom" constant="8" id="UV4-tb-wB9"/>
+                            <constraint firstItem="8Mh-Wc-wpJ" firstAttribute="leading" secondItem="hHH-Re-uRp" secondAttribute="trailing" constant="26" id="VrT-EF-Lqn"/>
+                            <constraint firstAttribute="trailing" secondItem="zm2-CV-Vej" secondAttribute="trailing" constant="17" id="WOj-bh-tvF"/>
+                            <constraint firstItem="jVg-bt-GmI" firstAttribute="leading" secondItem="hHH-Re-uRp" secondAttribute="trailing" constant="8" id="YoQ-Z8-8BV"/>
+                            <constraint firstItem="zm2-CV-Vej" firstAttribute="top" secondItem="jVg-bt-GmI" secondAttribute="bottom" constant="8" id="ZmY-1b-q3Q"/>
+                            <constraint firstItem="jVg-bt-GmI" firstAttribute="top" secondItem="Ebh-ea-er1" secondAttribute="bottom" constant="9" id="bkf-Ig-1Jz"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="leading" secondItem="vKz-38-8jO" secondAttribute="trailing" constant="8" id="bni-6w-ugF"/>
+                            <constraint firstAttribute="trailing" secondItem="8Mh-Wc-wpJ" secondAttribute="trailing" constant="35" id="ePU-1C-A37"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="leading" secondItem="cFB-V9-AlL" secondAttribute="trailing" constant="31" id="fir-EW-IsC"/>
+                            <constraint firstItem="Y5E-zY-9uq" firstAttribute="centerX" secondItem="OY2-c2-kP9" secondAttribute="centerX" id="hTb-QC-dMh"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="leading" secondItem="03y-0h-n3B" secondAttribute="trailing" constant="8" id="hh3-PW-Sbq"/>
+                            <constraint firstItem="Y5E-zY-9uq" firstAttribute="top" secondItem="hHH-Re-uRp" secondAttribute="bottom" constant="54" id="ige-Zz-HdW"/>
+                            <constraint firstItem="Ebh-ea-er1" firstAttribute="top" secondItem="8Mh-Wc-wpJ" secondAttribute="bottom" constant="20" id="jI5-ib-PsW"/>
+                            <constraint firstItem="vKz-38-8jO" firstAttribute="top" secondItem="03y-0h-n3B" secondAttribute="bottom" constant="9" id="kfe-AE-YD7"/>
+                            <constraint firstItem="cFB-V9-AlL" firstAttribute="top" secondItem="ZaH-wM-x1i" secondAttribute="bottom" constant="30" id="pMV-8y-xkf"/>
+                            <constraint firstItem="Ebh-ea-er1" firstAttribute="leading" secondItem="hHH-Re-uRp" secondAttribute="trailing" constant="8" id="svd-87-WCW"/>
+                            <constraint firstAttribute="trailing" secondItem="Ebh-ea-er1" secondAttribute="trailing" constant="17" id="uai-7o-IWC"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="centerX" secondItem="OY2-c2-kP9" secondAttribute="centerX" id="wFk-Q1-nxu"/>
+                            <constraint firstItem="hHH-Re-uRp" firstAttribute="leading" secondItem="DRv-9C-Jsv" secondAttribute="trailing" constant="8" id="zON-zE-jg4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Status" id="6vZ-OO-hHK"/>
+                    <connections>
+                        <outlet property="avgDailyGoalLabel" destination="AEh-4q-DFQ" id="VPY-zo-4B4"/>
+                        <outlet property="avgDailyLossLabel" destination="bcb-Xj-T4U" id="rA5-c2-8zI"/>
+                        <outlet property="avgWeeklyLossLabel" destination="eLI-sh-J7J" id="12V-30-6Tr"/>
+                        <outlet property="currentBmiLabel" destination="Fbz-wT-z2C" id="dXf-na-fGF"/>
+                        <outlet property="currentWeightView" destination="hHH-Re-uRp" id="Wiw-ne-CXZ"/>
+                        <outlet property="lostWeightLabel" destination="fuE-ck-FMI" id="d9Y-Hl-1LF"/>
+                        <outlet property="nameBmiLabel" destination="a9H-fl-NOR" id="fYq-Bw-gxL"/>
+                        <outlet property="remainingLabel" destination="QFO-a4-aqf" id="F9q-H1-xKR"/>
+                        <outlet property="startBmiLabel" destination="vKz-38-8jO" id="3aF-YA-arE"/>
+                        <outlet property="startDateWeightLabel" destination="DRv-9C-Jsv" id="Hdh-gY-RXt"/>
+                        <outlet property="startWeightLabel" destination="03y-0h-n3B" id="ydC-Lq-NVG"/>
+                        <outlet property="targetBmiLabel" destination="jVg-bt-GmI" id="NGO-8Y-A3x"/>
+                        <outlet property="targetDateLabel" destination="zm2-CV-Vej" id="aam-Ek-Pko"/>
+                        <outlet property="targetWeightLabel" destination="Ebh-ea-er1" id="9sx-ht-hMY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL7-qH-GMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="35"/>
+            <point key="canvasLocation" x="1396" y="34.632683658170919"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XZw-Yc-Rr0">
@@ -448,7 +709,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wa1-ET-N9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="36"/>
+            <point key="canvasLocation" x="425" y="35"/>
         </scene>
     </scenes>
     <resources>

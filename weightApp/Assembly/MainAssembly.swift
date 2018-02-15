@@ -112,4 +112,25 @@ class MainAssembly: TyphoonAssembly {
         }) as AnyObject
     }
     
+    @objc public dynamic func statusVC () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(StatusViewController.self, configuration: {
+            (definition) in
+            
+            definition?.injectProperty(Selector(("graphWeightStatsViewController")), with: self.graphWeightStatsVC())
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
+    @objc public dynamic func graphWeightStatsVC () -> AnyObject {
+        
+        return TyphoonDefinition.withClass(GraphWeightStatsViewController.self, configuration: {
+            (definition) in
+            
+            definition?.scope = TyphoonScope.lazySingleton
+            
+        }) as AnyObject
+    }
+    
 }

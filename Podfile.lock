@@ -1,15 +1,17 @@
 PODS:
   - DatePickerDialog (2.0)
-  - PromiseKit (4.5.0):
-    - PromiseKit/Foundation (= 4.5.0)
-    - PromiseKit/QuartzCore (= 4.5.0)
-    - PromiseKit/UIKit (= 4.5.0)
-  - PromiseKit/CorePromise (4.5.0)
-  - PromiseKit/Foundation (4.5.0):
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
+  - PromiseKit (4.5.1):
+    - PromiseKit/Foundation (= 4.5.1)
+    - PromiseKit/QuartzCore (= 4.5.1)
+    - PromiseKit/UIKit (= 4.5.1)
+  - PromiseKit/CorePromise (4.5.1)
+  - PromiseKit/Foundation (4.5.1):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.5.0):
+  - PromiseKit/QuartzCore (4.5.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.5.0):
+  - PromiseKit/UIKit (4.5.1):
     - PromiseKit/CorePromise
   - Typhoon (4.0.3):
     - Typhoon/DeallocNotifier (= 4.0.3)
@@ -19,17 +21,21 @@ PODS:
   - Typhoon/IntrospectionUtils (4.0.3)
   - Typhoon/no-arc (4.0.3):
     - Typhoon/IntrospectionUtils
+  - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
   - DatePickerDialog
+  - PNChart
   - PromiseKit (~> 4.4)
   - Typhoon
 
 SPEC CHECKSUMS:
   DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
-  PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
+  PromiseKit: 445dac9b2c3c3b4b31b5f842bc325700b848a8bd
   Typhoon: 85d1a7ada9a7def46a374be1301540572cc53636
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
 
-PODFILE CHECKSUM: 6db2d1192140780ebd3f797416ee4e5c847c15dd
+PODFILE CHECKSUM: 69f48e7157b4085b958610b8ff51320e8b4ca02c
 
 COCOAPODS: 1.3.1
