@@ -12,6 +12,7 @@ import PNChart
 class GraphWeightStatsViewController: UIViewController {
     
     override func viewDidLoad() {
+        self.hidesBottomBarWhenPushed = true
         let lineChart = self.setLineChart()
         lineChart.center = CGPoint(x: self.view.center.y, y: self.view.center.x)
         lineChart.backgroundColor = .white
